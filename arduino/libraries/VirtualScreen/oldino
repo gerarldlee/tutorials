@@ -1,0 +1,48 @@
+#include "virtualScreen.h"
+
+#include "gameoflife.h"
+#include "maze.h"
+#include "playPong.h"
+#include "tetris.h"
+#include "font_test.h"
+#include "image_test.h"
+
+VirtualDisplay *tft;
+
+
+void setup()
+{
+    Serial.begin(115200);
+
+    ScreenBuilder screens;
+
+    // 4 sreens on one row
+    screens.addRow({{16, 0}, {15, 0}, {6, 0}, {7, 0}});
+
+    // 6 screens 3 on each row
+    // screens.addRow({{7, 2}, {6, 2}, {15, 2}});
+    // screens.addRow({{16, 0}, {11, 0}, {9, 0}});
+
+    tft = new VirtualDisplay(screens.width(), screens.height(), &screens);
+
+    if (!tft->begin())
+    {
+        Serial.println("Memory Allocation for virtual screen failed");
+        return;
+    }
+
+    // Demonstrations
+    //
+
+    // playPong(tft);
+    gameOfLife(tft);
+    // solveMaze(tft);
+    // font_test(tft);
+    // image_test(tft);
+    // playTetris(tft);
+    // runNostromoSimulation(tft);
+}
+
+void loop()
+{
+}
