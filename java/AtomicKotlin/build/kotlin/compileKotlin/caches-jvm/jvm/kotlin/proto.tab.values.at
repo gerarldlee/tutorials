@@ -1,0 +1,1367 @@
+tTaskKt
+#
+breakAndContinueExercise1TaskKt
+#
+breakAndContinueExercise2TaskKt
+#
+breakAndContinueExercise3TaskKt
+
+buildingMapsExercise1TaskKt
+
+buildingMapsExercise2TaskKt
+
+buildingMapsExercise3TaskKt
+
+buildingmapsPeopleKt
+
+cccTaskKt
+$
+checkInstructionsExercise1TaskKt
+$
+checkInstructionsExercise2TaskKt
+$
+checkInstructionsExercise3TaskKt
+$
+checkInstructionsExercise4TaskKt
+$
+checkingoptionsCheckingOptionsKt
+†
+checkinstructions
+DataFileKt
+GetTraceKtJulianMonthKtPostconditionsKtQuadraticRequireKtRequireNotNullKtSingleArgRequireKt
+"
+classDelegationExercise1TaskKt
+"
+classDelegationExercise2TaskKt
+"
+classDelegationExercise3TaskKt
+J
+classdelegationDelegatedControlsKtExplicitDelegationKtModelingMIKt
+!
+	collisionInterfaceCollisionKt
+
+color1NamedArgumentsKt
+
+color2Color2Kt
+
+color3Color3Kt
+%
+com.yoururl.libraryname
+ALibraryKt
+#
+companionObjectsExercise1TaskKt
+#
+companionObjectsExercise2TaskKt
+#
+companionObjectsExercise3TaskKt
+Ü
+companionobjectsCompanionDelegationKtCompanionFactoryKtCompanionInstanceKtCompanionObjectKtDelegateAndExtendKtInitializationKtNamingCompanionObjectsKtObjectCounterKtObjectFunctionsKtObjectPropertyKt
+&
+complexConstructorsExercise1TaskKt
+&
+complexConstructorsExercise2TaskKt
+&
+complexConstructorsExercise3TaskKt
+9
+complexconstructorsInitSectionKtSimpleConstructorKt
+
+compositionCarKt
+
+compositionExercise1TaskKt
+
+compositionExercise2TaskKt
+
+compositionExercise3TaskKt
+)
+constrainingVisibilityExercise1TaskKt
+)
+constrainingVisibilityExercise2TaskKt
+)
+constrainingVisibilityExercise3TaskKt
+)
+constrainingVisibilityExercise4TaskKt
+)
+constrainingVisibilityExercise5TaskKt
+
+constructorsExercise1TaskKt
+
+constructorsExercise2TaskKt
+
+constructorsExercise3TaskKt
+
+constructorsExercise4TaskKt
+"
+creatingClassesExercise2TaskKt
+"
+creatingClassesExercise3TaskKt
+"
+creatingClassesExercise4TaskKt
+"
+creatingClassesExercise5TaskKt
+#
+creatingGenericsExercise1TaskKt
+#
+creatingGenericsExercise2TaskKt
+#
+creatingGenericsExercise3TaskKt
+û
+creatinggenerics
+CarCrateKtCheckTypeKtConstrainedKtConstraintsKtCrateKtDefiningGenericsKtDisposableKt	ErasureKt
+MapCrateKtNonGenericConstraintKtReificationAKtReificationCKtReificationDKtSameReturnTypeKtSelectKt
+SpeakersKt
+
+dataClassesExercise1TaskKt
+
+dataClassesExercise2TaskKt
+
+dataClassesExercise3TaskKt
+
+dataTypesExercise1TaskKt
+
+dataTypesExercise2TaskKt
+
+dataTypesExercise3TaskKt
+
+dataTypesExercise4TaskKt
+
+dataTypesExercise5TaskKt
+C
+dataclassesCopyDataClassKtDataClassesKt
+HashCodeKtSimpleKt
+L
+delegationtoolsMapAccessorsKtNeverNullKtTeamKtTeamWithTraditionsKt
+0
+destructuringComputationKtPairsKtTupleKt
+,
+"destructuringDeclarationsExercise1TaskKt
+,
+"destructuringDeclarationsExercise2TaskKt
+,
+"destructuringDeclarationsExercise3TaskKt
+J
+downcasting
+CreatureKt
+FindTypeKtNarrowingUpcastKtSafeKtUnsafeKt
+
+downcastingExercise1TaskKt
+;
+enumerationsDirectionKtLevelKtRecursiveEnumImportKt
+
+enumerationsExercise1TaskKt
+
+enumerationsExercise2TaskKt
+
+enumerationsExercise3TaskKt
+$
+exceptionHandlingExercise1TaskKt
+$
+exceptionHandlingExercise2TaskKt
+$
+exceptionHandlingExercise3TaskKt
+¢
+exceptionhandlingCaptureImplementationKtDefiningExceptionsKtGuaranteedCleanupKt
+HandlersKtHierarchyKtLibraryExceptionKtNewExceptionKtTryFinallyKt
+
+
+exceptionsToIntExceptionKt
+
+exceptionsExercise1TaskKt
+
+exceptionsExercise2TaskKt
+
+exceptionsExercise3TaskKt
+
+exceptionsExercise4TaskKt
++
+!expressionsAndStatementsExercise1TaskKt
++
+!expressionsAndStatementsExercise2TaskKt
++
+!expressionsAndStatementsExercise3TaskKt
++
+!expressionsAndStatementsExercise4TaskKt
+%
+extensionFunctionsExercise1TaskKt
+%
+extensionFunctionsExercise2TaskKt
+%
+extensionFunctionsExercise3TaskKt
+%
+extensionFunctionsExercise4TaskKt
+#
+extensionLambdasExercise1TaskKt
+#
+extensionLambdasExercise2TaskKt
+#
+extensionLambdasExercise3TaskKt
+&
+extensionPropertiesExercise1TaskKt
+&
+extensionPropertiesExercise2TaskKt
+&
+extensionPropertiesExercise3TaskKt
+A
+extensionfunctionsBookExtensionsKt	QuotingKtStrangeQuoteKt
+Â
+extensionlambdasAnonymousFunctionKtExtensionPolymorphismKtFuncReferencesKtFunctionParametersKtLambdaUnitReturnKtListsAndMapsKtParametersKtStringCreationKtTransformKtVanboKt
+F
+extensionpropertiesGenericListExtKtListOfStarKtStringIndicesKt
+-
+#extensionsForNullableTypesExercise1TaskKt
+-
+#extensionsForNullableTypesExercise2TaskKt
+-
+#extensionsForNullableTypesExercise3TaskKt
+
+firstversionAverageIncomeKt
+
+foldingListsExercise1TaskKt
+
+foldingListsExercise2TaskKt
+
+foldingListsExercise3TaskKt
+
+foldingListsExercise4TaskKt
+
+functionsExercise1TaskKt
+
+functionsExercise2TaskKt
+
+functionsExercise3TaskKt
+
+functionsExercise4TaskKt
+
+helloWorldExercise1TaskKt
+
+helloWorldExercise2TaskKt
+
+helloWorldExercise3TaskKt
+
+helloWorldExercise4TaskKt
+
+helloWorldExercise5TaskKt
+'
+higherOrderFunctionsExercise1TaskKt
+'
+higherOrderFunctionsExercise2TaskKt
+'
+higherOrderFunctionsExercise3TaskKt
+'
+higherOrderFunctionsExercise4TaskKt
+E
+higherorderfunctionsAnyKtCallingReferenceKtIsPlusKtRepeatKt
+ 
+ifExpressionsExercise1TaskKt
+ 
+ifExpressionsExercise2TaskKt
+ 
+ifExpressionsExercise3TaskKt
+ 
+ifExpressionsExercise4TaskKt
+F
+importanceoflambdasFilterEvenKtFunctionClosureKtGreaterThan2Kt
+
+inheritance.ape1
+GreatApeKt
+
+inheritance.ape2GreatApe2Kt
++
+!inheritanceAndExtensionsExercise1TaskKt
++
+!inheritanceAndExtensionsExercise2TaskKt
+
+inheritanceExercise1TaskKt
+
+inheritanceExercise2TaskKt
+
+inheritanceExercise3TaskKt
+~
+inheritanceextensions	AdapterKtConventionKtHeaterKtInheritAddKtNoExtOverrideKtPrivateAccessKtTemperatureDeltaKt
+)
+inheritanceextensions1DeviceMembersKt
+P
+inheritanceextensions2ComposeAdapterKtDeviceExtensionsKtExtensionFuncsKt
+
+innerClassesExercise1TaskKt
+
+innerClassesExercise2TaskKt
+
+innerClassesExercise3TaskKt
+h
+innerclassesCounterFactoryKtHotelKtInnerClassInheritanceKtLocalInnerClassesKtQualifiedThisKt
+\
+
+interfaces
+ComputerKt	HotnessKtPlayerInterfaceKtSAMConversionKtSAMImplementationKt
+
+interfacesExercise1TaskKt
+
+interfacesExercise2TaskKt
+
+interfacesExercise3TaskKt
+§
+interopAnnotateThrowsKtAnnotatedJavaKtBigFibonacciKtExtensionsToJavaClassKtKotlinWrapperKtPlatformTypesKtReadOnlyByDefaultKtTopLevelFunctionKtUtils
+)
+introductionToGenericsExercise1TaskKt
+)
+introductionToGenericsExercise2TaskKt
+)
+introductionToGenericsExercise3TaskKt
+i
+introgenericsAnyInsteadKtGenericFunctionKtGenericHolderKtGenericListExtensionsKtRigidHolderKt
+
+	iterationIterationKt
+
+lambdasExercise1TaskKt
+
+lambdasExercise2TaskKt
+
+lambdasExercise3TaskKt
+%
+lateInitializationExercise1TaskKt
+%
+lateInitializationExercise2TaskKt
+%
+lateInitializationExercise3TaskKt
+U
+lateinitializationBetterSuitcaseKtFaultySuitcaseKtIsInitializedKt
+SuitcaseKt
+%
+lazyInitializationExercise1TaskKt
+%
+lazyInitializationExercise2TaskKt
+%
+lazyInitializationExercise3TaskKt
+@
+lazyinitialization	LazyIntKtLazySyntaxKtPropertyOptionsKt
+/
+listsMutListIsListKtParameterizedReturnKt
+
+listsExercise1TaskKt
+
+listsExercise2TaskKt
+
+listsExercise3TaskKt
+
+listsExercise4TaskKt
+!
+localFunctionsExercise1TaskKt
+!
+localFunctionsExercise2TaskKt
+!
+localFunctionsExercise3TaskKt
+,
+localfunctionsReturningFuncKt	SessionKt
+2
+loggingBasicLoggingKtSimpleLoggingStrategyKt
+
+loggingExercise1TaskKt
+
+loggingExercise2TaskKt
+
+loggingExercise3TaskKt
+#
+loopingAndRangesExercise1TaskKt
+#
+loopingAndRangesExercise2TaskKt
+#
+loopingAndRangesExercise3TaskKt
+#
+loopingAndRangesExercise4TaskKt
+#
+loopingAndRangesExercise5TaskKt
+$
+manipulatingListsExercise1TaskKt
+$
+manipulatingListsExercise2TaskKt
+$
+manipulatingListsExercise3TaskKt
+$
+manipulatingListsExercise4TaskKt
+$
+manipulatingListsExercise5TaskKt
+$
+manipulatingListsExercise6TaskKt
+$
+manipulatingListsExercise7TaskKt
+D
+manipulatinglistsPlayingCardsKtWhyFlatMapKtZipAndTransformKt
+
+mapsContactMapKt
+
+mapsExercise1TaskKt
+
+mapsExercise2TaskKt
+
+mapsExercise3TaskKt
+
+mapsExercise4TaskKt
+#
+memberReferencesExercise1TaskKt
+#
+memberReferencesExercise2TaskKt
+#
+memberReferencesExercise3TaskKt
+(
+memberreferencesExtensionReferenceKt
+(
+memberreferences1PropertyReferenceKt
+?
+memberreferences2FunctionReferenceKtTopLevelFunctionRefKt
++
+memberreferences3ConstructorReferenceKt
++
+!namedAndDefaultArgumentsExercise1TaskKt
++
+!namedAndDefaultArgumentsExercise2TaskKt
++
+!namedAndDefaultArgumentsExercise3TaskKt
++
+!namedAndDefaultArgumentsExercise4TaskKt
+
+namedanddefaultEvaluationKt
+ 
+nestedClassesExercise2TaskKt
+ 
+nestedClassesExercise3TaskKt
+o
+nestedclasses	AirportKtFillItKtLocalClassesKtNestedHouseKtReturnLocalKtTicketKtWithinInterfaceKt
+$
+nonNullAssertionsExercise1TaskKt
+$
+nonNullAssertionsExercise2TaskKt
+$
+nonNullAssertionsExercise3TaskKt
+L
+nothingtypeCheckObject2KtCheckObjectKtFailKtInfiniteLoopKtTodoKt
+ 
+nullableTypesExercise1TaskKt
+ 
+nullableTypesExercise2TaskKt
+ 
+nullableTypesExercise3TaskKt
+>
+nullableextensionsNullableExtensionKtNullableParameterKt
+
+nullabletypesAmphibianKt
+
+numberTypesExercise1TaskKt
+
+numberTypesExercise2TaskKt
+
+numberTypesExercise3TaskKt
+
+numberTypesExercise4TaskKt
+
+numberTypesExercise5TaskKt
+@
+objectsObjectInheritanceKtObjectKeywordKtObjectNestingKt
+$
+objectsEverywhereExercise1TaskKt
+$
+objectsEverywhereExercise2TaskKt
+$
+objectsEverywhereExercise3TaskKt
+$
+objectsEverywhereExercise4TaskKt
+$
+objectsEverywhereExercise5TaskKt
+
+objectsExercise1TaskKt
+
+objectsExercise2TaskKt
+
+objectsExercise3TaskKt
+
+objectshare1Share1Kt
+
+objectshare2Share2Kt
+*
+ operationsOnCollectionsExercise1TaskKt
+*
+ operationsOnCollectionsExercise2TaskKt
+*
+ operationsOnCollectionsExercise3TaskKt
+*
+ operationsOnCollectionsExercise4TaskKt
+8
+operationsoncollectionsByOperationsKtPairOfListsKt
+&
+operatorOverloadingExercise1TaskKt
+&
+operatorOverloadingExercise2TaskKt
+&
+operatorOverloadingExercise3TaskKt
+ª
+operatoroverloadingArithmeticOperatorsKtBackticksKtComparisonKtConfusingPrecedenceKtContainerAccessKtDefaultEqualityKtDefiningEqualityKtDifferentTypesKtEqualsForNullableKtInvokeFunctionTypeKtInvokeKtMemberOperatorKt
+MoleculeKtNumKtRangesKtStringInvokeKt
+SwearingKt
+
+otherQuoteKt
+C
+overloadingMemberVsExtensionKtOverloadingAddKtOverloadingKt
+
+overloadingExercise1TaskKt
+
+overloadingExercise2TaskKt
+
+overloadingExercise3TaskKt
+
+overloadingExercise4TaskKt
+4
+overloadingvsdefaultargsOverloadedVsDefaultArgKt
+
+packagesExercise1TaskKt
+
+packagesExercise3TaskKt
+
+packagesExercise4TaskKt
+$
+polymorphismFantasyGameKtPetKt
+
+polymorphismExercise1TaskKt
+
+polymorphismExercise2TaskKt
+
+polymorphismExercise3TaskKt
+/
+properexceptionAverageIncomeWithExceptionKt
+
+propertiesExercise1TaskKt
+
+propertiesExercise2TaskKt
+
+propertiesExercise3TaskKt
+$
+propertyAccessorsExercise1TaskKt
+$
+propertyAccessorsExercise2TaskKt
+$
+propertyAccessorsExercise3TaskKt
+$
+propertyAccessorsExercise4TaskKt
+$
+propertyAccessorsExercise5TaskKt
+%
+propertyDelegationExercise1TaskKt
+%
+propertyDelegationExercise2TaskKt
+%
+propertyDelegationExercise3TaskKt
+*
+ propertyDelegationToolsExercise1TaskKt
+*
+ propertyDelegationToolsExercise2TaskKt
+*
+ propertyDelegationToolsExercise3TaskKt
+*
+ propertyDelegationToolsExercise4TaskKt
+K
+propertyaccessors	CounterKtDataKt	DefaultKt
+HamstersKtLogChangesKt
+™
+propertydelegationAccessibilityKtBasicRead2KtBasicReadKtBasicReadWrite2KtBasicReadWriteKtCarServiceKtConfigurationKtFibonacciPropertyKt
+
+propertydelegation2AddKt
+Z
+	recursionCallStackKtFactorialKtFibonacciKtInfiniteRecursionKtRecursionLimitsKt
+
+recursionExercise1TaskKt
+
+recursionExercise2TaskKt
+
+recursionExercise3TaskKt
+
+recursionExercise4TaskKt
+&
+repetitionWithWhileExercise1TaskKt
+&
+repetitionWithWhileExercise2TaskKt
+&
+repetitionWithWhileExercise3TaskKt
+&
+repetitionWithWhileExercise4TaskKt
+&
+repetitionWithWhileExercise5TaskKt
+"
+resourceCleanupExercise1TaskKt
+"
+resourceCleanupExercise3TaskKt
+
+resourcecleanupUsableKt
+/
+%safeCallsAndTheElvisOperatorExercise1TaskKt
+/
+%safeCallsAndTheElvisOperatorExercise2TaskKt
+/
+%safeCallsAndTheElvisOperatorExercise3TaskKt
+E
+	safecallsChainedCallsKtElvisCallKt
+SafeCallKtSafeOperationKt
+
+sandwich
+SandwichKt
+!
+scopeFunctionsExercise1TaskKt
+!
+scopeFunctionsExercise2TaskKt
+!
+scopeFunctionsExercise3TaskKt
+r
+scopefunctionsAndNullabilityKtBlobKtDifferencesKtGnomeKtMapLookupKt	NameTagKt	NestingKtNullGnomeKt
+ 
+sealedClassesExercise1TaskKt
+ 
+sealedClassesExercise2TaskKt
+ 
+sealedClassesExercise3TaskKt
+H
+sealedclassesSealedClassesKtSealedSubclassesKtSealedVsAbstractKt
+(
+secondaryConstructorsExercise1TaskKt
+(
+secondaryConstructorsExercise2TaskKt
+(
+secondaryConstructorsExercise3TaskKt
+6
+secondaryconstructorsGardenItemKtWithSecondaryKt
+4
+	sequencesDefineTakeIfKtEagerVsLazyEvaluationKt
+
+sequencesExercise1TaskKt
+
+sequencesExercise2TaskKt
+
+sequencesExercise3TaskKt
+
+sequencesExercise4TaskKt
+
+sequencesExercise5TaskKt
+
+sequencesExercise6TaskKt
+
+sequencesExercise7TaskKt
+
+sequencesExercise8TaskKt
+
+setsExercise1TaskKt
+
+setsExercise2TaskKt
+
+setsExercise3TaskKt
+
+setsExercise4TaskKt
+$
+slowfibonacciVerySlowFibonacciKt
+
+
+stacktraceStacktraceKt
+"
+stringTemplatesExercise1TaskKt
+"
+stringTemplatesExercise2TaskKt
+"
+stringTemplatesExercise3TaskKt
+"
+stringTemplatesExercise4TaskKt
+"
+stringTemplatesExercise5TaskKt
+¶
+summary2BoxesKtClassBodiesKt
+ColorSetKtExplicitTypingKtGetterAndSetterKt	JetPackKtPropertyReadWriteKtQuadraticKtTemperatureKtTicTacToeKt	VarArgsKtWildAnimalsKt
+
+summaryIExercise1TaskKt
+
+summaryIExercise10TaskKt
+
+summaryIExercise2TaskKt
+
+summaryIExercise3TaskKt
+
+summaryIExercise4TaskKt
+
+summaryIExercise5TaskKt
+
+summaryIExercise6TaskKt
+
+summaryIExercise7TaskKt
+
+summaryIExercise8TaskKt
+
+summaryIExercise9TaskKt
+
+summaryIIExercise1TaskKt
+
+summaryIIExercise2TaskKt
+
+summaryIIExercise3TaskKt
+
+summaryIIExercise4TaskKt
+
+summaryIIExercise5TaskKt
+
+summaryIIExercise6TaskKt
+
+summaryIIExercise7TaskKt
+
+summaryIIExercise8TaskKt
+#
+tailrecursionTailRecursiveSumKt
+
+testing1	TDDFailKt
+
+testing2TDDStillFailsKt
+
+testing3
+TDDWorksKt
+
+testingExercise1TaskKt
+
+testingExercise2TaskKt
+
+testingExercise3TaskKt
+
+testingExercise4TaskKt
+)
+theImportanceOfLambdasExercise1TaskKt
+)
+theImportanceOfLambdasExercise2TaskKt
+)
+theImportanceOfLambdasExercise3TaskKt
+
+theInKeywordExercise1TaskKt
+
+theInKeywordExercise2TaskKt
+
+theInKeywordExercise3TaskKt
+
+theInKeywordExercise4TaskKt
+
+theInKeywordExercise5TaskKt
+!
+theNothingTypeExercise1TaskKt
+!
+theNothingTypeExercise2TaskKt
+!
+theNothingTypeExercise3TaskKt
+
+typeCheckingExercise1TaskKt
+!
+typeCheckingExercise2aTaskAKt
+!
+typeCheckingExercise2bTaskBKt
+
+typeCheckingExercise3TaskKt
+U
+typechecking	AnyNameKtBeverageContainerKt	InsectsKtTypeCheck1KtTypeCheck2Kt
+%
+typechecking2BeverageContainer2Kt
+3
+typechecking3BeverageContainer3KtTypeCheck3Kt
+(
+	upcasting	DrawingKtTrimmedMembersKt
+
+upcastingExercise1TaskKt
+
+upcastingExercise2TaskKt
+
+upcastingExercise3TaskKt
+
+useatomiclogUseAtomicLogKt
+ 
+usefullibraryUsefulLibraryKt
+!
+usingOperatorsExercise1TaskKt
+!
+usingOperatorsExercise2TaskKt
+!
+usingOperatorsExercise3TaskKt
+Y
+usingoperatorsComparableRangeKtCompareToKtDestructuringDataKtDestructuringDuoKt
+
+utilUtilKt
+
+varAndValExercise1TaskKt
+
+varAndValExercise2TaskKt
+
+varAndValExercise3TaskKt
+
+varAndValExercise4TaskKt
+
+varAndValExercise5TaskKt
+V
+varargsTwoFunctionsWithVarargsKtVarargLikeListKtVarargSumKtVariableArgListKt
+(
+variableArgumentListsExercise1TaskKt
+(
+variableArgumentListsExercise2TaskKt
+(
+variableArgumentListsExercise3TaskKt
+(
+variableArgumentListsExercise4TaskKt
+(
+variableArgumentListsExercise5TaskKt
+S
+varianceBoxAssignmentKtCovariantListKtInBoxAssignmentKtOutBoxAssignmentKt
+"
+whenExpressionsExercise1TaskKt
+"
+whenExpressionsExercise2TaskKt
+"
+whenExpressionsExercise3TaskKt
+"
+whenExpressionsExercise4TaskKt
+K
+whenexpressionsAnalyzeInputKt	BmiWhenKtGermanOrdinalsKtMixColorsKt
+.
+withdefaultargumentsWithDefaultArgumentsKt
+#
+withnullAverageIncomeWithNullKt
+4
+withoutdefaultargumentsWithoutDefaultArgumentsKt
+"
+withoutsealedclasses
+UnSealedKt" *     tensions2ComposeAdapterKtDeviceExtensionsKtExtensionFuncsKt
+
+innerClassesExercise1TaskKt
+
+innerClassesExercise2TaskKt
+
+innerClassesExercise3TaskKt
+h
+innerclassesCounterFactoryKtHotelKtInnerClassInheritanceKtLocalInnerClassesKtQualifiedThisKt
+\
+
+interfaces
+ComputerKt	HotnessKtPlayerInterfaceKtSAMConversionKtSAMImplementationKt
+
+interfacesExercise1TaskKt
+
+interfacesExercise2TaskKt
+
+interfacesExercise3TaskKt
+§
+interopAnnotateThrowsKtAnnotatedJavaKtBigFibonacciKtExtensionsToJavaClassKtKotlinWrapperKtPlatformTypesKtReadOnlyByDefaultKtTopLevelFunctionKtUtils
+)
+introductionToGenericsExercise1TaskKt
+)
+introductionToGenericsExercise2TaskKt
+)
+introductionToGenericsExercise3TaskKt
+i
+introgenericsAnyInsteadKtGenericFunctionKtGenericHolderKtGenericListExtensionsKtRigidHolderKt
+
+	iterationIterationKt
+
+lambdasExercise1TaskKt
+
+lambdasExercise2TaskKt
+
+lambdasExercise3TaskKt
+%
+lateInitializationExercise1TaskKt
+%
+lateInitializationExercise2TaskKt
+%
+lateInitializationExercise3TaskKt
+U
+lateinitializationBetterSuitcaseKtFaultySuitcaseKtIsInitializedKt
+SuitcaseKt
+%
+lazyInitializationExercise1TaskKt
+%
+lazyInitializationExercise2TaskKt
+%
+lazyInitializationExercise3TaskKt
+@
+lazyinitialization	LazyIntKtLazySyntaxKtPropertyOptionsKt
+/
+listsMutListIsListKtParameterizedReturnKt
+
+listsExercise1TaskKt
+
+listsExercise2TaskKt
+
+listsExercise3TaskKt
+
+listsExercise4TaskKt
+!
+localFunctionsExercise1TaskKt
+!
+localFunctionsExercise2TaskKt
+!
+localFunctionsExercise3TaskKt
+,
+localfunctionsReturningFuncKt	SessionKt
+2
+loggingBasicLoggingKtSimpleLoggingStrategyKt
+
+loggingExercise1TaskKt
+
+loggingExercise2TaskKt
+
+loggingExercise3TaskKt
+#
+loopingAndRangesExercise1TaskKt
+#
+loopingAndRangesExercise2TaskKt
+#
+loopingAndRangesExercise3TaskKt
+#
+loopingAndRangesExercise4TaskKt
+#
+loopingAndRangesExercise5TaskKt
+$
+manipulatingListsExercise1TaskKt
+$
+manipulatingListsExercise2TaskKt
+$
+manipulatingListsExercise3TaskKt
+$
+manipulatingListsExercise4TaskKt
+$
+manipulatingListsExercise5TaskKt
+$
+manipulatingListsExercise6TaskKt
+$
+manipulatingListsExercise7TaskKt
+D
+manipulatinglistsPlayingCardsKtWhyFlatMapKtZipAndTransformKt
+
+mapsContactMapKt
+
+mapsExercise1TaskKt
+
+mapsExercise2TaskKt
+
+mapsExercise3TaskKt
+
+mapsExercise4TaskKt
+#
+memberReferencesExercise1TaskKt
+#
+memberReferencesExercise2TaskKt
+#
+memberReferencesExercise3TaskKt
+(
+memberreferencesExtensionReferenceKt
+(
+memberreferences1PropertyReferenceKt
+?
+memberreferences2FunctionReferenceKtTopLevelFunctionRefKt
++
+memberreferences3ConstructorReferenceKt
++
+!namedAndDefaultArgumentsExercise1TaskKt
++
+!namedAndDefaultArgumentsExercise2TaskKt
++
+!namedAndDefaultArgumentsExercise3TaskKt
++
+!namedAndDefaultArgumentsExercise4TaskKt
+
+namedanddefaultEvaluationKt
+ 
+nestedClassesExercise2TaskKt
+ 
+nestedClassesExercise3TaskKt
+o
+nestedclasses	AirportKtFillItKtLocalClassesKtNestedHouseKtReturnLocalKtTicketKtWithinInterfaceKt
+$
+nonNullAssertionsExercise1TaskKt
+$
+nonNullAssertionsExercise2TaskKt
+$
+nonNullAssertionsExercise3TaskKt
+L
+nothingtypeCheckObject2KtCheckObjectKtFailKtInfiniteLoopKtTodoKt
+ 
+nullableTypesExercise1TaskKt
+ 
+nullableTypesExercise2TaskKt
+ 
+nullableTypesExercise3TaskKt
+>
+nullableextensionsNullableExtensionKtNullableParameterKt
+
+nullabletypesAmphibianKt
+
+numberTypesExercise1TaskKt
+
+numberTypesExercise2TaskKt
+
+numberTypesExercise3TaskKt
+
+numberTypesExercise4TaskKt
+
+numberTypesExercise5TaskKt
+@
+objectsObjectInheritanceKtObjectKeywordKtObjectNestingKt
+$
+objectsEverywhereExercise1TaskKt
+$
+objectsEverywhereExercise2TaskKt
+$
+objectsEverywhereExercise3TaskKt
+$
+objectsEverywhereExercise4TaskKt
+$
+objectsEverywhereExercise5TaskKt
+
+objectsExercise1TaskKt
+
+objectsExercise2TaskKt
+
+objectsExercise3TaskKt
+
+objectshare1Share1Kt
+
+objectshare2Share2Kt
+*
+ operationsOnCollectionsExercise1TaskKt
+*
+ operationsOnCollectionsExercise2TaskKt
+*
+ operationsOnCollectionsExercise3TaskKt
+*
+ operationsOnCollectionsExercise4TaskKt
+8
+operationsoncollectionsByOperationsKtPairOfListsKt
+&
+operatorOverloadingExercise1TaskKt
+&
+operatorOverloadingExercise2TaskKt
+&
+operatorOverloadingExercise3TaskKt
+ª
+operatoroverloadingArithmeticOperatorsKtBackticksKtComparisonKtConfusingPrecedenceKtContainerAccessKtDefaultEqualityKtDefiningEqualityKtDifferentTypesKtEqualsForNullableKtInvokeFunctionTypeKtInvokeKtMemberOperatorKt
+MoleculeKtNumKtRangesKtStringInvokeKt
+SwearingKt
+
+otherQuoteKt
+C
+overloadingMemberVsExtensionKtOverloadingAddKtOverloadingKt
+
+overloadingExercise1TaskKt
+
+overloadingExercise2TaskKt
+
+overloadingExercise3TaskKt
+
+overloadingExercise4TaskKt
+4
+overloadingvsdefaultargsOverloadedVsDefaultArgKt
+
+packagesExercise1TaskKt
+
+packagesExercise3TaskKt
+
+packagesExercise4TaskKt
+$
+polymorphismFantasyGameKtPetKt
+
+polymorphismExercise1TaskKt
+
+polymorphismExercise2TaskKt
+
+polymorphismExercise3TaskKt
+/
+properexceptionAverageIncomeWithExceptionKt
+
+propertiesExercise1TaskKt
+
+propertiesExercise2TaskKt
+
+propertiesExercise3TaskKt
+$
+propertyAccessorsExercise1TaskKt
+$
+propertyAccessorsExercise2TaskKt
+$
+propertyAccessorsExercise3TaskKt
+$
+propertyAccessorsExercise4TaskKt
+$
+propertyAccessorsExercise5TaskKt
+%
+propertyDelegationExercise1TaskKt
+%
+propertyDelegationExercise2TaskKt
+%
+propertyDelegationExercise3TaskKt
+*
+ propertyDelegationToolsExercise1TaskKt
+*
+ propertyDelegationToolsExercise2TaskKt
+*
+ propertyDelegationToolsExercise3TaskKt
+*
+ propertyDelegationToolsExercise4TaskKt
+K
+propertyaccessors	CounterKtDataKt	DefaultKt
+HamstersKtLogChangesKt
+™
+propertydelegationAccessibilityKtBasicRead2KtBasicReadKtBasicReadWrite2KtBasicReadWriteKtCarServiceKtConfigurationKtFibonacciPropertyKt
+
+propertydelegation2AddKt
+Z
+	recursionCallStackKtFactorialKtFibonacciKtInfiniteRecursionKtRecursionLimitsKt
+
+recursionExercise1TaskKt
+
+recursionExercise2TaskKt
+
+recursionExercise3TaskKt
+
+recursionExercise4TaskKt
+&
+repetitionWithWhileExercise1TaskKt
+&
+repetitionWithWhileExercise2TaskKt
+&
+repetitionWithWhileExercise3TaskKt
+&
+repetitionWithWhileExercise4TaskKt
+&
+repetitionWithWhileExercise5TaskKt
+"
+resourceCleanupExercise1TaskKt
+"
+resourceCleanupExercise3TaskKt
+
+resourcecleanupUsableKt
+/
+%safeCallsAndTheElvisOperatorExercise1TaskKt
+/
+%safeCallsAndTheElvisOperatorExercise2TaskKt
+/
+%safeCallsAndTheElvisOperatorExercise3TaskKt
+E
+	safecallsChainedCallsKtElvisCallKt
+SafeCallKtSafeOperationKt
+
+sandwich
+SandwichKt
+!
+scopeFunctionsExercise1TaskKt
+!
+scopeFunctionsExercise2TaskKt
+!
+scopeFunctionsExercise3TaskKt
+r
+scopefunctionsAndNullabilityKtBlobKtDifferencesKtGnomeKtMapLookupKt	NameTagKt	NestingKtNullGnomeKt
+ 
+sealedClassesExercise1TaskKt
+ 
+sealedClassesExercise2TaskKt
+ 
+sealedClassesExercise3TaskKt
+H
+sealedclassesSealedClassesKtSealedSubclassesKtSealedVsAbstractKt
+(
+secondaryConstructorsExercise1TaskKt
+(
+secondaryConstructorsExercise2TaskKt
+(
+secondaryConstructorsExercise3TaskKt
+6
+secondaryconstructorsGardenItemKtWithSecondaryKt
+4
+	sequencesDefineTakeIfKtEagerVsLazyEvaluationKt
+
+sequencesExercise1TaskKt
+
+sequencesExercise2TaskKt
+
+sequencesExercise3TaskKt
+
+sequencesExercise4TaskKt
+
+sequencesExercise5TaskKt
+
+sequencesExercise6TaskKt
+
+sequencesExercise7TaskKt
+
+sequencesExercise8TaskKt
+
+setsExercise1TaskKt
+
+setsExercise2TaskKt
+
+setsExercise3TaskKt
+
+setsExercise4TaskKt
+$
+slowfibonacciVerySlowFibonacciKt
+
+
+stacktraceStacktraceKt
+"
+stringTemplatesExercise1TaskKt
+"
+stringTemplatesExercise2TaskKt
+"
+stringTemplatesExercise3TaskKt
+"
+stringTemplatesExercise4TaskKt
+"
+stringTemplatesExercise5TaskKt
+¶
+summary2BoxesKtClassBodiesKt
+ColorSetKtExplicitTypingKtGetterAndSetterKt	JetPackKtPropertyReadWriteKtQuadraticKtTemperatureKtTicTacToeKt	VarArgsKtWildAnimalsKt
+
+summaryIExercise1TaskKt
+
+summaryIExercise10TaskKt
+
+summaryIExercise2TaskKt
+
+summaryIExercise3TaskKt
+
+summaryIExercise4TaskKt
+
+summaryIExercise5TaskKt
+
+summaryIExercise6TaskKt
+
+summaryIExercise7TaskKt
+
+summaryIExercise8TaskKt
+
+summaryIExercise9TaskKt
+
+summaryIIExercise1TaskKt
+
+summaryIIExercise2TaskKt
+
+summaryIIExercise3TaskKt
+
+summaryIIExercise4TaskKt
+
+summaryIIExercise5TaskKt
+
+summaryIIExercise6TaskKt
+
+summaryIIExercise7TaskKt
+
+summaryIIExercise8TaskKt
+#
+tailrecursionTailRecursiveSumKt
+
+testing1	TDDFailKt
+
+testing2TDDStillFailsKt
+
+testing3
+TDDWorksKt
+
+testingExercise1TaskKt
+
+testingExercise2TaskKt
+
+testingExercise3TaskKt
+
+testingExercise4TaskKt
+)
+theImportanceOfLambdasExercise1TaskKt
+)
+theImportanceOfLambdasExercise2TaskKt
+)
+theImportanceOfLambdasExercise3TaskKt
+
+theInKeywordExercise1TaskKt
+
+theInKeywordExercise2TaskKt
+
+theInKeywordExercise3TaskKt
+
+theInKeywordExercise4TaskKt
+
+theInKeywordExercise5TaskKt
+!
+theNothingTypeExercise1TaskKt
+!
+theNothingTypeExercise2TaskKt
+!
+theNothingTypeExercise3TaskKt
+
+typeCheckingExercise1TaskKt
+!
+typeCheckingExercise2aTaskAKt
+!
+typeCheckingExercise2bTaskBKt
+
+typeCheckingExercise3TaskKt
+U
+typechecking	AnyNameKtBeverageContainerKt	InsectsKtTypeCheck1KtTypeCheck2Kt
+%
+typechecking2BeverageContainer2Kt
+3
+typechecking3BeverageContainer3KtTypeCheck3Kt
+(
+	upcasting	DrawingKtTrimmedMembersKt
+
+upcastingExercise1TaskKt
+
+upcastingExercise2TaskKt
+
+upcastingExercise3TaskKt
+
+useatomiclogUseAtomicLogKt
+ 
+usefullibraryUsefulLibraryKt
+!
+usingOperatorsExercise1TaskKt
+!
+usingOperatorsExercise2TaskKt
+!
+usingOperatorsExercise3TaskKt
+Y
+usingoperatorsComparableRangeKtCompareToKtDestructuringDataKtDestructuringDuoKt
+
+utilUtilKt
+
+varAndValExercise1TaskKt
+
+varAndValExercise2TaskKt
+
+varAndValExercise3TaskKt
+
+varAndValExercise4TaskKt
+
+varAndValExercise5TaskKt
+V
+varargsTwoFunctionsWithVarargsKtVarargLikeListKtVarargSumKtVariableArgListKt
+(
+variableArgumentListsExercise1TaskKt
+(
+variableArgumentListsExercise2TaskKt
+(
+variableArgumentListsExercise3TaskKt
+(
+variableArgumentListsExercise4TaskKt
+(
+variableArgumentListsExercise5TaskKt
+S
+varianceBoxAssignmentKtCovariantListKtInBoxAssignmentKtOutBoxAssignmentKt
+"
+whenExpressionsExercise1TaskKt
+"
+whenExpressionsExercise2TaskKt
+"
+whenExpressionsExercise3TaskKt
+"
+whenExpressionsExercise4TaskKt
+K
+whenexpressionsAnalyzeInputKt	BmiWhenKtGermanOrdinalsKtMixColorsKt
+.
+withdefaultargumentsWithDefaultArgumentsKt
+#
+withnullAverageIncomeWithNullKt
+4
+withoutdefaultargumentsWithoutDefaultArgumentsKt
+"
+withoutsealedclasses
+UnSealedKt" *     

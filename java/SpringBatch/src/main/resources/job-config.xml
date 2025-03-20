@@ -1,0 +1,65 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:batch="http://www.springframework.org/schema/batch"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/batch
+    http://www.springframework.org/schema/batch/spring-batch-3.0.xsd
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+">
+    <import resource="batch-config.xml"/>
+    
+
+    <bean id="itemReader"
+          class="org.springframework.batch.item.database.JdbcCursorItemReader" scope="step">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="sql" value="select id, name from model where id > :id order by id"/>
+        <property name="rowMapper" ref="beanPropertyMapper"/>
+        <property name="preparedStatementSetter">
+            <bean class="com.batch.IdPreparedStatementSetter">
+                <property name="id" value="#{jobParameters['storyid']}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean name="beanPropertyMapper"
+          class="org.springframework.jdbc.core.BeanPropertyRowMapper">
+        <property name="mappedClass" value="com.batch.Model"/>
+    </bean>
+
+    <bean id="itemProcessor"
+          class="com.batch.CustomModelProcessor" />
+
+    <bean id="itemWriter"
+          class="com.batch.CustomItemWriter">
+
+    </bean>
+
+    <batch:job id="firstBatchJob">
+        <batch:step id="step1">
+            <batch:tasklet>
+                <batch:chunk reader="itemReader" writer="itemWriter"
+                             processor="itemProcessor" commit-interval="2">
+                </batch:chunk>
+            </batch:tasklet>
+        </batch:step>
+    </batch:job>
+
+<!-- Spring Scheduler + Batch on XML config
+    https://www.mkyong.com/spring-batch/spring-batch-and-spring-taskscheduler-example/
+    -->
+
+    <batch:job id="secondBatchJob">
+        <batch:step id="step2">
+            <batch:tasklet ref="printWriter">
+            </batch:tasklet>
+        </batch:step>
+    </batch:job>
+
+    <bean name="printWriter" class="com.batch.PrintWriterTasklet">
+<!--        <property name="message" value="#{jobParameters['message']}"/>-->
+        <property name="message" value="sdf"/>
+    </bean>
+
+    <!-- spring batch rest https://github.com/chrisgleissner/spring-batch-rest -->
+
+</beans>

@@ -1,0 +1,33 @@
+# Section 1: API Authentication
+#  Sub-Section 1a: For Two-way mutual SSL authentication
+AUTHENTICATION_METHOD = TWO_WAY_SSL
+USERNAME = TYW01T1TMML6VIZ75M9H21q4H2p6fZl_mwRuaOilb6UIXpLiY
+PASSWORD = 8FTvkU2BII6B889YFr1mZWvA1vczETMVz1NgsA
+KEY_STORE_PATH = D:/Workspaces/IdeaProjects/viap-samples-java/src/test/resources/multiauth/fociiwallet_keyAndCertBundle.jks
+KEY_STORE_PASSWORD = password
+PRIVATE_KEY_PASSWORD = password
+# ----------------
+#  Sub-Section 1b: For X-Pay-Token authentication
+#AUTHENTICATION_METHOD = X_PAY_TOKEN
+#APIKEY = <YOUR API KEY>
+#SHARED_SECRET = <YOUR SHARED SECRET>
+# --------------------------------
+
+# Section 2: Field Level Encryption
+ENCRYPTION_KID = <YOUR ENCRYPTION KEY>
+#  Sub-Section 2a: For Asymmetric Encryption using Visa public key
+ENCRYPTION_METHOD = ASYMMETRIC
+ENCRYPTION_PUBLIC_KEY_PATH = <FULL PATH OF PEM FILE PROVIDED BY VISA FOR ENCRYPTION>
+# ----------------
+#  Sub-Section 2b: For Symmetric Encryption using Shared secret
+#ENCRYPTION_METHOD = SYMMETRIC
+#ENCRYPTION_SHARED_SECRET = <YOUR ENCRYPTION SHARED SECRET>
+# --------------------------------
+
+# Section 3: General Section
+HOST = https://sandbox.api.visa.com/
+# HOST = https://cert.api.visa.com/
+
+# Section 4: Proxy Section
+PROXY_HOST_NAME = <YOUR PROXY HOST>
+PROXY_PORT_NUMBER = <YOUR PROXY PORT>

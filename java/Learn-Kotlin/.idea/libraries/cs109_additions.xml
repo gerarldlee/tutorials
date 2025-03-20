@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="cs109-additions">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/cs109-additions.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
