@@ -100,3 +100,7 @@
 [submodule "webstorm/electron-api-demos"]
 	path = webstorm/electron-api-demos
 	url = https://github.com/electron/electron-api-demos.git
+[submodule "tradingview/tradingview-web-socket"]
+	path = tradingview/tradingview-web-socket
+	url = https://github.com/472647301/tradingview-web-socket.git
+	
