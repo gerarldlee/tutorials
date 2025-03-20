@@ -85,8 +85,8 @@
 [submodule "tradingview/mohamad-tradingview-api"]
 	path = tradingview/mohamad-tradingview-api
 	url = https://github.com/mohamadkhalaj/tradingView-API.git
-[submodule "tradingview/backtester"]
-	path = tradingview/backtester
+[submodule "tradingview/backtrader"]
+	path = tradingview/backtrader
 	url = https://github.com/mementum/backtrader.git
 [submodule "tradingview/python-tradingview-ta"]
 	path = tradingview/python-tradingview-ta
