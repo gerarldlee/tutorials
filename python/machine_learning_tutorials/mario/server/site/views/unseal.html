@@ -1,0 +1,27 @@
+﻿<section class="section">
+
+    <div class="columns is-centered">
+        <div class="column is-half-widescreen is-two-thirds-tablet">
+            <div class="card">
+                <header class="card-header">
+                    <h1 class="card-header-title">
+                        Unseal Vault
+                    </h1>
+                </header>
+                <form name="keysForm" ng-submit="keysForm.$valid && Unseal()">
+                    <div class="card-content">
+                        <textarea id="keys" type="text" placeholder="One key per line" rows="10"
+                            class="textarea {{ keys === null || keysForm.keys.$valid ? '' : 'is-warning'}}"
+                            ng-model="keys" name="keys" ng-init="keys = null" required></textarea>
+                    </div>
+                    <footer class="card-footer">
+                        <a class="card-footer-item" type="submit" ng-disabled="!keysForm.$valid || isLoading"
+                            ng-click="keysForm.$valid && Unseal(keys)" value="" ng-show="!isLoading">Unseal</a>
+                        <div class="card-footer-item" ng-show="isLoading"><span class="spinner is-centered"></span>
+                        </div>
+                    </footer>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

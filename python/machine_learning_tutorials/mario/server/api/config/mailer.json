@@ -1,0 +1,22 @@
+{
+        "documentation": "https://nodemailer.com",
+        "host": "smtp.outlook.com",
+        "port": "587",
+        "secure": false,
+        "from": "itadmin@atira.ca",
+
+        "auth": {
+            "user": "itadmin@atira.ca",
+            "pass": "$inadminIT0!"
+        },
+
+        "requireTLS": false,
+
+        "dkim": {
+            "domainName": "atira1.deployify.net",
+            "keySelector": "2019",
+            "privateKey": "private.key"
+        }
+    
+}
+

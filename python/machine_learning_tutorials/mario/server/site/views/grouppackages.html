@@ -1,0 +1,774 @@
+<div class="columns">
+
+	<div id="slider-menu" class="slider-menu hide">
+		<aside class="menu section">
+			<p class="menu-label">
+				Other
+			</p>
+			<ul class="menu-list">
+				<li>
+					<a ng-click="OpenModal('feedbackModal'); FocusForm('feedbackForm', 'mail');">
+						<span class="icon">
+							<i class="mdi mdi-comment-text-outline"></i>
+						</span>
+						<span>
+							Send feedback
+						</span>
+					</a>
+				</li>
+			</ul>
+		</aside>
+
+	</div>
+	<div class="column">
+		<div class="container">
+
+			<section class="section smaller">
+				<nav class="breadcrumb" aria-label="breadcrumbs">
+					<ul>
+						<li><a href="/domains" ng-click="Goto($event)">Start</a></li>
+						<li>
+							<a ng-href="/domains/{{domain.uid}}/" ng-click="Goto($event)">
+								<span class="icon">
+									<i class="mdi mdi-domain"></i>
+								</span>
+								<span>{{domain.friendlyName}}</span>
+							</a>
+						</li>
+						<li class="is-active">
+							<a href="#" aria-current="page">
+								<span class="icon is-small">
+									<i class="mdi mdi-account-multiple" aria-hidden="true"></i>
+								</span>
+								<span>
+									{{groupItem.group.name}}
+								</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</section>
+
+			<section class="section">
+
+				<h1 class="title">
+					Packages
+				</h1>
+				<hr>
+
+				<div class="columns is-multiline">
+					<div class="column">
+						<div class="is-unselectable is-inline" ng-click="!searchObj ? SetSearchObj('','') : false">
+							<i class="mdi mdi-checkbox-marked-circle"
+								ng-class="searchObj ? 'has-text-success': 'has-text-grey'"></i>
+							<span>
+								Existing packages
+							</span>
+						</div>
+						<div class="is-unselectable is-inline radio-margin"
+							ng-click="searchObj ? SetSearchObj(null, null, null, !listingAllAvailable) : false">
+							<i class="mdi mdi-checkbox-marked-circle"
+								ng-class="!searchObj ? 'has-text-success': 'has-text-grey'"></i>
+							<span>
+								Available packages
+								in repos
+							</span>
+						</div>
+
+						<div class="is-unselectable truncate column is-12 is-marginless is-paddingless"
+							ng-click="settings.groupPackages.includePrerelease = !settings.groupPackages.includePrerelease; SaveSettings(settings)"
+							ng-hide="!listingAllAvailable">
+							<i class="mdi mdi-checkbox-marked-circle"
+								ng-class="settings.groupPackages.includePrerelease ? 'has-text-success': 'has-text-grey'"></i>
+							<span>
+								Include pre-release packages
+							</span>
+						</div>
+					</div>
+
+					<div class="column is-12">
+						<form name="searchForm" ng-submit="searchVal = searchTemp; Search(searchVal)">
+							<div class="field">
+								<p class="control has-icons-left">
+									<input class="input" placeholder="Search" type="search" id="search" class="input"
+										autocomplete="off" ng-model="searchTemp" ng-disabled="!loadingDone"
+										ng-class="{'is-warning' : searchVal != searchTemp}">
+									<span class="icon is-small is-left">
+										<i class="mdi mdi-magnify"></i>
+									</span>
+								</p>
+							</div>
+						</form>
+					</div>
+
+
+					<div class="margin-top margin-bottom is-unselectable"
+					ng-if="items.length !== 0 && loadingSettingsDone && !settings.groupPackages.dismissedTips.autoUpdateVersion"
+					ng-click="settings.groupPackages.dismissedTips.autoUpdateVersion = true; SaveSettings(settings)">
+					<div class="notification is-info content">		
+					<button class="delete"></button>
+						Tips:					
+						<ul>
+							<li>Change the group package version to see stats related to that version. </li>												
+							<li>If that package version is not installed/uninstalled, the "Completed"-stat will be 0%. Details have more information.</li>
+						</ul>
+					</div>
+				</div>
+
+
+				<div class="loading" ng-show="!loadingDone"></div>
+				<p class="" ng-show="loadingDone && items.length == 0">
+					<i class="text-small">No packages</i>
+				</p>
+
+				<table class="table is-hoverable is-narrow is-fullwidth" ng-hide="!loadingDone || items.length == 0">
+					<thead>
+						<tr class="is-unselectable">
+							<th class="is-hidden-touch">Icon</th>
+							<th ng-click="Reorder(['chocoPackage.Title'])">Title</th>
+							<th ng-click="Reorder(['source.name'])"><abbr title="Repository">Repo</abbr></th>
+							<th ng-click="Reorder(['groupInfo.isAutoUpgrade'])"><abbr title="Auto Upgrade">AU</abbr>
+							</th>
+							<th ng-click="Reorder(['version.version'])"><abbr title="Selected Version"> S Version</abbr>
+							</th>
+							<th class="is-hidden-touch"><abbr title="Health">Health</abbr></th>
+							<th ng-click="Reorder(['command.name'])">Action</th>
+							<th class="is-hidden-touch"
+								ng-click="Reorder(['command.status', 'command.name', 'command.execDone'])">Command</th>
+							<th class="is-hidden-touch" ng-click="Reorder(['command.parameters', 'command.execDone'])">
+								<abbr title="Command Flags">C
+									Flags</abbr></th>
+							<th class="is-hidden-touch" ng-click="Reorder(['command.execDone'])"><abbr
+									title="Command Added">C Added</abbr></th>
+							<th class="is-hidden-touch" ng-click="Reorder(['temp.procentWorking'])"><abbr
+									title="Computers Working">Working</abbr>
+							</th>
+							<th ng-click="Reorder(['temp.procentDone'])"><abbr title="Computers Complete">Completed</abbr></th>
+							<th class="is-hidden-touch" ng-click="Reorder(['temp.procentFailed'])"><abbr
+									title="Computers Failed">Failed</abbr>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in items | filter: !listingAllAvailable ? searchVal : '' track by $index">
+							<td class="is-hidden-touch">
+								<figure class="image is-24x24">
+									<img src="{{item.chocoPackage.IconUrl}}" alt="">
+								</figure>
+							</td>
+							<td>
+								<a href="" ng-class="{'tooltip' : item.chocoPackage.Title.length > 30}"
+									data-tooltip="{{item.chocoPackage.Title}}" ng-click="OpenInfoModal(item)">
+									{{item.chocoPackage.Title | limitTo: 30 }}{{item.chocoPackage.Title.length > 30 ?
+									'...'
+									: ''}}
+								</a>
+							</td>
+							<td>
+								<a ng-href="/repos/{{item.source.uid}}/"
+									ng-click="Goto($event)">{{item.source.name }}</a>
+							</td>
+
+							<td>
+								<span class="icon tooltip"
+									ng-if="item.schedule.type == 1 && item.command.name =='upgrade'"
+									data-tooltip="Auto Upgrade">
+									<i class="mdi mdi-update"></i></span>
+								</span>
+							</td>
+							<td>
+								<div name="version-dropdown" class="dropdown">
+									<div class="dropdown-trigger">
+										<a class="button is-small smaller no-border"
+											ng-class="{'is-loading': item.otherVersions && item.otherVersions.loading && item.otherVersions.length == 0 || item.changingVersion }"
+											aria-haspopup="true" aria-controls="dropdown-menu"
+											ng-click="!item.otherVersions ? ShowVersionDd($event) && GetAllVersions(item) : ShowVersionDd($event)">
+											<span
+												ng-class="{'has-text-warning': !item.chocoPackage.IsLatestVersion && item.command.name != 'uninstall' && item.schedule.type != 1 }">
+												{{!item.version.version ? item.chocoPackage.Version :
+												item.version.version}}
+											</span>
+											<span class="icon is-small">
+												<i class="mdi mdi-chevron-down" aria-hidden="true"></i>
+											</span>
+										</a>
+									</div>
+									<div class="dropdown-menu" id="dropdown-menu" role="menu">
+										<div class="dropdown-content">
+											<a class="dropdown-item"
+												ng-repeat="otherVersionItem in item.otherVersions track by r+$index"
+												ng-click="GetPackage(item, otherVersionItem, true);">
+
+												<span class="icon"
+													ng-if="otherVersionItem.schedule.type == 1 && otherVersionItem.command.name =='upgrade'">
+													<i class="mdi mdi-update"></i>
+												</span>
+												<span>
+													{{otherVersionItem.chocoPackage.Version}}
+												</span>
+
+												<span class="icon"
+													ng-if="otherVersionItem.command.status=='pending' && otherVersionItem.command.name == 'install' || otherVersionItem.command.status=='pending' && otherVersionItem.command.name == 'upgrade'">
+													<i class="mdi mdi-check"></i>
+												</span>
+												<span class="icon"
+													ng-if="otherVersionItem.command.status=='pending' && otherVersionItem.command.name == 'uninstall' ">
+													<i class="mdi mdi-delete"></i>
+												</span>
+												<span class="icon" ng-if="otherVersionItem.command.status=='failed'">
+													<i class="mdi mdi-information has-text-danger"></i>
+												</span>
+												<span class="icon tooltip" data-tooltip="Add/remove package only (-n)"
+													ng-if="DoesParamExist(otherVersionItem.command.parameters, '-n')">
+													-n
+												</span>
+												<span class="icon tooltip" data-tooltip="Forced"
+													ng-if="DoesParamExist(otherVersionItem.command.parameters, '-f')">
+													-f
+												</span>
+
+												<span class="icon tooltip"
+													data-tooltip="Allows multiple versions of a package"
+													ng-if="DoesParamExist(otherVersionItem.command.parameters, '-m')">
+													-m
+												</span>
+											</a>
+											<a class="dropdown-item has-text-centered has-text-link margin-top-5" ignore="true"
+												ng-click="GetAllVersions(item)">More<span
+													class="margin-left"
+													ng-class="{'spinner small margin': item.otherVersions.loading && item.otherVersions.length != 0 }"></span></a>
+										</div>
+									</div>
+								</div>
+							</td>
+
+							<td class="is-hidden-touch">
+								<a class="tooltip" data-tooltip="Not approved"
+									href="{{item.chocoPackage.GalleryDetailsUrl}}"
+									ng-if="item.chocoPackage && item.chocoPackage.IsApproved != null && !item.chocoPackage.IsApproved">
+									<span class="dot large has-background-warning"></span>
+								</a>
+
+								<a class="tooltip" href="{{item.chocoPackage.GalleryDetailsUrl}}"
+									data-tooltip="Validation: {{item.chocoPackage.PackageValidationResultStatus}}"
+									ng-if="item.chocoPackage && item.chocoPackage.PackageValidationResultStatus != null && item.chocoPackage.PackageValidationResultStatus != 'Passing'">
+									<span class="dot large has-background-warning"
+										ng-if="item.chocoPackage.PackageValidationResultStatus != 'Exempted' && item.chocoPackage.PackageValidationResultStatus != 'Passing'"></span>
+								</a>
+
+								<a class="tooltip"
+									href="{{item.chocoPackage.PackageTestResultUrl != ''? item.chocoPackage.PackageTestResultUrl : item.chocoPackage.GalleryDetailsUrl}}"
+									ng-if="item.chocoPackage && item.chocoPackage.PackageTestResultStatus != null && item.chocoPackage.PackageTestResultStatus != 'Passing' && item.chocoPackage.PackageTestResultStatus != 'Exempted'"
+									data-tooltip="Tests: {{item.chocoPackage.PackageTestResultStatus}}">
+									<span class="dot large has-background-warning"
+										ng-if="item.chocoPackage.PackageTestResultStatus != 'Passing'"></span>
+								</a>
+
+								<a class="tooltip" ng-href="{{item.chocoPackage.GalleryDetailsUrl}}#virus"
+									data-tooltip="VirusTotal: {{item.chocoPackage.PackageScanStatus}}"
+									ng-if="item.chocoPackage && item.chocoPackage.PackageScanStatus != null && item.chocoPackage.PackageScanStatus != 'NotFlagged' &&
+								item.chocoPackage && item.chocoPackage.PackageScanStatus != null && item.chocoPackage.PackageScanStatus != 'Exempted'">
+									<span class="dot large has-background-warning"
+										ng-if="item.chocoPackage.PackageScanStatus != 'Exempted'"></span>
+								</a>
+							</td>
+
+
+
+							<td>
+								<button ng-disabled="item.command.status == 'working' || item.changingVersion"
+									ng-class="{'is-loading': item.command.status == 'working', 'is-loading' : item.isLoading}"
+									class="button is-success is-small smaller darker"
+									ng-if="!item.command.name  || item.command && item.command.name == 'uninstall' && item.command.status != 'failed' || item.command.name != 'uninstall' && item.command.status == 'failed'"
+									ng-click="ShowConfirm(item)">Install
+								</button>
+								<button ng-disabled="item.command.status == 'working' || item.changingVersion"
+									ng-class="{'is-loading' : item.command.status == 'working', 'is-loading' : item.isLoading}"
+									class="button is-danger is-small smaller darker"
+									ng-if="item.command.name && item.command.name != 'uninstall' && item.command.status != 'failed' || item.command.name && item.command.name == 'uninstall' && item.command.status == 'failed'"
+									ng-click="ShowConfirm(item)">Uninstall
+								</button>
+							</td>
+							<td class="is-hidden-touch">
+								<div class="tooltip" data-tooltip="{{item.command.name}}"
+									ng-if="item.command && item.command.status == 'working' || item.command && item.command.status == 'pending'">
+									<span class="is-capitalized">
+										{{item.command.name}}
+									</span>
+								</div>
+
+								<a href="" ng-click="ShowPackageLogModal(item)">
+									<span class="icon tooltip" data-tooltip="{{item.command.name}} - success"
+										ng-if="item.command.status=='done' && item.command.name == 'install' || item.command.status=='done' && item.command.name == 'upgrade'">
+										<i class="mdi mdi-check"></i>
+									</span>
+									<span class="icon tooltip" data-tooltip="{{item.command.name}} - success"
+										ng-if="item.command.status=='done' && item.command.name == 'uninstall' ">
+										<i class="mdi mdi-delete"></i>
+									</span>
+									<div ng-if="item.command && item.command.status == 'failed'">
+										<span class="icon tooltip has-text-danger" data-tooltip="Failed">
+											<i class="mdi mdi-information"></i>
+										</span>
+										<span class="is-capitalized">{{item.command.name}} </span> failed
+									</div>
+								</a>
+							</td>
+
+							<td class="is-hidden-touch">
+								<span class="icon tooltip" data-tooltip="Forced (-f)"
+									ng-if="DoesParamExist(item.command.parameters, '-f')">
+									-f
+								</span>
+
+								<span class="icon tooltip" data-tooltip="Allowing multiple versions (-m)"
+									ng-if="DoesParamExist(item.command.parameters, '-m')">
+									-m
+								</span>
+
+								<span class="icon tooltip" data-tooltip="Add/remove package only (-n)"
+									ng-if="DoesParamExist(item.command.parameters, '-n')">
+									-n
+								</span>
+							</td>
+							<td class="is-hidden-touch">
+								{{IsoToDate(item.command.added)}}
+							</td>
+							<td class="is-hidden-touch">
+								<a href="" ng-click="ShowComputersPackageStatsModal(item, 2)" class="has-text-info">
+									{{item.temp.procentWorking}} %
+								</a>
+							</td>
+							<td>
+								<a href="" ng-click="ShowComputersPackageStatsModal(item, 1)" class="has-text-success">
+									{{ item.temp.procentDone}} %
+								</a>
+							</td>
+							<td class="is-hidden-touch">
+								<a href="" ng-click="ShowComputersPackageStatsModal(item, 5)" class="has-text-danger">
+									{{item.temp.procentFailed}} %
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</section>
+
+		</div>
+	</div>
+</div>
+
+<div class="modal" id="ConfirmModal">
+	<div class="modal-background" ng-click="CloseModal('ConfirmModal')"></div>
+	<div class="modal-card" ng-show="selectedItem">
+		<header class="modal-card-head">
+			<p class="modal-card-title truncate has-text-info">
+				<span class="">
+					{{selectedItem.chocoPackage.Title}}
+				</span>
+				<br>
+				<span class="subtitle is-size-6">
+					{{selectedItem.chocoPackage.Id}} - {{selectedItem.chocoPackage.Version}}
+				</span>
+			</p>
+			<button class="delete" aria-label="close" ng-click="CloseModal('ConfirmModal')"></button>
+		</header>
+		<section class="modal-card-body">
+
+			<div class="notification is-info" ng-if="selectedItem.groupInfo && selectedItem.groupInfo.group">
+				<i class="mdi mdi-account-group"></i>
+				This package is managed by the group <span
+					class="is-italic">{{selectedItem.groupInfo.group.name}}</span>
+			</div>
+
+			<div
+				ng-if="!selectedItem.command.name  || selectedItem.command && selectedItem.command.name == 'uninstall' && selectedItem.command.status != 'failed' || selectedItem.command.name != 'uninstall' && selectedItem.command.status == 'failed'">
+				<p class="notification"
+					ng-if="selectedItem.chocoPackage && selectedItem.chocoPackage.IsApproved != null && !selectedItem.chocoPackage.IsApproved">
+					<a class="has-text-danger" href="{{selectedItem.chocoPackage.GalleryDetailsUrl}}">
+						This package is not approved.
+					</a>
+				</p>
+
+				<p class="notification"
+					ng-if="selectedItem.chocoPackage && item.chocoPackage.PackageValidationResultStatus != null && selectedItem.chocoPackage.PackageValidationResultStatus != 'Passing' && selectedItem.chocoPackage.PackageValidationResultStatus != 'Exempted'">
+					<a class="has-text-warning" href="{{selectedItem.chocoPackage.GalleryDetailsUrl}}">
+						This package did not pass the validation process:
+						{{selectedItem.chocoPackage.PackageValidationResultStatus}}
+					</a>
+				</p>
+
+				<p class="notification"
+					ng-if="selectedItem.chocoPackage && selectedItem.chocoPackage.PackageTestResultStatus != null && selectedItem.chocoPackage.PackageTestResultStatus != 'Passing' && selectedItem.chocoPackage.PackageTestResultStatus != 'Exempted'">
+					<a class="has-text-warning"
+						href="{{selectedItem.chocoPackage.PackageTestResultUrl != ''? selectedItem.chocoPackage.PackageTestResultUrl : selectedItem.chocoPackage.GalleryDetailsUrl}}">
+						The package test result for this package did not pass:
+						{{selectedItem.chocoPackage.PackageTestResultStatus}}
+					</a>
+				</p>
+
+				<p class="notification" ng-if="selectedItem.chocoPackage && selectedItem.chocoPackage.PackageScanStatus != null && selectedItem.chocoPackage.PackageScanStatus != 'NotFlagged' &&
+								 selectedItem.chocoPackage.PackageScanStatus != 'Exempted'">
+					<a class="has-text-warning" ng-href="{{selectedItem.chocoPackage.GalleryDetailsUrl}}#virus">
+						This package is flagged on VirusTotal.
+					</a>
+				</p>
+
+				<div class="notification is-info content margin-bottom-2" ng-if="selectedItem.temp && selectedItem.temp.oldVersion" >
+					<p>This package version is lower than an already installed package.</p>
+					<p>To install:</p> <ul><li>Delete the newer package.</li><li>Or to install side-by-side, check "Multiple versions".</li></ul>
+
+					<p>You can ignore this message if your intention is to run the "Uninstall"-command.</p>
+                </div>                
+				
+			</div>	
+			
+			<div class="notification is-warning content margin-bottom-2 content" ng-if="selectedItem.controlledByAutoUpdate" >
+				<p>Another version of this package is set as auto upgrade.</p>					
+				<p>Delete the auto upgrade package to control the versions manually.</p> 					
+			</div>
+
+			<div class="box" ng-if="!selectedItem.controlledByAutoUpdate">
+				<p class="title is-5">Options/Switches</p>
+
+				<div class="column is-12 is-unselectable">
+
+					<div class="columns is-multiline extrapadding">
+						<div class="is-unselectable column is-12 is-marginless is-paddingless"
+							ng-click="AddTempParam(selectedItem, '-m')"
+							ng-if="!selectedItem.command.name  || selectedItem.command && selectedItem.command.name == 'uninstall' && selectedItem.command.status != 'failed' || selectedItem.command.name != 'uninstall' && selectedItem.command.status == 'failed'">
+							<i class="mdi mdi-checkbox-marked-circle"
+								ng-class="DoesParamExist(selectedItem.command.tempparameters, '-m') ? 'has-text-success': 'has-text-grey'"></i>
+							<span class="tooltip" data-tooltip="Allows multiple versions of a package">
+								Multiple versions (-m)
+							</span>
+						</div>
+
+						<div class="is-unselectable column is-12 is-marginless is-paddingless"
+							ng-click="AddTempParam(selectedItem, '-n')">
+							<i class="mdi mdi-checkbox-marked-circle"
+								ng-class="DoesParamExist(selectedItem.command.tempparameters, '-n') ? 'has-text-success': 'has-text-grey'"></i>
+							<span class="tooltip" data-tooltip="Only adds/remove the package">
+								Add/remove package only (-n)
+							</span>
+						</div>
+
+						<div class="is-unselectable column is-12 is-marginless is-paddingless"
+							ng-click="AddTempParam(selectedItem, '-f')">
+							<i class="mdi mdi-checkbox-marked-circle"
+								ng-class="DoesParamExist(selectedItem.command.tempparameters, '-f') ? 'has-text-success': 'has-text-grey'"></i>
+							<span class="tooltip" data-tooltip="Force the behavior">
+								Force (-f)
+							</span>
+						</div>
+
+						<div class="is-unselectable column is-12 is-marginless is-paddingless"
+							ng-click="selectedItem.command.tempExecAsUser = !selectedItem.command.tempExecAsUser">
+							<i class="mdi mdi-checkbox-marked-circle"
+								ng-class="selectedItem.command.tempExecAsUser ? 'has-text-success': 'has-text-grey'"></i>
+							<span class="tooltip" data-tooltip="Run command as logged on user">
+								Run as logged in user
+							</span>
+							<a href="https://deployify.io/news/new-feature-cloud-version" target="_blank" class="is-link">What is this?</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+			<div class="box" ng-show="!selectedItem.controlledByAutoUpdate">
+
+				<p ng-if="selectedItem.schedule.temp.active">
+					<a class="title is-5 is-unselectable"
+						ng-click="selectedItem.schedule.temp.active = !selectedItem.schedule.temp.active">
+						<span ng-show="ValidateExactDate(selectedItem.schedule.temp)">
+							<span class="icon has-text-success"><i class="mdi mdi-check-decagram"></i></span>
+						</span>
+						Schedule <span class="icon"><i class="mdi mdi-chevron-up"></i></span>
+					</a>
+				</p>
+
+				<a class="title is-5 is-unselectable" ng-if="!selectedItem.schedule.temp.active"
+					ng-click="selectedItem.schedule.temp.active = !selectedItem.schedule.temp.active">
+					Schedule (off) <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
+				</a>
+
+
+				<div class="columns is-multiline" ng-show="selectedItem.schedule.temp.active">
+
+					<div ng-if="!selectedItem.schedule.temp.repeatWeekDays || selectedItem.schedule.temp.repeatWeekDays === ''"
+						class="column is-12">
+						<span class="icon">
+							<i class="mdi mdi-alert"></i>
+						</span>
+						<span class="has-text-warning">
+							Select at least one day.
+						</span>
+					</div>
+
+					<div class="column is-6">
+						<div class="field tooltip" data-tooltip="Start date">
+							<input class="input" id="startDate">
+						</div>
+					</div>
+
+					<div class="column is-6">
+						<div class="field tooltip" data-tooltip="Start time">
+							<input class="input" id="startTime">
+						</div>
+					</div>
+
+					<div class="column is-6">
+						<div class="field tooltip" data-tooltip="End date">
+							<input class="input" id="endDate">
+						</div>
+					</div>
+
+					<div class="column is-6">
+						<div class="field tooltip" data-tooltip="End time">
+							<input class="input" id="endTime">
+						</div>
+					</div>
+
+
+
+					<div class="column is-12">
+						<div class="columns is-multiline extrapadding">
+							<div class="is-unselectable column is-marginless is-paddingless tooltip"
+								data-tooltip="Monday"
+								ng-click="selectedItem.schedule.temp.repeatWeekDays = AddParam(selectedItem.schedule.temp.repeatWeekDays, 1)">
+								<i class="mdi mdi-checkbox-marked-circle"
+									ng-class="DoesParamExist(selectedItem.schedule.temp.repeatWeekDays, '1|') ? 'has-text-success': 'has-text-grey'"></i>
+								<span>
+									Mon
+								</span>
+							</div>
+							<div class="is-unselectable column is-marginless is-paddingless tooltip"
+								data-tooltip="Tuesday"
+								ng-click="selectedItem.schedule.temp.repeatWeekDays = AddParam(selectedItem.schedule.temp.repeatWeekDays, 2)">
+								<i class="mdi mdi-checkbox-marked-circle"
+									ng-class="DoesParamExist(selectedItem.schedule.temp.repeatWeekDays, '2|') ? 'has-text-success': 'has-text-grey'"></i>
+								<span>
+									Tue
+								</span>
+							</div>
+							<div class="is-unselectable column is-marginless is-paddingless tooltip"
+								data-tooltip="Wednesday"
+								ng-click="selectedItem.schedule.temp.repeatWeekDays = AddParam(selectedItem.schedule.temp.repeatWeekDays, 3)">
+								<i class="mdi mdi-checkbox-marked-circle"
+									ng-class="DoesParamExist(selectedItem.schedule.temp.repeatWeekDays, '3|') ? 'has-text-success': 'has-text-grey'"></i>
+								<span>
+									Wed
+								</span>
+							</div>
+							<div class="is-unselectable column is-marginless is-paddingless tooltip"
+								data-tooltip="Thursday"
+								ng-click="selectedItem.schedule.temp.repeatWeekDays = AddParam(selectedItem.schedule.temp.repeatWeekDays, 4)">
+								<i class="mdi mdi-checkbox-marked-circle"
+									ng-class="DoesParamExist(selectedItem.schedule.temp.repeatWeekDays, '4|') ? 'has-text-success': 'has-text-grey'"></i>
+								<span>
+									Thu
+								</span>
+							</div>
+							<div class="is-unselectable column is-marginless is-paddingless tooltip"
+								data-tooltip="Friday"
+								ng-click="selectedItem.schedule.temp.repeatWeekDays = AddParam(selectedItem.schedule.temp.repeatWeekDays, 5)">
+								<i class="mdi mdi-checkbox-marked-circle"
+									ng-class="DoesParamExist(selectedItem.schedule.temp.repeatWeekDays, '5|') ? 'has-text-success': 'has-text-grey'"></i>
+								<span>
+									Fri
+								</span>
+							</div>
+							<div class="is-unselectable column is-marginless is-paddingless tooltip"
+								data-tooltip="Saturday"
+								ng-click="selectedItem.schedule.temp.repeatWeekDays = AddParam(selectedItem.schedule.temp.repeatWeekDays, 6)">
+								<i class="mdi mdi-checkbox-marked-circle"
+									ng-class="DoesParamExist(selectedItem.schedule.temp.repeatWeekDays, '6|') ? 'has-text-success': 'has-text-grey'"></i>
+								<span class="has-text-danger">
+									Sat
+								</span>
+							</div>
+							<div class="is-unselectable column is-marginless is-paddingless tooltip"
+								data-tooltip="Sunday"
+								ng-click="selectedItem.schedule.temp.repeatWeekDays = AddParam(selectedItem.schedule.temp.repeatWeekDays, 7)">
+								<i class="mdi mdi-checkbox-marked-circle"
+									ng-class="DoesParamExist(selectedItem.schedule.temp.repeatWeekDays, '7|') ? 'has-text-success': 'has-text-grey'"></i>
+								<span class="has-text-danger">
+									Sun
+								</span>
+							</div>
+
+							<div class="is-unselectable column is-marginless is-paddingless is-12 margin-top-5"
+								ng-click="CheckOtherVersions(selectedItem)">
+								<i class="mdi mdi-checkbox-marked-circle"
+									ng-class="selectedItem.schedule.temp.type == 1 ? 'has-text-success': 'has-text-grey'"></i>
+								<span class="tooltip" data-tooltip="Auto upgrade within the schedule">
+									Auto upgrade
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="modal-card-foot">
+			<button class="button is-success"
+				ng-disabled="selectedItem.controlledByAutoUpdate || !(selectedItem.command.name !== 'install' && selectedItem.schedule.temp.type != 1) || selectedItem.temp.oldVersion && !DoesParamExist(selectedItem.command.tempparameters, '-m')"
+				ng-click="CloseModal('ConfirmModal'); ChangePackage(selectedItem, 'install')">Install
+			</button>
+			<button class="button is-danger"
+				ng-disabled="selectedItem.controlledByAutoUpdate || selectedItem.command.name === 'uninstall' || selectedItem.schedule.temp.type == 1"
+				ng-click="CloseModal('ConfirmModal'); ChangePackage(selectedItem, 'uninstall')">Uninstall
+			</button>
+			<button class="button is-info"
+				ng-disabled="selectedItem.controlledByAutoUpdate || selectedItem.temp.oldVersion && !DoesParamExist(selectedItem.command.tempparameters, '-m')"
+				ng-click="CloseModal('ConfirmModal'); ChangePackage(selectedItem, 'upgrade')">Upgrade</button>
+			<button class="button is-warning" ng-if="selectedItem.command.name"
+			ng-disabled="selectedItem.controlledByAutoUpdate"
+				ng-click="CloseModal('ConfirmModal'); DeletePackage(selectedItem, true)">Delete
+			</button>
+			<button id="cancel" class="button" ng-click="CloseModal('ConfirmModal')">Cancel</button>
+		</footer>
+	</div>
+</div>
+
+
+
+
+<div class="modal" id="PackageModal">
+	<div class="modal-background" ng-click="CloseModal('PackageModal')"></div>
+	<div class="modal-card">
+		<header class="modal-card-head">
+			<p class="modal-card-title truncate has-text-info">
+				{{selectedPackageItem.chocoPackage.Title}}
+				<br>
+				<span class="subtitle is-size-6">
+					{{selectedPackageItem.chocoPackage.Id}} - {{!selectedPackageItem.version.version ?
+						selectedPackageItem.chocoPackage.Version :
+						selectedPackageItem.version.version}}
+				</span>
+			</p>
+			<button class="delete" aria-label="close" ng-click="CloseModal('PackageModal')"></button>
+		</header>
+		<section class="modal-card-body">
+
+			<div>
+				<p class="notification"
+					ng-if="selectedPackageItem.chocoPackage && selectedPackageItem.chocoPackage.IsApproved != null && !selectedPackageItem.chocoPackage.IsApproved">
+					<a class="has-text-danger" href="{{selectedPackageItem.chocoPackage.GalleryDetailsUrl}}">
+						This package is not approved.
+					</a>
+				</p>
+
+				<p class="notification"
+					ng-if="selectedPackageItem.chocoPackage && selectedPackageItem.chocoPackage.PackageValidationResultStatus != null && selectedPackageItem.chocoPackage.PackageValidationResultStatus != 'Passing' && selectedPackageItem.chocoPackage.PackageValidationResultStatus != 'Exempted'">
+					<a class="has-text-warning" href="{{selectedPackageItem.chocoPackage.GalleryDetailsUrl}}">
+						This package did not pass the validation process:
+						{{selectedItem.chocoPackage.PackageValidationResultStatus}}
+					</a>
+				</p>
+
+				<p class="notification"
+					ng-if="selectedPackageItem.chocoPackage && selectedPackageItem.chocoPackage.PackageTestResultStatus != null && selectedPackageItem.chocoPackage.PackageTestResultStatus != 'Passing' && selectedPackageItem.chocoPackage.PackageTestResultStatus != 'Exempted'">
+					<a class="has-text-warning"
+						href="{{selectedPackageItem.chocoPackage.PackageTestResultUrl != ''? selectedPackageItem.chocoPackage.PackageTestResultUrl : selectedPackageItem.chocoPackage.GalleryDetailsUrl}}">
+						The test for this package did not pass:
+						{{selectedPackageItem.chocoPackage.PackageTestResultStatus}}
+					</a>
+				</p>
+
+				<p class="notification" ng-if="selectedPackageItem.chocoPackage && selectedPackageItem.chocoPackage.PackageScanStatus != null && selectedPackageItem.chocoPackage.PackageScanStatus != 'NotFlagged' &&
+							selectedPackageItem.chocoPackage.PackageScanStatus != 'Exempted'">
+					<a class="has-text-warning" ng-href="{{selectedPackageItem.chocoPackage.GalleryDetailsUrl}}#virus">
+						This package is flagged by VirusTotal.
+					</a>
+				</p>
+			</div>
+
+
+			<div id="PackageModalDesc"></div>
+		</section>
+		<footer class="modal-card-foot">
+			<a href="" class="button is-primary"
+				ng-click="CloseModal('PackageModal'); ShowConfirm(selectedPackageItem)">Open actions</a>
+			<a href="" class="button" ng-click="CloseModal('PackageModal')">Close</a>
+		</footer>
+	</div>
+</div>
+
+<div class="modal" id="ComputersPackageStatsModal">
+	<div class="modal-background" ng-click="CloseModal('ComputersPackageStatsModal')"></div>
+	<div class="modal-card">
+		<header class="modal-card-head">
+			<p class="modal-card-title">
+				<span>Computer Stats</span>
+				<br>
+				<span class="subtitle is-size-6">{{computersPackageStats.item.chocoPackage.Title}} -
+					{{computersPackageStats.item.chocoPackage.Version}}</span>
+			</p>
+			<button class="delete" aria-label="close" ng-click="CloseModal('ComputersPackageStatsModal')"></button>
+		</header>
+		<section class="modal-card-body">
+
+			<div class="tabs">
+				<ul>					
+					<li ng-class="{'is-active' :  computersPackageStats.view === 2}"
+						ng-click="SetViewProp(computersPackageStats.item, 2)">
+						<a>Working &nbsp;
+							<div class="is-size-7">({{computersPackageStats.item.temp.totalWorking}})</div>
+						</a>
+					</li>
+					<li ng-class="{'is-active' :  computersPackageStats.view === 3}"
+						ng-click="SetViewProp(computersPackageStats.item, 3)">
+						<a>Installed &nbsp;
+							<span class="is-size-7 ">({{computersPackageStats.item.temp.totalInstalled}})</span>
+						</a>
+					</li>
+					<li ng-class="{'is-active' :  computersPackageStats.view === 4}"
+						ng-click="SetViewProp(computersPackageStats.item, 4)"><a>Uninstalled
+							&nbsp;
+							<span class="is-size-7 ">({{computersPackageStats.item.temp.totalUninstalled}})</span></a>
+					</li>
+					<li ng-class="{'is-active' :  computersPackageStats.view === 5}"
+						ng-click="SetViewProp(computersPackageStats.item, 5)"><a>Failed
+							&nbsp;
+							<span class="is-size-7 ">({{computersPackageStats.item.temp.totalFailed}})</span>
+						</a></li>
+					<li ng-class="{'is-active' :  computersPackageStats.view === 6}"
+					ng-click="SetViewProp(computersPackageStats.item, 6)">
+					<a>N/A &nbsp;<span class="is-size-7">({{computersPackageStats.item.temp.totalNoStatus}})</span></a>
+				</li>
+				</ul>
+			</div>
+
+			<div ng-if="computersPackageStats.item.temp[computersPackageStats.prop].length === 0">
+				<i class="text-small">No computers</i>
+			</div>
+
+			<div class="columns is-multiline"
+				ng-if="computersPackageStats.item.temp[computersPackageStats.prop].length !== 0">
+				<div class="column is-12">
+
+					<div class="columns is-multiline extrapadding">
+						<div class="is-unselectable truncate column is-6 is-marginless is-paddingless"
+							ng-repeat="computer in computersPackageStats.item.temp[computersPackageStats.prop] track by computer.uid">
+							<a ng-href="domains/{{domainUID}}/computers/{{computer.uid}}/packages"
+								ng-click="Goto($event)">
+								<span class="" ng-show="computer.friendlyName && computer.friendlyName != ''">
+									{{computer.friendlyName}}</span>
+								<span class="" ng-hide="computer.friendlyName && computer.friendlyName != ''">
+									{{computer.name}}</span>
+								<span ng-if="computer.online" class="dot has-background-success"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="modal-card-foot">
+			<a href="" class="button" ng-click="CloseModal('ComputersPackageStatsModal')">Close</a>
+		</footer>
+	</div>
+</div>

@@ -1,0 +1,209 @@
+<div class="columns">
+    <div id="slider-menu" class="slider-menu hide">
+        <aside class="menu section">
+            <p class="menu-label">
+                Computer
+            </p>
+            <ul class="menu-list">
+                <li>
+                    <a ng-click="Download()">
+                        <span class="icon">
+                            <i class="mdi mdi-file-document"></i>
+                        </span>
+                        <span>
+                            Download CSV
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <p class="menu-label">
+                Other
+            </p>
+            <ul class="menu-list">
+                <li>
+                    <a ng-click="OpenModal('feedbackModal')">
+                        <span class="icon">
+                            <i class="mdi mdi-comment-text-outline"></i>
+                        </span>
+                        <span>
+                            Send feedback
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+    <div class="column">
+        <div class="container">
+
+            <section class="section smaller">
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="/domains" ng-click="Goto($event)">Start</a></li>
+                        <li>
+                            <a ng-href="/domains/{{domain.uid}}/" ng-click="Goto($event)">
+                                <span class="icon">
+                                    <i class="mdi mdi-domain"></i>
+                                </span>
+                                <span>{{domain.friendlyName}}</span>
+                            </a>
+                        </li>
+                        <li class="is-active">
+                            <a href="#" aria-current="page">
+                                <span class="icon">
+                                    <i class="mdi mdi-format-list-checks"></i>
+                                </span>
+                                <span>Applications & licenses</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+
+
+            <section class="section">
+                <div class="level">
+                    <div class="level-left">
+                        <h1 class="title">Applications & Licenses</h1>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <form name="searchForm" ng-submit="searchVal = searchTemp; Filter(searchVal)">
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input" placeholder="Search" type="search" id="search" class="input"
+                                        ng-model="searchTemp" autocomplete="off"
+                                        ng-class="{'is-warning' : searchVal != searchTemp}">
+                                    <span class="icon is-small is-left">
+                                        <i class="mdi mdi-magnify"></i>
+                                    </span>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="loading" ng-show="!loadingDone"></div>
+                <p class="" ng-show="loadingDone && applications.length == 0">
+                    <i class="text-small">No applications</i>
+                </p>
+
+                <nav class="pagination margin-bottom" role="navigation" aria-label="pagination"
+                    ng-if="pageNumbers.length > 1">
+                    <ul class="pagination-list">
+                        <li ng-repeat="nr in pageNumbers">
+                            <a class="pagination-link" ng-class="{'is-current': currentPage == nr}"
+                                ng-click="ChangePage(nr)">{{nr}}</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <table class="table is-hoverable is-narrow is-fullwidth"
+                    ng-hide="!applications || applications.length == 0">
+                    <thead>
+                        <tr class="is-unselectable">
+                            <th ng-click="Reorder(['application.name'])">Name</th>
+                            <th ng-click="Reorder(['application.version'])">Version</th>
+                            <th ng-click="Reorder(['application.withLicense'])">Licenses</th>
+                            <th ng-click="Reorder(['application.installed'])">Installed</th>
+                            <th ng-click="Reorder(['application.notInstalled'])">Uninstalled</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in applications">
+                            <td>
+                                <a href="" class="" ng-click="GetApps(item)">
+                                    {{item.application.name}}
+                                </a>
+                            </td>
+                            <td>
+                                {{item.application.version}}
+                            </td>
+                            <td>
+                                {{item.application.withLicense}}
+                            </td>
+                            <td>
+                                {{item.application.installed}}
+                            </td>
+                            <td>
+                                {{item.application.notInstalled}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <nav class="pagination" role="navigation" aria-label="pagination" ng-if="pageNumbers.length > 1">
+                    <ul class="pagination-list">
+                        <li ng-repeat="nr in pageNumbers">
+                            <a class="pagination-link" ng-class="{'is-current': currentPage == nr}"
+                                ng-click="ChangePage(nr)">{{nr}}</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </section>
+
+        </div>
+    </div>
+</div>
+
+<div id="DetailsModal" class="modal">
+    <div class="modal-background" ng-click="CloseModal('DetailsModal')"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title truncate has-text-info">
+                <span class="">
+                    {{selectedItem.application.name}}
+                </span>
+                <br>
+                <span class="subtitle is-size-6">
+                    {{selectedItem.application.version}}
+                </span>
+            </p>
+            <button class="delete" aria-label="close" ng-click="CloseModal('DetailsModal')"></button>
+        </header>
+        <section class="modal-card-body">
+
+            <form name="searchFormDet" ng-submit="searchValDetails = searchDetTemp">
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <input class="input" placeholder="Search" type="search" id="searchDetails" class="input"
+                            ng-model="searchDetTemp" autocomplete="off"
+                            ng-class="{'is-warning' : searchValDetails != searchDetTemp}">
+                        <span class="icon is-small is-left">
+                            <i class="mdi mdi-magnify"></i>
+                        </span>
+                    </p>
+                </div>
+            </form>
+
+            <table class="table is-hoverable is-fullwidth">
+                <thead>
+                    <tr class="is-unselectable">
+                        <th>Name</th>
+                        <th>License</th>
+                        <th>Installed</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="item in selectedItem.items | filter:searchValDetails">
+                    <td>
+                        <a ng-href="domains/{{domain.uid}}/computers/{{item.computer.uid}}/packages"
+                            ng-click="Goto($event)">
+                            {{item.computer.friendlyName && item.computer.friendlyName != "" ? item.computer.friendlyName : item.computer.name }}
+                        </a>
+                    </td>
+                    </td>
+                    </td>
+                    <td>{{item.application.key}}</td>
+                    <td>{{item.application.installed ? 'Yes' : 'No'}}</td>
+                </tr>
+            </table>
+        </section>
+        <footer class="modal-card-foot">
+            <button href="" class="button" ng-click="CloseModal('DetailsModal')">Close</button>
+        </footer>
+    </div>
+</div>

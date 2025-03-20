@@ -1,0 +1,222 @@
+<div class="columns">
+
+    <div id="slider-menu" class="slider-menu hide">
+        <aside class="menu section">
+            <p class="menu-label">
+                Other
+            </p>
+            <ul class="menu-list">
+                <li>
+                    <a ng-click="OpenModal('feedbackModal'); FocusForm('feedbackForm', 'mail');">
+                        <span class="icon">
+                            <i class="mdi mdi-comment-text-outline"></i>
+                        </span>
+                        <span>
+                            Send feedback
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+
+    <div class="column">
+        <div class="container">
+
+            <section class="section smaller">
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="domains" ng-click="Goto($event)">Start</a></li>
+                        <li class="is-active">
+                            <a ng-href="repos/{{source.uid}}/">
+                                <span class="icon">
+                                    <i class="mdi mdi-database"></i>
+                                </span>
+                                <span>{{source.name}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+
+            <section class="section">
+
+                <h1 class="title">
+                    Packages
+                    <a ng-href="repos/{{source.uid}}/generate" ng-hide="source.external" class=""
+                        ng-click="Goto($event)"><span class="icon is-medium middle is-size-5 tooltip"
+                            data-tooltip="Add package">
+                            <i class="mdi mdi-plus-circle-outline"></i>
+                        </span>
+                    </a>
+
+                    <a ng-href="{{FormSource(source).url}}" class=""><span
+                            class="icon is-medium middle is-size-5 tooltip"
+                            data-tooltip="Pre-authenticated raw nuget repo">
+                            <i class="mdi mdi-link-variant"></i>
+                        </span>
+                    </a>
+                </h1>
+                <hr>
+
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <form name="searchForm" ng-submit="searchVal = searchTemp; Search(searchVal)">
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input" placeholder="Search" type="search" id="search" class="input"
+                                        ng-model="searchTemp" autocomplete="off"
+                                        ng-class="{'is-warning' : searchVal != searchTemp}">
+                                    <span class="icon is-small is-left">
+                                        <i class="mdi mdi-magnify"></i>
+                                    </span>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="loading" ng-show="!loadingDone"></div>
+                <p class="" ng-show="loadingDone && items.length == 0">
+                    <i class="text-small">No packages</i>
+                </p>
+
+
+                <table class="table is-hoverable is-narrow" ng-hide="!loadingDone || items.length === 0">
+                    <thead>
+                        <tr class="is-unselectable">
+                            <th>Icon</th>
+                            <th ng-click="Reorder(['chocoPackage.Title'])">Id</th>
+                            <th ng-click="Reorder(['chocoPackage.Title'])">Title</th>
+                            <th ng-click="Reorder(['command.name'])">Version</th>
+                            <th ng-click="Reorder(['command.name'])">Size</th>
+                            <th ng-click="Reorder(['command.status', 'command.name', 'command.execDone'])">Downloads
+                            </th>
+                            <th ng-click="Reorder(['command.status', 'command.name', 'command.execDone'])">Published
+                            </th>
+                            <th ng-click="Reorder(['command.status', 'command.name', 'command.execDone'])">Updated
+                            </th>
+                            <th ng-click="Reorder(['command.status', 'command.name', 'command.execDone'])">Download</th>
+                            <th ng-click="Reorder(['command.status', 'command.name', 'command.execDone'])">Move</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in items track by $index">
+                            <td>
+                                <figure class="image is-24x24">
+                                    <img src="{{ item.chocoPackage.IconUrl && item.chocoPackage.IconUrl != '' ? item.chocoPackage.IconUrl : '/box.png' }}"
+                                        alt="">
+                                </figure>
+                            </td>
+                            <td>
+                                {{item.chocoPackage.Id}}
+                            </td>
+                            <td>
+                                {{item.chocoPackage.Title}}
+                            </td>
+                            <td>
+                                <div name="version-dropdown" class="dropdown">
+                                    <div class="dropdown-trigger">
+                                        <a class="button is-small smaller"
+                                            ng-class="{'is-loading': item.otherVersions && item.otherVersions.isLoading && item.otherVersions.length == 0 }"
+                                            aria-haspopup="true" aria-controls="dropdown-menu"
+                                            ng-click="!item.otherVersions ? ShowVersionDd($event) && GetOtherVersions(item) : ShowVersionDd($event)">
+                                            <span ng-class="{'has-text-warning': !item.chocoPackage.IsLatestVersion}">
+                                                {{item.chocoPackage.Version}}
+                                            </span>
+                                            <span class="icon is-small">
+                                                <i class="mdi mdi-chevron-down" aria-hidden="true"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                        <div class="dropdown-content">
+                                            <a class="dropdown-item"
+                                                ng-repeat="otherVersionItem in item.otherVersions track by r+$index"
+                                                ng-click="item.chocoPackage = otherVersionItem.chocoPackage">
+                                                <span>
+                                                    {{otherVersionItem.chocoPackage.Version}}
+                                                </span>
+                                            </a>
+                                            <a class="dropdown-item has-text-centered has-text-link margin-top-5"
+                                                ng-click="GetOtherVersions(item)">More <span
+                                                    ng-class="{'spinner small margin': item.otherVersions.isLoading && item.otherVersions.length != 0 }"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                {{item.chocoPackage.PackageSize / 1000000 | number : 2 }} MB
+                            </td>
+                            <td>
+                                {{item.chocoPackage.DownloadCount}}
+                            </td>
+                            <td>
+                                {{GetDate(item.chocoPackage.Published) }}
+                            </td>
+                            <td>
+                                {{GetDate(item.chocoPackage.LastUpdated) }}
+                            </td>
+                            <td>
+                                <a class="button is-success is-small smaller darker"
+                                    ng-href="{{item.chocoPackage.__metadata.media_src}}">Download
+                                </a>
+                            </td>
+                            <td>
+                                <a ng-disabled="item.source.external && item.source.version !== 2"
+                                    ng-class="{'is-loading': item.moving}"
+                                    class="button is-success is-small smaller darker" ng-click="OpenMove(item)">Move
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </section>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="MoveModal">
+    <div class="modal-background" ng-click="CloseModal('MoveModal')"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">
+                <span>Move Package</span>
+                <br>
+                <span class="subtitle is-size-6">{{selected.chocoPackage.Id}} {{selected.chocoPackage.Version}}</span>
+            </p>
+            <button class="delete" aria-label="close" ng-click="CloseModal('MoveModal')"></button>
+        </header>
+        <section class="modal-card-body">
+
+            <p>Move package from <span class="is-italic	has-text-info">{{source.name}}</span> to the selected high
+                capability repo. </p>
+
+            <p>
+                This is a feature mainly for package testing, to be able to separate test repositories from production
+                repositories.
+            </p>
+
+            <p class="notification has-text-warning">
+                This can cause temporary synchronization conflicts for computers that are online and have this
+                package
+                installed/uninstalled. You can resolve this by restarting the DeploymentClient service.
+            </p>
+
+            <div class="select">
+                <select data-ng-options="newSource.name for newSource in internalSources" ng-model="selectedSource">
+                    <option value="">
+                        Select new source</option>
+                </select>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <a href="" ng-click="selectedSource && MovePackage(selected)" class="button is-primary"
+                ng-disabled="selected.moving || !selectedSource" ng-class="{'is-loading': selected.moving}">Move</a>
+            <a href="" class="button" ng-click="CloseModal('MoveModal')">Close</a>
+        </footer>
+    </div>
+</div>

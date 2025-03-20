@@ -1,0 +1,575 @@
+﻿<div class="columns">
+
+	<div id="slider-menu" class="slider-menu hide">
+
+		<aside class="menu section">
+			<p class="menu-label">
+				Other
+			</p>
+			<ul class="menu-list">
+				<li>
+					<a ng-click="OpenModal('feedbackModal'); FocusForm('feedbackForm', 'mail');">
+						<span class="icon">
+							<i class="mdi mdi-comment-text-outline"></i>
+						</span>
+						<span>
+							Send feedback
+						</span>
+					</a>
+				</li>
+			</ul>
+		</aside>
+
+	</div>
+
+	<div class="column">
+		<div class="container">
+			<section class="section smaller">
+
+				<nav class="breadcrumb" aria-label="breadcrumbs">
+					<ul>
+						<li class="is-active"><a ng-href="domains" ng-click="Goto($event)">Start</a></li>
+					</ul>
+				</nav>
+
+			</section>
+
+			        <div style="width:100%;text-align:center;">
+        <img src="https://atira.bc.ca/wp-content/uploads/2019/01/atira-logo.svg" alt="Atira">
+
+			<section class="section">
+
+				<div class="level">
+					<div class="level-left">
+						<h1 class="title">Domains <a href="" class=""
+								ng-click="OpenModal('AddDomainModal'); FocusForm('domainForm', 'name');">
+								<span class="icon is-medium middle is-size-5 tooltip" data-tooltip="Add domain">
+									<i class="mdi mdi-plus-circle-outline"></i>
+								</span>
+							</a>
+						</h1>
+
+					</div>
+
+					<div class="level-right">
+						<span class="icon tooltip" ng-click="settings.domain.view = 1; SaveSettings(settings)"
+							ng-class="[{'has-text-link' : settings.domain.view == 1}, {'has-text-grey' : settings.domain.view != 1}]"
+							data-tooltip="Simple view">
+							<i class="mdi mdi-view-week"></i>
+						</span>
+						<span class="icon tooltip" ng-click="settings.domain.view = 2; SaveSettings(settings)"
+							ng-class="[{'has-text-link' : settings.domain.view == 2}, {'has-text-grey' : settings.domain.view != 2}]"
+							data-tooltip="Details view">
+							<i class="mdi mdi-view-headline"></i>
+						</span>
+					</div>
+				</div>
+				<hr>
+
+				<div class="columns is-multiline">
+					<div class="column is-12">
+						<form name="searchForm" ng-submit="searchVal = searchTemp;">
+							<div class="field">
+								<p class="control has-icons-left">
+									<input class="input" placeholder="Search" type="search" id="search" class="input"
+										ng-model="searchTemp" autocomplete="off"
+										ng-class="{'is-warning' : searchVal != searchTemp}">
+									<span class="icon is-small is-left">
+										<i class="mdi mdi-magnify"></i>
+									</span>
+								</p>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<div class="margin-top margin-bottom is-unselectable"
+					ng-if="data.length !== 0 && loadingSettingsDone && !settings.domain.dismissedTips.rightClick"
+					ng-click="settings.domain.dismissedTips.rightClick = true; SaveSettings(settings)">
+					<div class="tag is-info">
+						<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
+							viewBox="0 0 172 172" style=" fill:#000000;">
+							<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+								stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+								font-family="none" font-weight="none" font-size="none" text-anchor="none"
+								style="mix-blend-mode: normal">
+								<path d="M0,172v-172h172v172z" fill="none"></path>
+								<g id="original-icon" fill="white">
+									<path
+										d="M134.01807,10.729c-1.99437,0.11641 -3.75969,1.32923 -4.58371,3.14914c-0.82403,1.81991 -0.57083,3.94667 0.65744,5.52225c6.07242,8.09655 9.65821,18.08936 9.65821,28.97461v10.75c-0.02741,1.93842 0.99102,3.74144 2.66532,4.71865c1.6743,0.97721 3.74507,0.97721 5.41937,0c1.6743,-0.97721 2.69273,-2.78023 2.66532,-4.71865v-10.75c0,-13.25925 -4.41271,-25.56396 -11.8208,-35.44141c-0.96439,-1.32327 -2.47932,-2.13484 -4.11524,-2.20459c-0.18185,-0.00925 -0.36405,-0.00925 -0.5459,0zM69.875,10.75c-20.71705,0 -37.625,16.90795 -37.625,37.625v64.5c0,20.71705 16.90795,37.625 37.625,37.625h21.5c20.71705,0 37.625,-16.90795 37.625,-37.625v-64.5c0,-20.71705 -16.90795,-37.625 -37.625,-37.625zM69.875,21.5h5.375v43h-32.25v-16.125c0,-14.90845 11.96655,-26.875 26.875,-26.875zM86,21.5h5.375c14.90845,0 26.875,11.96655 26.875,26.875v16.125h-32.25zM43,75.25h75.25v37.625c0,14.90845 -11.96655,26.875 -26.875,26.875h-21.5c-14.90845,0 -26.875,-11.96655 -26.875,-26.875z">
+									</path>
+								</g>
+							</g>
+						</svg> <span class="tips-text">Right-click on a domain to open context menu</span>
+						<button class="delete is-small"></button>
+					</div>
+				</div>
+
+				<div class="loading" ng-show="loadingDomains"></div>
+				<p class="is-italic" ng-show="!loadingDomains && data.length == 0">
+					No domains
+				</p>
+
+				<div class="table-container" ng-if="settings.domain.view == 2">
+
+					<table class="table is-fullwidth is-narrow" ng-hide="!loadingDomains && data.length == 0">
+						<thead>
+							<tr class="is-unselectable">
+								<th ng-click="Reorder(['friendlyName'])">Name</th>
+								<th ng-click="Reorder(['shared'])">Owner</th>
+								<th ng-click="Reorder(['permission'])">Permissions</th>
+								<th ng-click="Reorder(['sharedWithOthers'])">Shared</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr ng-repeat="domain in data | filter:searchVal">
+								<td>
+									<a class="truncate" right-click="domain" ng-hide="editMode && domain.selected"
+										permission="{{domain.permission}}" ng-href="domains/{{domain.uid}}"
+										ng-click="Goto($event)">
+										<span class="icon">
+											<i class="mdi mdi-domain"></i>
+										</span>
+										<span>{{domain.friendlyName}}</span>
+									</a>
+
+									<div ng-if="editMode && domain.selected">
+
+										<form name="editDomainForm"
+											ng-submit="editDomainForm.name.$valid && EditDomain(domain); SaveDomainName(domain);">
+											<div class="field">
+												<input class="input" id="name" name="name" placeholder="Name"
+													ng-model="domain.friendlyName" type="text"
+													ng-value="domain.friendlyName" required
+													ng-class="{'is-warning': !editDomainForm.name.$valid}">
+											</div>
+
+											<div class="right">
+												<button type="submit" class="button is-primary is-small"
+													ng-disabled="!editDomainForm.name.$valid">Save</button>
+												<button type="button" class="button is-small"
+													ng-click="EditDomain(domain, true);">Cancel</button>
+											</div>
+										</form>
+									</div>
+								</td>
+								<td>
+									{{domain.shared ? 'No' : 'Yes'}}
+								</td>
+								<td>
+									{{GetDomainPermissionName(domain.permission)}}
+								</td>
+								<td>
+									{{domain.sharedWithOthers ? 'Yes' : 'No'}}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="columns is-multiline" ng-if="settings.domain.view == 1">
+					<div class="truncate column is-4 is-marginless is-paddingless"
+						ng-repeat="domain in data | filter:searchVal">
+
+						<a class="truncate" right-click="domain" ng-hide="editMode && domain.selected"
+							permission="{{domain.permission}}" ng-href="domains/{{ domain.uid}}"
+							ng-click="Goto($event)">
+							<span class="icon">
+								<i class="mdi mdi-domain"></i>
+							</span>
+							<span>{{domain.friendlyName}}</span>
+							<span class="icon" ng-if="!domain.shared && domain.sharedWithOthers">
+								<i class="mdi mdi-account-multiple-plus"></i>
+							</span>
+							<span class="icon" ng-if="domain.shared">
+								<i class="mdi mdi-share-variant"></i>
+
+							</span>
+						</a>
+
+						<div ng-if="editMode && domain.selected">
+
+							<form ng name="editDomainForm"
+								ng-submit="editDomainForm.name.$valid && EditDomain(domain); SaveDomainName(domain);">
+								<div class="field">
+									<input class="input" id="name" name="name" placeholder="Name"
+										ng-model="domain.friendlyName" type="text" ng-value="domain.friendlyName"
+										required ng-class="{'is-warning': !editDomainForm.name.$valid}">
+								</div>
+
+								<div class="right">
+									<button type="submit" class="button is-primary is-small"
+										ng-disabled="!editDomainForm.name.$valid">Save</button>
+									<button type="button" class="button is-small"
+										ng-click="EditDomain(domain, true);">Cancel</button>
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+
+
+
+
+			</section>
+
+
+
+			<section class="section smaller">
+
+				<h1 class="title">
+					Repositories
+					<a href="" class=""
+						ng-click="OpenModal('AddMdcRepoModal'); FocusForm('newSourceForm', 'name');"><span
+							class="icon is-medium middle is-size-5 tooltip" data-tooltip="Add repository">
+							<i class="mdi mdi-plus-circle-outline"></i>
+						</span>
+					</a>
+
+					<a href="" class="" ng-click="OpenModal('AddRepoModal'); FocusForm('sourceForm', 'name');"><span
+							class="icon is-medium middle is-size-5 tooltip" data-tooltip="Add existing repository">
+							<i class="mdi mdi-database-import"></i>
+						</span>
+					</a>
+				</h1>
+				<hr>
+
+				<div class="margin-top margin-bottom is-unselectable"
+					ng-if="packageSources.length !== 0 && loadingSettingsDone && !settings.repos.dismissedTips.rightClick"
+					ng-click="settings.repos.dismissedTips.rightClick = true; SaveSettings(settings)">
+					<div class="tag is-info">
+						<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
+							viewBox="0 0 172 172" style=" fill:#000000;">
+							<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+								stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+								font-family="none" font-weight="none" font-size="none" text-anchor="none"
+								style="mix-blend-mode: normal">
+								<path d="M0,172v-172h172v172z" fill="none"></path>
+								<g id="original-icon" fill="white">
+									<path
+										d="M134.01807,10.729c-1.99437,0.11641 -3.75969,1.32923 -4.58371,3.14914c-0.82403,1.81991 -0.57083,3.94667 0.65744,5.52225c6.07242,8.09655 9.65821,18.08936 9.65821,28.97461v10.75c-0.02741,1.93842 0.99102,3.74144 2.66532,4.71865c1.6743,0.97721 3.74507,0.97721 5.41937,0c1.6743,-0.97721 2.69273,-2.78023 2.66532,-4.71865v-10.75c0,-13.25925 -4.41271,-25.56396 -11.8208,-35.44141c-0.96439,-1.32327 -2.47932,-2.13484 -4.11524,-2.20459c-0.18185,-0.00925 -0.36405,-0.00925 -0.5459,0zM69.875,10.75c-20.71705,0 -37.625,16.90795 -37.625,37.625v64.5c0,20.71705 16.90795,37.625 37.625,37.625h21.5c20.71705,0 37.625,-16.90795 37.625,-37.625v-64.5c0,-20.71705 -16.90795,-37.625 -37.625,-37.625zM69.875,21.5h5.375v43h-32.25v-16.125c0,-14.90845 11.96655,-26.875 26.875,-26.875zM86,21.5h5.375c14.90845,0 26.875,11.96655 26.875,26.875v16.125h-32.25zM43,75.25h75.25v37.625c0,14.90845 -11.96655,26.875 -26.875,26.875h-21.5c-14.90845,0 -26.875,-11.96655 -26.875,-26.875z">
+									</path>
+								</g>
+							</g>
+						</svg> <span class="tips-text">Right-click on a repo to open context menu</span>
+						<button class="delete is-small"></button>
+					</div>
+				</div>
+
+				<div class="loading" ng-show="loadingRepositories"></div>
+				<p class="is-italic" ng-show="!loadingRepositories && packageSources.length == 0">
+					No repositories
+				</p>
+
+				<div class="columns is-multiline" ng-hide="!loadingDomains && packageSources.length == 0">
+					<div class="column is-4 is-marginless is-paddingless"
+						ng-repeat="source in packageSources | filter:search">
+						<a class="" right-click="source" permission="{{source.permission}}"
+							ng-hide="editMode && source.selected" manageable="{{!source.external}}"
+							ng-href="repos/{{source.uid}}" ng-click="Goto($event)">
+							<span class="icon">
+								<i class="mdi mdi-database"></i>
+							</span>
+							
+							<span class="truncate is-inline">{{ source.name }}</span><span class="is-size-6 tooltip"
+								ng-if="!source.external && source.version >= 2" data-tooltip="High capability repo">
+
+								<i class="mdi mdi-alpha-h-circle"></i>
+
+							</span>
+							<span class="icon" ng-if="source.shared">
+								<i class="mdi mdi-share-variant"></i>
+							</span>
+						</a>
+
+						<div ng-if="editMode && source.selected">
+							<form ng name="editSourceForm"
+								ng-submit="editSourceForm.name.$valid && EditSource(source); SaveSourceName(source);">
+								<div class="field">
+									<input class="input" id="name" name="name" placeholder="Name" ng-model="source.name"
+										type="text" ng-value="source.name" required
+										ng-class="{'is-warning': !editSourceForm.name.$valid}">
+								</div>
+
+								<div class="right">
+									<button type="submit" class="button is-primary is-small"
+										ng-disabled="!editSourceForm.name.$valid">Save</button>
+									<button type="button" class="button is-small"
+										ng-click="EditSource(source, true);">Cancel</button>
+								</div>
+							</form>
+						</div>
+
+					</div>
+
+
+				</div>
+			</section>
+
+
+		</div>
+	</div>
+</div>
+
+
+<div class="modal" id="AddRepoModal">
+	<div class="modal-background" ng-click="CloseModal('AddRepoModal')"></div>
+	<div class="modal-card">
+		<form name="sourceForm" ng-submit="sourceForm.$valid && AddPackageSource()">
+			<header class="modal-card-head">
+				<p class="modal-card-title">Add Existing Repository</p>
+				<button type="button" class="delete" aria-label="close" ng-click="CloseModal('AddRepoModal')"></button>
+			</header>
+
+			<section class="modal-card-body">
+
+				<p>The nuget repository should be verison 2 and pre authenticated (url auth). Don't include /Packages in
+					the URL
+					field.</p>
+
+
+				<div class="field">
+					<div class="control">
+						<input id="name"
+							class="input {{ source.name === null || sourceForm.name.$valid ? '' : 'invalid'}}"
+							name="name" ng-model="source.name" type="text" ng-init="source.name = null"
+							placeholder="Name" required>
+					</div>
+				</div>
+
+				<div class="field">
+					<div class="control">
+						<input id="url" name="url" ng-model="source.url" type="url"
+							class="input {{source.url ===null || sourceForm.url.$valid? '':'is-warning'}}"
+							ng-init="source.url = null" placeholder="Url" required>
+					</div>
+				</div>
+
+				<div class="field">
+					<div class="control">
+						<input id="description" name="description" placeholder="Description (optional)"
+							ng-model="source.description" type="text"
+							class="input {{sourceForm.description.$valid? '':'is-warning'}}"
+							ng-init="source.description = ''">
+					</div>
+				</div>
+
+			</section>
+
+			<footer class="modal-card-foot">
+				<button type="submit" class="button is-primary" ng-disabled="!sourceForm.$valid">Add</button>
+				<button type="button" class="button" ng-click="CloseModal('AddRepoModal')">Cancel</button>
+			</footer>
+		</form>
+	</div>
+</div>
+
+
+<div class="modal" id="AddMdcRepoModal">
+	<div class="modal-background" ng-click="CloseModal('AddMdcRepoModal')"></div>
+	<div class="modal-card">
+		<form name="newSourceForm" ng-submit="newSourceForm.$valid && CreatePackageSource()">
+			<header class="modal-card-head">
+				<p class="modal-card-title">Create New Repository</p>
+				<button type="button" class="delete" aria-label="close"
+					ng-click="CloseModal('AddMdcRepoModal')"></button>
+			</header>
+
+			<section class="modal-card-body">
+				<!-- <p>This lets you create a new repository to add packages to</p> -->
+				<div class="field">
+					<div class="control">
+						<input id="name" class="input {{ repo.name === null || repo.name.$valid ? '' : 'invalid'}}"
+							name="name" ng-model="repo.name" type="text" ng-init="repo.name = null" placeholder="Name"
+							required>
+					</div>
+				</div>
+			</section>
+
+			<footer class="modal-card-foot">
+				<button type="submit" class="button is-primary" ng-disabled="!newSourceForm.$valid">Add</button>
+				<button type="button" class="button" ng-click="CloseModal('AddMdcRepoModal')">Cancel</button>
+			</footer>
+		</form>
+	</div>
+</div>
+
+
+
+<div class="modal" id="AddDomainModal">
+	<div class="modal-background" ng-click="CloseModal('AddDomainModal')"></div>
+	<div class="modal-card">
+		<form name="domainForm" id="domainForm" ng-submit="domainForm.$valid && AddDomain()">
+			<header class="modal-card-head">
+				<p class="modal-card-title">Add Domain</p>
+				<button class="delete" type="button" aria-label="close"
+					ng-click="CloseModal('AddDomainModal')"></button>
+			</header>
+			<section class="modal-card-body">
+
+				<div class="field">
+					<div class="control">
+						<input id="name" name="name" placeholder="Name of domain" ng-model="domain.name" type="text"
+							ng-init="domain.name = null"
+							class="input {{ domain.name === null || domainForm.name.$valid ? '' : 'is-warning'}}"
+							required>
+					</div>
+				</div>
+
+				<!-- <div class="field">
+					<div class="control">
+						<input id="description" name="description" class="input" placeholder="Description (optional)"
+							ng-model="domain.description" type="text" ng-init="domain.description = ''">
+					</div>
+				</div> -->
+			</section>
+			<footer class="modal-card-foot">
+				<button type="submit" class="button is-primary" ng-class="{'is-loading': addingDomain}"
+					ng-disabled="!domainForm.$valid">Add
+				</button>
+				<button type="button" href="" class="button" ng-click="CloseModal('AddDomainModal')">Cancel</button>
+			</footer>
+		</form>
+	</div>
+
+</div>
+
+<div class="modal">
+
+</div>
+
+<div id="DeletePackageSourceModal" class="modal">
+	<div class="modal-background" ng-click="CloseModal('DeletePackageSourceModal')"></div>
+	<div class="modal-card">
+		<header class="modal-card-head">
+			<p class="modal-card-title">Delete Package Repository - <span
+					class="has-text-info">{{packageSourceToDelete.name}}</span></p>
+			<button class="delete" aria-label="close" ng-click="CloseModal('DeletePackageSourceModal')"></button>
+		</header>
+
+		<section class="modal-card-body">
+			<div class="content">
+				<p>
+					This action will delete <span class="has-text-info">{{packageSourceToDelete.name}}</span> from this
+					website.
+				</p>
+
+				<p>
+					This means that you won't be able to control the packages that exists in this repository any more.
+					However, when a package exist in any repository, that package will still be controllable, even if
+					added later.
+				</p>
+
+				<p>
+					Including:
+				</p>
+				<ul>
+					<li ng-show="!packageSourceToDelete.external"> <span class="has-text-warning">API keys</span>
+					</li>
+					<li ng-show="!packageSourceToDelete.external"> <span class="has-text-warning">Shared API
+							keys</span></li>
+					<li ng-show="!packageSourceToDelete.external"> <span class="has-text-warning">Not be able to
+							add
+							this repository
+							again</span></li>
+					<li>Package history related to this repository</li>
+				</ul>
+
+				<p>
+					<span class="has-text-weight-bold">Not</span> including:
+				</p>
+				<ul>
+					<li>Changes on the computer - current packages remains</li>
+					<li>Changes in your repository - this action does not modify the actual repository</li>
+				</ul>
+
+				<p class="has-text-weight-bold">
+					Are you sure you want to proceed?
+				</p>
+			</div>
+
+		</section>
+
+		<footer class="modal-card-foot">
+			<a href="" class="button is-primary" ng-disabled="domain.permission && domain.permission < 128"
+				ng-click="DeletePackageSource()">Delete</a>
+			<a href="" class="button" ng-click="CloseModal('DeletePackageSourceModal')">Cancel</a>
+		</footer>
+	</div>
+</div>
+
+<div id="DeleteDomainModal" class="modal">
+	<div class="modal-background" ng-click="CloseModal('DeleteDomainModal')"></div>
+	<div class="modal-card">
+
+		<header class="modal-card-head">
+			<p class="modal-card-title">Delete Domain - <span
+					class="has-text-info">{{domainToDelete.friendlyName}}</span></p>
+			<button class="delete" aria-label="close" ng-click="CloseModal('DeleteDomainModal')"></button>
+		</header>
+
+		<section class="modal-card-body">
+			<div class="content">
+				<p>
+					This action will delete <span class="has-text-info">{{domainToDelete.friendlyName}}</span>, and
+					everything
+					related to it.
+				</p>
+
+				<p>
+					Including:
+					<ul class="has-text-warning">
+						<li>Computers</li>
+						<li>Groups</li>
+						<li>Pairing keys (computers will not be able to connect)</li>
+						<li>Package history</li>
+						<li>Application history</li>
+						<li>License information</li>
+					</ul>
+				</p>
+
+				<p>
+					Will <span class="has-text-weight-bold">not</span> include:
+					<ul>
+						<li>Changes on the computer - current packages remains</li>
+						<li>Changes in your repository - it will just not be used in Deployify</li>
+						<li>Repositories - will not be deleted</li>
+					</ul>
+				</p>
+
+				<p class="has-text-weight-bold">
+					Are you sure you want to proceed?
+				</p>
+			</div>
+		</section>
+
+		<footer class="modal-card-foot">
+			<a href="" class="button is-primary" ng-click="DeleteDomain()">Delete</a>
+			<a href="" class="button" ng-click="CloseModal('DeleteDomainModal')">Cancel</a>
+		</footer>
+	</div>
+</div>
+
+<div id="WelcomeModal" class="modal">
+	<div class="modal-background" ng-click="CloseModal('WelcomeModal')"></div>
+	<div class="modal-card">
+		<header class="modal-card-head">
+			<p class="modal-card-title">Welcome!</p>
+			<button class="delete" aria-label="close" ng-click="CloseModal('WelcomeModal')"></button>
+		</header>
+
+		<section class="modal-card-body">
+			<p>It seems like you don't have any domains, would you like to add one now?</p>
+			<a href="" class="button is-primary"
+				ng-click="CloseModal('WelcomeModal'); OpenModal('AddDomainModal'); FocusForm('domainForm', 'name');">Yes
+				please!</a>
+
+		</section>
+
+		<footer class="modal-card-foot">
+			<a href="" class="button" ng-click="CloseModal('WelcomeModal')">Close</a>
+		</footer>
+	</div>
+</div>

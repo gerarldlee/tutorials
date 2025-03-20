@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html ng-app="Deployify">
+
+<head>
+
+    <title>My Deployify Cloud</title>
+    <base href="/">
+    <meta charset="utf-8" name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="SHORTCUT ICON" href="/favicon.ico" alt="favicon" />
+
+    <link rel="stylesheet" href="/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/css/darkly.0.7.5.min.css">    
+    <link rel="stylesheet" href="/css/bulma-calendar.min.css">
+    <link rel="stylesheet" href="/css/bulma-tooltip.min.css">
+    <link rel="stylesheet" href="/css/flatpickr.4.6.2.min.css">
+
+
+
+    <link href="/css/custom.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="/js/flatpickr.4.6.2.min.js"></script>    
+    <script type="text/javascript" src="/js/angular-1.7.5/angular.min.js" defer></script>
+    <script type="text/javascript" src="/js/angular-1.7.5/angular-resource.min.js" defer></script>
+    <script type="text/javascript" src="/js/angular-1.7.5/angular-route.min.js" defer></script>
+    <script type="text/javascript" src="/js/angular-1.7.5/angular-touch.min.js" defer></script>
+    <script type="text/javascript" src="/js/socket.io.1.7.4.min.js" defer></script>
+    <script type="text/javascript" src="/js/jquery.3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/bulma-calendar.min.js"></script>
+    <script type="text/javascript" src="/js/jwt-decode.min.js" defer></script>
+    <script type="text/javascript" src="/js/fp.min.js" defer></script>
+    <script type="text/javascript" src="/js/app.js" defer></script>
+    <script type="text/javascript" src="/controllers/logout.js" defer></script>
+    <script type="text/javascript" src="/controllers/profile.js" defer></script>
+    <script type="text/javascript" src="/controllers/computers.js" defer></script>
+    <script type="text/javascript" src="/controllers/computerpackages.js" defer></script>
+    <script type="text/javascript" src="/controllers/shareddomains.js" defer></script>
+    <script type="text/javascript" src="/controllers/computerapplications.js" defer></script>
+    <script type="text/javascript" src="/controllers/computersapplications.js" defer></script>
+    <script type="text/javascript" src="/controllers/grouppackages.js" defer></script>
+    <script type="text/javascript" src="/controllers/domains.js" defer></script>
+    <script type="text/javascript" src="/controllers/nav.js" defer></script>
+    <script type="text/javascript" src="/controllers/signup.js" defer></script>
+    <script type="text/javascript" src="/controllers/passwordreset.js" defer></script>
+    <script type="text/javascript" src="/controllers/unseal.js" defer></script>
+    <script type="text/javascript" src="/controllers/unavailable.js" defer></script>
+    <script type="text/javascript" src="/controllers/sourcepackages.js" defer></script>
+    <script type="text/javascript" src="/controllers/package.js" defer></script>
+    <script type="text/javascript" src="/controllers/computerpowershell.js" defer></script>
+
+    <script type="text/javascript" src="/js/ng-file-upload-shim.12.2.13.min.js" defer></script>
+    <script type="text/javascript" src="/js/ng-file-upload.12.2.13.min.js" defer></script>
+
+    
+</head>
+
+
+<body ng-cloak>
+
+    <div id="LoadingDiv" class="container-centered loading-container">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-controller="NavController">
+
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item is-size-4" href="/domains" ng-click="Goto($event)">
+                    <img src="/favicon.ico" style="margin-right: 5px"> Deployify
+                </a>
+                <a role="button" class="navbar-burger burger" aria-label="menu" ng-if="user.isAuth"
+                    aria-expanded="false" ng-click="ShowMenu($event)">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div class="navbar-end">
+
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-link" ng-show="user.isAuth" href="/profile" ng-click="Goto($event)">
+                            <span class="icon">
+                                <i class="mdi mdi-account-outline"></i>
+                            </span>
+                            <span> {{user.firstName}}</span>
+                        </a>
+
+                        <a class="button is-light" ng-show="user.isAuth" href="/logout" ng-click="Goto($event)">
+                            <span class="icon">
+                                <i class="mdi mdi-logout-variant"></i>
+                            </span>
+                            <span> Sign out</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+    <div ng-controller="FeedbackController">
+        <div id="feedbackModal" class="modal">
+            <div class="modal-background" ng-click="CloseModal('feedbackModal')"></div>
+            <div class="modal-card">
+                <form name="feedbackForm" ng-submit="feedbackForm.$valid && SendFeedback(mail, text)">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">Send Feedback</p>
+                        <button type="button" class="delete" aria-label="close"
+                            ng-click="CloseModal('feedbackModal')"></button>
+                    </header>
+
+                    <section class="modal-card-body">
+
+                        <p>This feedback will be sent to the Deployify team.</p>
+                        <p>Thank you for letting us know how to make Deployify better!</p>
+
+                        <div class="field">
+                            <div class="control">
+                                <input id="mail" name="mail" placeholder="Your email" type="email"
+                                    class="input  {{ mail === null || feedbackForm.mail.$valid? '' : 'is-warning'}}"
+                                    ng-model="user.mail" autofocus required>
+                            </div>
+                        </div>
+
+                        <div class="field ">
+                            <div class="control">
+                                <textarea id="text" name="text" placeholder="Message (> 30 chars)" ng-minlength="30"
+                                    rows="1" ng-model="text" ng-init="text = null"
+                                    class="textarea {{ text === null || feedbackForm.text.$valid? '' : 'is-warning'}}"
+                                    required></textarea>
+
+                            </div>
+                        </div>
+                    </section>
+                    <footer class="modal-card-foot">
+
+                        <button type="submit" class="button is-primary" ng-disabled="!feedbackForm.$valid"
+                            ng-minlength="30">
+                            Send
+                        </button>
+
+                        <button type="button" href="" class="button"
+                            ng-click="CloseModal('feedbackModal')">Cancel</button>
+                    </footer>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div ng-view></div>
+
+
+    <span id="statusPanel"></span>
+
+    <div ng-controller="NavController">
+        <div class="is-centered">
+            <div id="notification" ng-click="CloseNotification('close')">
+                <div id="notification-content"></div>
+
+                <button id="notification-content-close" style="display:none" class="delete"
+                    ng-click="CloseNotification('close')"></button>
+                <div id="notification-content-right" class="notification-content-right is-size-7 is-italic">10</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="context-menu-content">
+    </div>
+
+
+    <script type="text/javascript" src="/js/showdown.min.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
+
+
+</body>
+
+</html>

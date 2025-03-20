@@ -1,0 +1,363 @@
+﻿<div class="columns">
+
+    <div id="slider-menu" class="slider-menu hide">
+        <aside class="menu section">
+            <p class="menu-label">
+                Other
+            </p>
+            <ul class="menu-list">
+                <li>
+                    <a ng-click="OpenModal('feedbackModal')">
+                        <span class="icon">
+                            <i class="mdi mdi-comment-text-outline"></i>
+                        </span>
+                        <span>
+                            Send feedback
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+        </aside>
+
+    </div>
+
+    <div class="column">
+
+        <div class="container">
+            <section class="section smaller">
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="domains" ng-click="Goto($event)">Start</a></li>
+                        <li>
+                            <a ng-href="repos/{{source.uid}}/" ng-click="Goto($event)">
+                                <span class="icon">
+                                    <i class="mdi mdi-database"></i>
+                                </span>
+                                <span>{{source.name}}</span>
+                            </a>
+                        </li>
+                        <li class="is-active">
+                            <a href="" aria-current="page">Generate</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+
+            <section class="section">
+
+                <div class="loading" ng-show="!ready"></div>
+
+                <div ng-show="ready">
+                    <form name="packageForm">
+                        <h1 class="title">Generate Nuget Package</h1>
+                        <hr>
+
+                        <div class="tabs">
+                            <ul>
+                                <li ng-class="{'is-active': tab === 1}"><a ng-click="tab = 1">Choose file</a></li>
+                                <li ng-class="{'is-active': tab === 2}" ng-show="file && ext != 'nupkg'"><a
+                                        ng-click="tab = 2">Package values</a></li>
+                                <li ng-class="{'is-active': tab === 3}"
+                                    ng-show="file && ext === 'nupkg' || file && ext !== 'nupkg' && packageForm.$valid">
+                                    <a ng-click="tab = 3">Upload</a></li>
+                            </ul>
+                        </div>
+
+
+                        <div ng-show="tab === 1">
+
+                            <p>
+
+
+                            </p>
+
+                            <div class="content">
+                                <ul>
+                                    <li>EXE or MSI - generates Nuget package, and uploads it into your repository
+                                        (optional).</li>
+                                    <li>Nuget package - adds package to you repository</li>
+                                </ul>
+                            </div>
+
+                            <div class="columns is-multiline">
+                                <div class="column is-12">
+                                    <div class="file is-primary has-name">
+                                        <label class="file-label">
+                                            <input class="file-input" id="fileInput" type="file" ngf-select
+                                                ng-model="file" name="file" accept=".msi, .exe, .nupkg"
+                                                ngf-max-size="4000MB" required ngf-model-invalid="errorFile">
+                                            <span class="file-cta">
+                                                <span class="file-label">
+                                                    <span ng-if="!file">Choose file</span>
+                                                    <span ng-if="file">Change file</span>
+                                                </span>
+                                            </span>
+                                            <span class="file-name">
+                                                {{file.name}}
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="column is-12" ng-show="file">
+                                    <button class="button is-link is-pulled-right"
+                                        ng-click="ext === 'nupkg' ? tab = 3 : tab = 2">Next</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div ng-show="tab === 2">
+
+
+                            <div class="content">
+                                <ul>
+                                    <li>
+                                        <span class="has-text-weight-bold">
+                                            Id</span> - required. <a
+                                            href="https://chocolatey.org/docs/create-packages#naming-your-package">Read
+                                            the official
+                                            guidlines here.</a>
+                                    </li>
+                                    <li>
+                                        <span class="has-text-weight-bold">
+                                            Title</span> - required. Should be the same as the title on your computer
+                                        when this
+                                        program is installed.</li>
+                                    <li>
+                                        <span class="has-text-weight-bold">
+                                            Version</span> - required.
+                                    </li>
+                                    <li>
+                                        <span class="has-text-weight-bold">
+                                            Install arguments</span>
+                                        - "/S" by default.
+                                    </li>
+                                    <li>
+                                        <span class="has-text-weight-bold">
+                                            Authors</span> - required.
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                            <div class="columns is-multiline" ng-show="!ext || ext && ext !== 'nupkg'">
+                                <div class="column">
+                                    <div class="card">
+                                        <header class="card-header">
+                                            <h1 class="card-header-title">
+                                                Nuget Package Values
+                                            </h1>
+                                        </header>
+                                        <div class="card-content">
+
+
+
+                                            <div class="field">
+                                                <p class="control has-icons-right">
+                                                    <input id="packageId" name="packageId" type="text"
+                                                        placeholder="Id (lower case and '-' only)"
+                                                        class="input {{ packageId === null || packageForm.packageId.$valid ? '' : 'is-warning'}}"
+                                                        ng-model="packageId" ng-init="packageId = null" ng-minlength="2"
+                                                        ng-pattern="/^[a-z-]*$/" required>
+                                                    <span class="icon is-small is-right"
+                                                        ng-if="packageId !== null && !packageForm.packageId.$valid">
+                                                        <i class="mdi mdi-alert"></i>
+                                                    </span>
+                                                </p>
+                                            </div>
+
+                                            <div class="field">
+                                                <p class="control has-icons-right">
+                                                    <input id="title" name="title" type="text" placeholder="Title"
+                                                        class="input {{ title === null || packageForm.title.$valid ? '' : 'is-warning'}}"
+                                                        ng-model="title" ng-init="title = null" ng-minlength="2">
+                                                    <span class="icon is-small is-right"
+                                                        ng-if="title !== null && !packageForm.title.$valid">
+                                                        <i class="mdi mdi-alert"></i>
+                                                    </span>
+                                                </p>
+                                            </div>
+
+                                            <div class="field">
+                                                <p class="control has-icons-right">
+                                                    <input id="version" name="version" type="text" placeholder="Version"
+                                                        class="input {{ version === null || packageForm.version.$valid ? '' : 'is-warning'}}"
+                                                        ng-model="version" ng-init="version = null"
+                                                        ng-pattern="/^(\*|\d+(\.\d+){0,3}(\.\*)?)$/">
+                                                    <span class="icon is-small is-right"
+                                                        ng-if="version !== null && !packageForm.version.$valid">
+                                                        <i class="mdi mdi-alert"></i>
+                                                    </span>
+                                                </p>
+                                            </div>
+
+                                            <div class="field" ng-show="ext === 'exe'">
+                                                <p class="control has-icons-right">
+                                                    <input id="installArgs" name="installArgs" type="text"
+                                                        placeholder="Install arguments (/S if empty)"
+                                                        class="input {{ installArgs === null || packageForm.installArgs.$valid ? '' : 'is-warning'}}"
+                                                        ng-model="installArgs" ng-init="installArgs = null">
+                                                    <span class="icon is-small is-right"
+                                                        ng-if="installArgs !== null && !packageForm.installArgs.$valid">
+                                                        <i class="mdi mdi-alert"></i>
+                                                    </span>
+                                                </p>
+                                            </div>
+
+                                            <div class="field">
+                                                <p class="control has-icons-right">
+                                                    <input id="description" name="description" type="text"
+                                                        placeholder="Description"
+                                                        class="input {{ description === null || packageForm.description.$valid ? '' : 'is-warning'}}"
+                                                        ng-model="description" ng-init="description = null">
+                                                    <span class="icon is-small is-right"
+                                                        ng-if="description !== null && !packageForm.description.$valid">
+                                                        <i class="mdi mdi-alert"></i>
+                                                    </span>
+                                                </p>
+                                            </div>
+
+                                            <div class="field">
+                                                <p class="control has-icons-right">
+                                                    <input id="authors" name="authors" type="text" placeholder="Authors"
+                                                        class="input {{ authors === null || packageForm.authors.$valid ? '' : 'is-warning'}}"
+                                                        ng-model="authors" ng-init="authors = null" ng-minlength="2">
+                                                    <span class="icon is-small is-right"
+                                                        ng-if="authors !== null && !packageForm.authors.$valid">
+                                                        <i class="mdi mdi-alert"></i>
+                                                    </span>
+                                                </p>
+                                            </div>
+
+                                            <div class="field">
+                                                <p class="control has-icons-right">
+                                                    <input id="iconUrl" name="iconUrl" type="text"
+                                                        placeholder="Icon url"
+                                                        class="input {{ iconUrl === null || packageForm.iconUrl.$valid ? '' : 'is-warning'}}"
+                                                        ng-model="iconUrl" ng-init="iconUrl = null">
+                                                    <span class="icon is-small is-right"
+                                                        ng-if="iconUrl !== null && !packageForm.iconUrl.$valid">
+                                                        <i class="mdi mdi-alert"></i>
+                                                    </span>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column is-12" ng-show="packageForm.$valid">
+                                    <button class="button is-link is-pulled-right" ng-click="tab = 3">Next</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div ng-show="tab === 3">
+                            <div ng-hide="ext == 'nupkg' || status.uploading || status.processing || status.message">
+                                <p>
+                                    <div class="select">
+                                        <select ng-model="selected"
+                                            ng-change="selected == '' ? uploadToFeed = true : uploadToFeed = false">
+                                            <option value="">Add generated package to repository</option>
+                                            <option value="2">Only generate package to download</option>
+                                        </select>
+                                    </div>
+                                </p>
+                            </div>
+
+                            <p>
+                                <button class="button is-primary" ng-click="Upload(file)"
+                                    ng-show="!status.uploading && !status.processing && !status.message || status.code == 400 && !status.uploading && !status.processing">{{status.code == 400 ? 'Retry' : 'Upload'}}</button>
+                            </p>
+
+                            <div class="columns is-multiline"
+                                ng-show="status.uploading || status.processing || status.message">
+                                <div class="column">
+                                    <div class="card">
+                                        <header class="card-header">
+                                            <p class="card-header-title">
+                                                Status
+                                            </p>
+                                            <a href="#" class="card-header-icon" aria-label="more options">
+                                                <span class="icon">
+                                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+                                        </header>
+                                        <div class="card-content">
+                                            <p ng-if="status.uploading">
+                                                <span>Uploading package to server...</span>
+                                            </p>
+
+                                            <div ng-if="status.processing">
+                                                <p>Upload is done. Processing...</p>
+                                                <p>This can take a while depending on the file size. Stay on this page
+                                                    in the meantime.</p>
+                                            </div>
+
+
+                                            <div class="notification"
+                                                ng-class="{ 'is-warning': status.code == 400, 'is-success': status.code == 200 || status.code == 201, 'is-danger': status.code > 400 }"
+                                                ng-show="!status.uploading && !status.processing">
+
+
+                                                <div ng-show="!status.message.startsWith('http')">
+                                                    <p>
+                                                        <h3 ng-if="status.code == 200 || status.code == 201"
+                                                            class="title">Success!</h3>
+                                                        <h3 ng-if="status.code == 400" class="title">Some corrections
+                                                            needed</h3>
+                                                        <h3 ng-if="status.code > 400" class="title">Failed</h3>
+                                                        {{status.message}}
+                                                    </p>
+
+                                                    <p>
+                                                        <div ng-show="status.code == 400">
+                                                            <button class="button is-link" ng-click="tab = 2">Go
+                                                                back</button>
+                                                        </div>
+                                                    </p>
+
+                                                </div>
+
+                                                <div ng-show="status.message.startsWith('http')">
+                                                    <p>
+                                                        <h3 class="title">Success!</h3>
+                                                        Click on download to download your generated Nuget package.
+                                                    </p>
+
+                                                    <p>
+                                                        <a class="button is-primary"
+                                                            ng-href="{{status.message}}">Download
+                                                            Nuget</a>
+                                                    </p>
+
+                                                </div>
+
+
+                                            </div>
+
+
+
+
+                                            <progress class="progress is-info" value="{{file.progress}}" max="100"
+                                                ng-if="status.uploading">{{file.progress}}%</progress>
+
+                                            <div class="loading" ng-if="status.processing"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+</div>

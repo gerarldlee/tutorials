@@ -1,0 +1,9 @@
+{
+    "domainName": "atira1.deployify.net",   
+    
+    "emailEnabled": true,    
+    "resetPasswordEnabled": true,
+    "twoFactorAuthEnabled": true,
+    "webUnsealEnabled": false,
+    "publicSignupEnabled": false
+}

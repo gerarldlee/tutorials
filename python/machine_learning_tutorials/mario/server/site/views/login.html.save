@@ -1,0 +1,170 @@
+﻿<section class="section">
+
+    <div class="loading" ng-show="firstLoad"></div>
+    <div class="columns is-centered" ng-hide="firstLoad">
+        <div class="column is-one-third-widescreen is-two-thirds-tablet">
+
+	<div style="width:100%;text-align:center;">
+	<img src="https://atira.bc.ca/wp-content/uploads/2019/01/atira-logo.svg" alt="Atira">
+	
+            <div class="card" ng-show="!showReset && !twoFactorAuth">
+                <header class="card-header">
+                    <h1 class="card-header-title">
+                        Sign In
+                    </h1>
+        <div style="width:100%;text-align:center;">
+        <img src="https://atira.bc.ca/wp-content/uploads/2019/01/atira-logo.svg" alt="Atira">
+                </header>
+
+                <form name="loginForm">
+                    <div class="card-content">
+                        <div class="field">
+                            <p class="control has-icons-left has-icons-right">
+                                <input id="mail" name="mail" type="email" placeholder="Email"
+                                    class="input {{ mail === null || loginForm.mail.$valid? '' : 'is-warning'}}" focus
+                                    ng-model="mail" ng-init="mail = null" required>
+                                <span class="icon is-small is-left">
+                                    <i class="mdi mdi-email"></i>
+                                </span>
+                                <span class="icon is-small is-right" ng-if="mail !== null && !loginForm.mail.$valid">
+                                    <i class="mdi mdi-alert"></i>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input id="password" name="password" type="password" placeholder="Password"
+                                    class="input {{password == null || loginForm.password.$valid? '' : 'is-warning'}}"
+                                    ng-model="password" ng-init="password = null" ng-keydown="KeyPressEvnt($event)"
+                                    required>
+                                <span class="icon is-small is-left">
+                                    <i class="mdi mdi-lock"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+                <footer class="card-footer">
+                    <a href="/signup" class="card-footer-item" ng-click="Goto($event)"
+                        ng-show="serverSettings && serverSettings.publicSignupEnabled || isAuth">Sign up</a>
+                    <a class="card-footer-item" ng-click="showReset = !showReset"
+                        ng-show="serverSettings && serverSettings.resetPasswordEnabled">Reset
+                        password</a>
+                    <a class="card-footer-item" ng-disabled="!loginForm.$valid || isLoading"
+                        ng-click="loginForm.$valid && Login();">
+                        <span ng-if="!isLoading">Sign in</span>
+                        <span ng-if="isLoading" class="is-centered spinner"></span>
+                    </a>
+                </footer>
+            </div>
+
+
+
+            <div class="card" ng-show="twoFactorAuth">
+                <header class="card-header">
+                    <h1 class="card-header-title">
+                        Two Factor Authentication
+                    </h1>
+                </header>
+
+                <form name="twoFactorAuthForm">
+                    <div class="card-content">
+                        <p>A mail with a code has been sent to your inbox.</p>
+                        <p>The code is valid for 5 minutes.</p>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input id="twoFaCode" name="twoFaCode" type="number" placeholder="Code"
+                                    class="input {{twoFaCode == null || twoFactorAuthForm.twoFaCode.$valid? '' : 'is-warning'}}"
+                                    ng-model="twoFaCode" ng-init="twoFaCode = null" ng-keydown="KeyPressEvnt($event)"
+                                    required>
+                                <span class="icon is-small is-left">
+                                    <i class="mdi mdi-lock"></i>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div class="is-unselectable is-inline radio-margin clickable"
+                            ng-click="trustBrowser = !trustBrowser" ng-model="trustBrowser"
+                            ng-show="twoFactorWhen !=='always'">
+                            <i class="mdi mdi-checkbox-marked-circle"
+                                ng-class="trustBrowser ? 'has-text-link': 'has-text-grey'"></i>
+                            <span>
+                                Remember this browser
+                            </span>
+                        </div>
+
+                    </div>
+                    <footer class="card-footer">
+                        <a class="card-footer-item"
+                            ng-click="twoFactorAuth = !twoFactorAuth; twoFaCode=''; FocusForm('loginForm', 'password')">Retry</a>
+                        <a class="card-footer-item" ng-disabled="!twoFactorAuthForm.$valid || isLoading"
+                            ng-click="twoFactorAuthForm.$valid && VerifyTwoFA(twoFaCode);">
+                            <span ng-if="!isLoading">Sign in</span>
+                            <span ng-if="isLoading" class="is-centered spinner"></span>
+                        </a>
+                    </footer>
+                </form>
+            </div>
+
+
+
+            <div class="card" ng-show="showReset">
+                <header class="card-header">
+                    <h1 class="card-header-title">
+                        Reset Password
+                    </h1>
+                    </h1>
+                </header>
+                <form name="resetForm">
+                    <div class="card-content">
+
+                        <div class="columns">
+                            <div class="column" ng-show="!code || code && code=='' ">
+                                <div class="field">
+                                    <p class="control has-icons-left">
+                                        <input id="mail" name="mail" type="email" placeholder="Email"
+                                            class="input {{ mail === null || resetForm.mail.$valid? '' : 'is-warning'}}"
+                                            ng-model="mail" ng-init="mail = null" required>
+                                        <span class="icon is-small is-left">
+                                            <i class="mdi mdi-email"></i>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="column" ng-show="code && code !='' ">
+                                <p>Code: {{code}}</p>
+
+                                <p>
+                                    You need the code above to reset your password.
+                                </p>
+
+                                <p>
+                                    Go to your inbox and follow the instructions. It can take up to 30 minutes
+                                    to
+                                    receive the
+                                    email.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <a class="card-footer-item" ng-click="code = ''" ng-show="code && code != ''">Restart</a>
+                        <a class="card-footer-item" ng-click="showReset = !showReset">Sign in instead</a>
+                        <a ng-click="resetForm.$valid && SendResetMail(mail)" ng-disabled="!resetForm.$valid"
+                            class="card-footer-item" ng-show="!code || code && code == ''">Send</a>
+                    </footer>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+</section>

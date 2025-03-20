@@ -1,0 +1,198 @@
+<div class="columns">
+    <div id="slider-menu" class="slider-menu hide">
+        <aside class="menu section">
+            <p class="menu-label">
+                Computer
+            </p>
+            <ul class="menu-list">
+                <li>
+                    <a ng-click="Download()">
+                        <span class="icon">
+                            <i class="mdi mdi-file-document"></i>
+                        </span>
+                        <span>
+                            Download CSV
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <p class="menu-label">
+                Other
+            </p>
+            <ul class="menu-list">
+                <li>
+                    <a ng-click="OpenModal('feedbackModal'); FocusForm('feedbackForm', 'mail');">
+                        <span class="icon">
+                            <i class="mdi mdi-comment-text-outline"></i>
+                        </span>
+                        <span>
+                            Send feedback
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+    <div class="column">
+        <div class="container">
+
+            <section class="section smaller is-unselectable">
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="/domains" ng-click="Goto($event)">Start</a></li>
+                        <li>
+                            <a href="/domains/{{domain.uid}}/" ng-click="Goto($event)">
+                                <span class="icon">
+                                    <i class="mdi mdi-domain"></i>
+                                </span>
+                                <span>{{domain.friendlyName}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-href="domains/{{domain.uid}}/computers/{{computer.uid}}/packages"
+                                ng-click="Goto($event)">
+                                <span class="icon">
+                                    <i class="mdi mdi-laptop"></i>
+                                </span>
+                                <span ng-hide="computer.friendlyName.length > 0">{{computer.name}}</span>
+                                <span ng-show="computer.friendlyName.length > 0">{{computer.friendlyName}}</span>
+                            </a>
+                            <span ng-if="computer.online" class="dot has-background-success margin tooltip"
+                                data-tooltip="Online"></span>
+                            <span class="tooltip" data-tooltip="Inventorying">
+                                <span ng-if="computer.inventorying" class="spinner small margin"></span>
+                            </span>
+                        </li>
+                        <li class="is-active">
+                            <a href="#" aria-current="page">
+                                <span class="icon">
+                                    <i class="mdi mdi-format-list-checks"></i>
+                                </span>
+                                <span>Applications & licenses</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+
+
+            <section class="section">
+                <div class="level">
+                    <div class="level-left">
+                        <h1 class="title">Applications & Licenses</h1>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <form name="searchForm" ng-submit="searchVal = searchTemp; Filter(searchVal)">
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input" placeholder="Search" type="search" id="search" class="input"
+                                        ng-model="searchTemp" autocomplete="off"
+                                        ng-class="{'is-warning' : searchVal != searchTemp}">
+                                    <span class="icon is-small is-left">
+                                        <i class="mdi mdi-magnify"></i>
+                                    </span>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="margin-top margin-bottom is-unselectable"
+                    ng-if="applications.length !== 0 && loadingSettingsDone && !settings.computerApplications.dismissedTips.rightClick"
+                    ng-click="settings.computerApplications.dismissedTips.rightClick = true; SaveSettings(settings)">
+                    <div class="tag is-info">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
+                            viewBox="0 0 172 172" style=" fill:#000000;">
+                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                                style="mix-blend-mode: normal">
+                                <path d="M0,172v-172h172v172z" fill="none"></path>
+                                <g id="original-icon" fill="white">
+                                    <path
+                                        d="M134.01807,10.729c-1.99437,0.11641 -3.75969,1.32923 -4.58371,3.14914c-0.82403,1.81991 -0.57083,3.94667 0.65744,5.52225c6.07242,8.09655 9.65821,18.08936 9.65821,28.97461v10.75c-0.02741,1.93842 0.99102,3.74144 2.66532,4.71865c1.6743,0.97721 3.74507,0.97721 5.41937,0c1.6743,-0.97721 2.69273,-2.78023 2.66532,-4.71865v-10.75c0,-13.25925 -4.41271,-25.56396 -11.8208,-35.44141c-0.96439,-1.32327 -2.47932,-2.13484 -4.11524,-2.20459c-0.18185,-0.00925 -0.36405,-0.00925 -0.5459,0zM69.875,10.75c-20.71705,0 -37.625,16.90795 -37.625,37.625v64.5c0,20.71705 16.90795,37.625 37.625,37.625h21.5c20.71705,0 37.625,-16.90795 37.625,-37.625v-64.5c0,-20.71705 -16.90795,-37.625 -37.625,-37.625zM69.875,21.5h5.375v43h-32.25v-16.125c0,-14.90845 11.96655,-26.875 26.875,-26.875zM86,21.5h5.375c14.90845,0 26.875,11.96655 26.875,26.875v16.125h-32.25zM43,75.25h75.25v37.625c0,14.90845 -11.96655,26.875 -26.875,26.875h-21.5c-14.90845,0 -26.875,-11.96655 -26.875,-26.875z">
+                                    </path>
+                                </g>
+                            </g>
+                        </svg> <span class="tips-text">Right-click on a license column to open context menu</span>
+                        <button class="delete is-small"></button>
+                    </div>
+                </div>
+
+                <div class="loading" ng-show="!loadingDone"></div>
+                <p class="" ng-show="loadingDone && applications.length == 0">
+                    <i class="text-small">No applications</i>
+                </p>
+
+                <nav class="pagination margin-bottom" role="navigation" aria-label="pagination"
+                    ng-if="pageNumbers.length > 1">
+                    <ul class="pagination-list">
+                        <li ng-repeat="nr in pageNumbers">
+                            <a class="pagination-link" ng-class="{'is-current': currentPage == nr}"
+                                ng-click="ChangePage(nr)">{{nr}}</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <table class="table is-hoverable is-narrow is-unselectable is-fullwidth"
+                    ng-hide="!loadingDone || !applications || applications.length == 0">
+                    <thead>
+                        <tr class="">
+                            <th ng-click="Reorder(['name'])">Name</th>
+                            <th ng-click="Reorder(['version'])">Version</th>
+                            <th ng-click="Reorder(['key'])">License</th>
+                            <th ng-click="Reorder(['installed'])">Installed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="application in applications track by application.id"
+                            ng-if="$index >= indexStart && $index < indexStart + maxItems">
+                            <td>
+                                <span class="truncate">{{application.name}}</span>
+                            </td>
+                            <td>
+                                {{application.version}}
+                            </td>
+                            <td right-click="license" permission="{{domain.permission}}">
+                                <span ng-show="!application.editMode">{{application.key}}</span>
+
+                                <div ng-show="application.editMode">
+                                    <form name="licenseForm" ng-submit="SaveLicenseKey(application)"
+                                        ng-if="application.editMode">
+                                        <div class="field">
+                                            <input placeholder="License key" class="input" id="key" name="key"
+                                                ng-model="application.key" type="text" autocomplete="off">
+                                        </div>
+                                        <button type="submit" class="button is-small is-primary"
+                                            ng-class="{'is-loading': saving}" ng-disabled="saving">Save</button>
+                                        <button type="button" class="button is-small"
+                                            ng-click="Edit(application, true)">Cancel</button>
+                                    </form>
+                                </div>
+                            </td>
+                            <td>
+                                {{application.installed ? 'Yes' : 'No'}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <nav class="pagination" role="navigation" aria-label="pagination" ng-if="pageNumbers.length > 1">
+                    <ul class="pagination-list">
+                        <li ng-repeat="nr in pageNumbers">
+                            <a class="pagination-link" ng-class="{'is-current': currentPage == nr}"
+                                ng-click="ChangePage(nr)">{{nr}}</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </section>
+
+        </div>
+    </div>
+</div>

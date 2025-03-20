@@ -1,0 +1,306 @@
+<div class="columns">
+    <div id="slider-menu" class="slider-menu hide">
+        <aside class="menu section">
+
+            <p class="menu-label">
+                Administration
+            </p>
+            <ul class="menu-list">
+                <li>
+                    <a ng-click="OpenModal('ShareDomainModal'); FocusForm('shareForm', 'mail')">
+                        <span class="icon">
+                            <i class="mdi mdi-account"></i>
+                        </span>
+                        <span>
+                            Add user
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <p class="menu-label">
+                Other
+            </p>
+            <ul class="menu-list">
+                <li>
+                    <a ng-click="OpenModal('feedbackModal'); FocusForm('feedbackForm', 'mail')">
+                        <span class="icon">
+                            <i class="mdi mdi-comment-text-outline"></i>
+                        </span>
+                        <span>
+                            Send feedback
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+    <div class="column">
+        <div class="container">
+
+            <section class="section smaller">
+
+
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="/domains" ng-click="Goto($event)">Start</a></li>
+                        <li>
+                            <a ng-href="/domains/{{domain.uid}}" ng-click="Goto($event)">
+                                <span class="icon">
+                                    <i class="mdi mdi-domain"></i>
+                                </span>
+                                <span>{{domain.friendlyName}}</span>
+                            </a>
+                        </li>
+                        <li class="is-active">
+                            <a href="#" aria-current="page">
+                                <span class="icon is-small">
+                                    <i class="mdi mdi-account-multiple-plus"></i>
+                                </span>
+                                <span>
+                                    Share domain
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+
+            <section class="section smaller">
+
+                <p>
+                    <h1 class="title">Users
+                        <a href="" class="" ng-click="OpenModal('ShareDomainModal'); FocusForm('shareForm', 'mail')">
+                            <span class="icon is-medium middle is-size-5 tooltip" data-tooltip="Add user">
+                                <i class="mdi mdi-plus-circle-outline"></i>
+                            </span>
+                        </a>
+                    </h1>
+                </p>
+
+                <hr>
+
+                <div class="loading" ng-show="!loadingDone"></div>
+                <p class="is-italic" ng-show="loadingDone && items.length == 0">
+                    No users
+                </p>
+
+                <div class="columns is-multiline" ng-show="loadingDone && items.length != 0">
+                    <div class="column is-12">
+                        <form name="searchForm" ng-submit="searchVal = searchTemp;">
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input" placeholder="Search" type="search" id="search" class="input"
+                                        ng-model="searchTemp" autocomplete="off"
+                                        ng-class="{'is-warning' : searchVal != searchTemp}">
+                                    <span class="icon is-small is-left">
+                                        <i class="mdi mdi-magnify"></i>
+                                    </span>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="columns is-multiline" ng-show="loadingDone && items.length != 0">
+                    <div class="column is-one-third-widescreen is-unselectable"
+                        ng-repeat="item in items | filter:searchVal | orderBy: 'user.name.mail'"
+                        ng-init="item.hide = true">
+                        <div class="card">
+                            <header class="card-header" ng-click="item.hide = !item.hide">
+                                <p class="card-header-title">
+                                    <span class="icon">
+                                        <i class="mdi mdi-account"></i>
+                                    </span>
+                                    <span>
+                                        {{item.user.mail}}
+                                    </span>
+                                </p>
+                                <a href="" class="card-header-icon" aria-label="show more">
+                                    <span class="icon">
+                                        <i class="mdi mdi-chevron-down" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </header>
+                            <div class="card-content" ng-hide="item.hide">
+
+                                <table class="table is-narrow is-fullwidth">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Permissions</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Domain</td>
+                                            <td>{{domain.friendlyName}}</td>
+                                            <td>{{GetDomainPermissionName(item.domain.permission)}}</td>
+                                        </tr>
+                                        <tr ng-repeat="source in item.sources | orderBy: ['external', 'name']" ng-if="source.uid">
+                                            <td>Repository</td>
+                                            <td>{{source.name}}</td>
+                                            <td>
+                                                <span>{{GetSourcePermissionName(source.permission)}}</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <footer class="card-footer" ng-hide="item.hide">
+                                <a href="" class="card-footer-item" ng-click="DeleteShare(item)"
+                                    ng-disabled="domain.permission && domain.permission < 256">Stop
+                                    share</a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<div id="ShareDomainModal" class="modal">
+    <div class="modal-background" ng-click="CloseModal('ShareDomainModal')"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title truncate">
+                <span class="">
+                    Share Domain
+                </span>
+                <br>
+                <span class="subtitle is-size-6 has-text-info">
+                    {{domain.friendlyName}}
+                </span>
+            </p>
+            <button class="delete" aria-label="close" ng-click="CloseModal('ShareDomainModal')"></button>
+        </header>
+        <section class="modal-card-body">
+            <form name="shareForm">
+                <p class="">Share <span class="has-text-info">{{domain.friendlyName}}</span> with another user
+                    account.</p>
+                <p class="notification">
+                    <span class="has-text-warning">Note that permissions for repository only applies to your own MDC
+                        repository</span>.
+                    Other repositories will have the same permissions that you have since these are pre authenticated.
+                </p>
+                <div class="field">
+                    <div class="control">
+                        <input id="mail" name="mail" type="email"
+                            class="input {{ mail === null || shareForm.mail.$valid? '' : 'is-warning'}}" ng-model="mail"
+                            ng-init="mail = null" placeholder="User email" required>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="columns is-unselectable">
+
+                    <div class="column is-6">
+
+                        <p>Domain permissions</p>
+
+                        <div ng-click="domainPermissions=4" class=" is-link"
+                            ng-show="!domain.permission || domain.permission >= 4">
+                            <i class="mdi mdi-checkbox-marked-circle"
+                                ng-class="domainPermissions >= 4 ? 'has-text-success' : 'has-text-grey'"></i>
+                            <span> Read</span>
+                        </div>
+                        <div ng-click="domainPermissions=8" ng-show="!domain.permission || domain.permission >= 8">
+                            <i class="mdi mdi-checkbox-marked-circle"
+                                ng-class="domainPermissions >= 8 ? 'has-text-success' : 'has-text-grey'"></i>
+                            <span> Execute</span></div>
+                        <div ng-click="domainPermissions=16" ng-show="!domain.permission || domain.permission >= 16">
+                            <i class="mdi mdi-checkbox-marked-circle"
+                                ng-class="domainPermissions >= 16 ? 'has-text-success' : 'has-text-grey'"></i>
+                            <span> Change</span>
+                        </div>
+                        <div ng-click="domainPermissions=32" ng-show="!domain.permission || domain.permission >= 32">
+                            <i class="mdi mdi-checkbox-marked-circle"
+                                ng-class="domainPermissions >= 32 ? 'has-text-success' : 'has-text-grey'"></i>
+                            <span> Add</span>
+                        </div>
+                        <div ng-click="domainPermissions=64" ng-show="!domain.permission || domain.permission >= 64">
+                            <i class="mdi mdi-checkbox-marked-circle"
+                                ng-class="domainPermissions >= 64 ? 'has-text-success' : 'has-text-grey'"></i>
+                            <span> Remove</span>
+                        </div>
+                        <div ng-click="domainPermissions=128" ng-show="!domain.permission || domain.permission >= 128">
+                            <i class="mdi mdi-checkbox-marked-circle"
+                                ng-class="domainPermissions >= 128 ? 'has-text-success' : 'has-text-grey'"></i>
+                            <span> Remove domain</span>
+                        </div>
+
+                        <div ng-click="domainPermissions=256" ng-show="!domain.permission || domain.permission >= 256">
+                            <i class="mdi mdi-checkbox-marked-circle"
+                                ng-class="domainPermissions >= 256 ? 'has-text-success' : 'has-text-grey'"></i>
+                            <span> Share domain</span>
+                        </div>
+                    </div>
+
+                    <div class="column is-6">
+
+                        <p>Repository permissions</p>
+                        <div ng-click="sourcePermissions=1"
+                            ng-show="!currentSourcePermission || currentSourcePermission >= 1">
+                            <i class="mdi mdi-checkbox-marked-circle"
+                                ng-class="sourcePermissions >= 1 ? 'has-text-success' : 'has-text-grey'"></i>
+                            <span> Read</span>
+                        </div>
+                        <div ng-click="sourcePermissions=2"
+                            ng-show="!currentSourcePermission || currentSourcePermission >= 2">
+                            <i class="mdi mdi-checkbox-marked-circle"
+                                ng-class="sourcePermissions >= 2 ? 'has-text-success' : 'has-text-grey'"></i>
+                            <span> Download</span></div>
+                        <div ng-click="sourcePermissions=4"
+                            ng-show="!currentSourcePermission || currentSourcePermission >= 4">
+                            <i class="mdi mdi-checkbox-marked-circle"
+                                ng-class="sourcePermissions >= 4 ? 'has-text-success' : 'has-text-grey'"></i>
+                            <span> Update</span>
+                        </div>
+                        <div ng-click="sourcePermissions=8"
+                            ng-show="!currentSourcePermission || currentSourcePermission >=8">
+                            <i class="mdi mdi-checkbox-marked-circle"
+                                ng-class="sourcePermissions >= 8 ? 'has-text-success' : 'has-text-grey'"></i>
+                            <span> Create</span>
+                        </div>
+                        <div ng-click="sourcePermissions=16"
+                            ng-show="!currentSourcePermission || currentSourcePermission >= 16">
+                            <i class="mdi mdi-checkbox-marked-circle"
+                                ng-class="sourcePermissions >= 16 ? 'has-text-success' : 'has-text-grey'"></i>
+                            <span> Delete</span>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </section>
+        <footer class="modal-card-foot">
+            <a href="" ng-disabled="!shareForm.$valid" ng-class="{'is-loading': domain.loading}"
+                class="button is-primary"
+                ng-click="shareForm.$valid && ShareDomainAndPackageSource(domain.uid, mail)">Share</a>
+            <a href="" ng-click="CloseModal('ShareDomainModal')" class="button">Cancel</a>
+        </footer>
+    </div>
+</div>
+
+
+
+
+<div class="row first wide">
+
+
+
+    <div class="col s12 m6">
+
+
+
+
+    </div>
+</div>

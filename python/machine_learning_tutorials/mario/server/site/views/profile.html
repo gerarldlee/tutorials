@@ -1,0 +1,370 @@
+﻿<div class="columns">
+
+	<div id="slider-menu" class="slider-menu hide">
+		<aside class="menu section">
+			<p class="menu-label">
+				Other
+			</p>
+			<ul class="menu-list">
+				<li>
+					<a ng-click="OpenModal('feedbackModal')">
+						<span class="icon">
+							<i class="mdi mdi-comment-text-outline"></i>
+						</span>
+						<span>
+							Send feedback
+						</span>
+					</a>
+				</li>
+			</ul>
+
+		</aside>
+
+	</div>
+	<div class="column">
+
+		<div class="container">
+			<section class="section smaller">
+				<nav class="breadcrumb" aria-label="breadcrumbs">
+					<ul>
+						<li><a href="domains" ng-click="Goto($event)">Start</a></li>
+						<li class="is-active">
+							<a href="" aria-current="page">Profile</a>
+						</li>
+					</ul>
+				</nav>
+			</section>
+
+			<section class="section">
+				<h2 class="is-size-4 title">Visibility</h2>
+				<hr>
+
+				<div class="columns is-multiline">
+					<div class="column is-3">
+						<div class="card">
+							<header class="card-header">
+								<p class="card-header-title">
+									Notifications - Package Change
+								</p>
+							</header>
+							<div class="card-content">
+								<p class="">
+									Show notifications regarding package changes.
+								</p>
+
+								<a class="button" ng-class="{'is-link': settings.notifications.packageChange}"
+									ng-click="settings.notifications.packageChange = !settings.notifications.packageChange; SaveSettings();">
+									<span class="icon">
+										<i class="mdi mdi-check-circle"></i>
+									</span>
+									<span>
+										{{settings.notifications.packageChange ? 'On': 'Off'}}</span>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="column is-3">
+						<div class="card">
+							<header class="card-header">
+								<p class="card-header-title">
+									Status bar - Working Status
+								</p>
+							</header>
+							<div class="card-content">
+								<p class="">
+									Show a status bar for current installations.
+								</p>
+
+								<a class="button" ng-class="{'is-link': settings.infobar.workingStatus}"
+									ng-click="settings.infobar.workingStatus = !settings.infobar.workingStatus; SaveSettings();">
+									<span class="icon">
+										<i class="mdi mdi-check-circle"></i>
+									</span>
+									<span>
+										{{settings.infobar.workingStatus ? 'On': 'Off'}}</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="section">
+				<h2 class="title is-size-4">Account</h2>
+				<hr>
+
+
+				<div class="columns is-multiline">
+
+
+					<div class="column is-3">
+						<div class="card">
+							<header class="card-header">
+								<p class="card-header-title">
+									Session Timeout
+								</p>
+							</header>
+							<form name="siteTimeoutForm">
+								<div class="card-content">
+									<p class="">
+										Configure how long until session expires. Default is 15
+										minutes, and minimum 5.
+									</p>
+
+									<div class="field">
+										<p class="control has-icons-left">
+											<input id="siteTimeout" type="number" placeholder="Minutes"
+												class="input {{siteTimeout === null || siteTimeoutForm.siteTimeout.$valid ? '' : 'is-warning'}}"
+												ng-model="settings.session.timeout" name="siteTimeout" ng-min="5"
+												ng-init="settings.session.timeout ? settings.session.timeout = settings.session.timeout : settings.session.timeout = 15"
+												required>
+											<span class="icon is-small is-left">
+												<i class="mdi mdi-timer"></i>
+											</span>
+										</p>
+									</div>
+								</div>
+								<footer class="card-footer">
+									<a href="" ng-click="siteTimeoutForm.siteTimeout.$valid && SaveSettings();"
+										class="card-footer-item">Save</a>
+								</footer>
+							</form>
+						</div>
+					</div>
+
+
+					<div class="column is-3" ng-if="twoFactorAuthEnabled">
+						<div class="card">
+							<header class="card-header">
+								<p class="card-header-title">
+									Two Factor Authentication
+								</p>
+							</header>
+							<div class="card-content">
+								<p class="">
+									Enable two factor authentication via mail.
+								</p>
+
+
+
+								<a class="button" ng-class="{'is-link': settings.auth.twoFactor.enabled}"
+									ng-click="settings.auth.twoFactor.enabled = !settings.auth.twoFactor.enabled; settings.auth.twoFactor.method='mail'; settings.auth.twoFactor.when = 'always'; SaveSettings();">
+									<span class="icon">
+										<i class="mdi mdi-check-circle"></i>
+									</span>
+									<span>{{settings.auth.twoFactor.enabled ? 'On': 'Off'}}</span>
+								</a>
+
+								<div ng-if="settings.auth.twoFactor.enabled">
+									<p class="margin-top-2">
+										When?
+									</p>
+
+									<div class="columns is-multiline">
+										<div class="column is-12 is-marginless is-paddingless">
+											<div class="is-unselectable is-inline radio-margin"
+												ng-click="settings.auth.twoFactor.when = 'always'; SaveSettings();">
+												<i class="mdi mdi-checkbox-marked-circle"
+													ng-class="settings.auth.twoFactor.when === 'always' ? 'has-text-link': 'has-text-grey'"></i>
+												<span>
+													Always
+												</span>
+											</div>
+										</div>
+
+										<div class="column is-12 is-marginless is-paddingless">
+											<div class="is-unselectable is-inline radio-margin"
+												ng-click="settings.auth.twoFactor.when = 'newFpIp'; SaveSettings();">
+												<i class="mdi mdi-checkbox-marked-circle"
+													ng-class="settings.auth.twoFactor.when === 'newFpIp' ? 'has-text-link': 'has-text-grey'"></i>
+												<span>
+													Unknown browser and IP
+												</span>
+											</div>
+										</div>
+
+										<div class="column is-12 is-marginless is-paddingless">
+											<div class="is-unselectable is-inline radio-margin"
+												ng-click="settings.auth.twoFactor.when = 'newFp'; SaveSettings();">
+												<i class="mdi mdi-checkbox-marked-circle"
+													ng-class="settings.auth.twoFactor.when === 'newFp' ? 'has-text-link': 'has-text-grey'"></i>
+												<span>
+													Unknown browser
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+					<div class="column is-3">
+						<div class="card">
+							<header class="card-header">
+								<p class="card-header-title">
+									Password
+								</p>
+							</header>
+							<div class="card-content">
+								<p class="">
+									Change account password.
+								</p>
+
+								<a class="button"
+									ng-click="OpenModal('PasswordModal'); FocusForm('passwordForm', 'oldPassword');">
+									<span class="icon">
+										<i class="mdi mdi-lock"></i>
+									</span>
+									<span>
+										Change
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</section>
+
+			<section class="section">
+				<h2 class="is-size-4 title">Active Sessions</h2>
+				<hr>
+
+
+				<div class="table-container">
+
+					<table class="table is-fullwidth is-narrow">
+						<thead>
+							<tr class="is-unselectable">
+								<th>Type</th>
+								<th>Browser</th>
+								<th>OS</th>
+								<th>Browser ID</th>
+								<th>IP</th>
+								<th>Active</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr ng-repeat="session in sessions">
+								<td class="is-capitalized">
+									{{session.meta.type}}
+								</td>
+
+								<td class="is-capitalized">
+									{{session.meta.browserName}} {{session.meta.browserVersion}}
+								</td>
+
+								<td class="is-capitalized">
+									{{session.meta.osName}} {{session.meta.osVersion}}
+								</td>
+
+								<td>
+									{{session.fp}} <span ng-if="fp === session.fp"
+										class="tag small is-info">Current</span>
+								</td>
+
+								<td>
+									{{session.meta.ip}}
+								</td>
+
+								<td>
+									{{TimeActive(session.meta.timeCreated) }} min
+								</td>
+
+								<td>
+									<span ng-if="session.isLoading" class="spinner smaller"></span>
+									<a ng-if="!session.isLoading" href="" ng-click="EndSession(session)">Delete</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+
+
+<div class="modal" id="PasswordModal">
+	<div class="modal-background" ng-click="CloseModal('PasswordModal')"></div>
+	<div class="modal-card">
+		<header class="modal-card-head">
+			<p class="modal-card-title">
+				<span>Change Password</span>
+				<br>
+				<span class="subtitle is-size-6">{{ user.mail }}</span>
+			</p>
+			<button class="delete" aria-label="close" ng-click="CloseModal('PasswordModal')"></button>
+		</header>
+		<form name="passwordForm">
+			<section class="modal-card-body">
+
+				<div class="field">
+					<p class="control has-icons-left">
+						<input id="oldPassword" type="password" placeholder="Old password"
+							class="input {{oldPassword === null || passwordForm.oldPassword.$valid ? '' : 'is-warning'}}"
+							ng-model="oldPassword" name="oldPassword" ng-minlength="8" ng-maxlength="100"
+							ng-init="oldPassword = null" required>
+						<span class="icon is-small is-left">
+							<i class="mdi mdi-lock"></i>
+						</span>
+					</p>
+				</div>
+
+				<div class="field">
+					<p class="control has-icons-left has-icons-right">
+						<input id="password" type="password" placeholder="New password (min 8)"
+							class="input {{password === null || passwordForm.password.$valid ? '' : 'is-warning'}}"
+							ng-model="password" name="password" ng-minlength="8" ng-maxlength="100"
+							ng-init="password = null" required>
+						<span class="icon is-small is-left">
+							<i class="mdi mdi-lock"></i>
+						</span>
+						<span class="icon is-small is-right" ng-if="password !== null && !passwordForm.password.$valid">
+							<i class="mdi mdi-alert"></i>
+						</span>
+					</p>
+
+
+				</div>
+
+				<div class="field">
+					<p class="control has-icons-left has-icons-right">
+						<input id="passwordRepeat" type="password" placeholder="Repeat new password"
+							class="input {{passwordRepeat === null || passwordForm.passwordRepeat.$valid ? '' : 'is-warning'}}"
+							ng-model="passwordRepeat" name="passwordRepeat" ng-minlength="8" ng-maxlength="100"
+							ng-init="passwordRepeat = null"
+							ng-change="password !== passwordRepeat? passwordForm.passwordRepeat.$valid=false : ''"
+							required>
+						<span class="icon is-small is-left">
+							<i class="mdi mdi-lock"></i>
+						</span>
+						<span class="icon is-small is-right"
+							ng-if="passwordRepeat !== null && !passwordForm.passwordRepeat.$valid">
+							<i class="mdi mdi-alert"></i>
+						</span>
+					</p>
+				</div>
+			</section>
+			<footer class="modal-card-foot">
+				<a href="" class="button is-primary" type="submit"
+					ng-disabled="!passwordForm.$valid || !passwordForm.passwordRepeat.$valid"
+					ng-click="passwordForm.$valid && passwordForm.passwordRepeat.$valid && ChangePassword(oldPassword, password)"
+					value="">Change</a>
+				<a href="" class="button" ng-click="CloseModal('PasswordModal')">Close</a>
+			</footer>
+		</form>
+	</div>
+</div>

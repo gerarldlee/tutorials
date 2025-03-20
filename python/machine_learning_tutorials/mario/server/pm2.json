@@ -1,0 +1,27 @@
+{
+    "apps": [
+		{
+            "name": "site",
+            "script": "site.js",
+            "watch": false,
+            "node_args": "--harmony",
+            "merge-logs": true,
+            "cwd": "",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        },
+        {
+            "name": "redbird",
+            "script": "redbird.js",
+            "watch": false,
+            "node_args": "--harmony",
+            "merge-logs": true,
+            "cwd": "",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        }
+    ]
+
+}

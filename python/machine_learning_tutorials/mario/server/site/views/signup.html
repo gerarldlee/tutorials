@@ -1,0 +1,120 @@
+﻿<section class="section">
+
+    <div class="columns is-centered">
+        <div class="column is-one-third-widescreen is-two-thirds-tablet">
+            <div class="card">
+                <header class="card-header">
+                    <h1 class="card-header-title">
+                        Sign Up
+                    </h1>
+                </header>
+                <form name="signupForm" ng-submit="signupForm.$valid && Signup()">
+                    <div class="card-content">
+
+                        <div ng-show="serverSettings && serverSettings.publicSignupEnabled || isAuth">
+                            <div class="field">
+                                <p class="control has-icons-left has-icons-right">
+                                    <input id="firstName" type="text" placeholder="First name"
+                                        class="input {{ firstName === null || signupForm.firstName.$valid ? '' : 'is-warning'}}"
+                                        ng-model="firstName" name="firstName" ng-minlength="1" ng-maxlength="30"
+                                        ng-pattern="regex" ng-init="firstName = null" required>
+                                    <span class="icon is-small is-left">
+                                        <i class="mdi mdi-account-card-details"></i>
+                                    </span>
+                                    <span class="icon is-small is-right"
+                                        ng-if="firstName !== null && !signupForm.firstName.$valid">
+                                        <i class="mdi mdi-alert"></i>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div class="field">
+                                <p class="control has-icons-left has-icons-right">
+                                    <input id="lastName" type="text" placeholder="Last name"
+                                        class="input {{lastName === null || signupForm.lastName.$valid ? '' : 'is-warning'}}"
+                                        ng-model="lastName" name="lastName" ng-minlength="1" ng-maxlength="30"
+                                        ng-pattern="regex" ng-init="lastName = null" required>
+                                    <span class="icon is-small is-left">
+                                        <i class="mdi mdi-account-card-details"></i>
+                                    </span>
+                                    <span class="icon is-small is-right"
+                                        ng-if="lastName !== null && !signupForm.lastName.$valid">
+                                        <i class="mdi mdi-alert"></i>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div class="field">
+                                <p class="control has-icons-left has-icons-right">
+                                    <input id="mail" type="text" name="mail" placeholder="E-mail"
+                                        class="input {{mail === null || signupForm.mail.$valid ? '' : 'is-warning'}}"
+                                        ng-model="mail" name="mail" ng-minlength="1" ng-maxlength="30"
+                                        ng-init="mail = null" ng-pattern="/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$/"
+                                        required>
+                                    <span class="icon is-small is-left">
+                                        <i class="mdi mdi-email"></i>
+                                    </span>
+                                    <span class="icon is-small is-right"
+                                        ng-if="mail !== null && !signupForm.mail.$valid">
+                                        <i class="mdi mdi-alert"></i>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div class="field">
+                                <p class="control has-icons-left has-icons-right">
+                                    <input id="password" type="password" placeholder="Password (min 8)"
+                                        class="input {{password === null || signupForm.password.$valid ? '' : 'is-warning'}}"
+                                        ng-model="password" name="password" ng-minlength="8" ng-maxlength="100"
+                                        ng-init="password = null" required>
+                                    <span class="icon is-small is-left">
+                                        <i class="mdi mdi-lock"></i>
+                                    </span>
+                                    <span class="icon is-small is-right"
+                                        ng-if="password !== null && !signupForm.password.$valid">
+                                        <i class="mdi mdi-alert"></i>
+                                    </span>
+                                </p>
+
+                            </div>
+
+                            <div class="field">
+                                <p class="control has-icons-left has-icons-right">
+                                    <input id="passwordRepeat" type="password" placeholder="Repeat password"
+                                        class="input {{passwordRepeat === null || signupForm.passwordRepeat.$valid ? '' : 'is-warning'}}"
+                                        ng-model="passwordRepeat" name="passwordRepeat" ng-minlength="8"
+                                        ng-maxlength="100" ng-init="passwordRepeat = null"
+                                        ng-change="password !== passwordRepeat? signupForm.passwordRepeat.$valid=false : ''"
+                                        required>
+                                    <span class="icon is-small is-left">
+                                        <i class="mdi mdi-lock"></i>
+                                    </span>
+                                    <span class="icon is-small is-right"
+                                        ng-if="passwordRepeat !== null && !signupForm.passwordRepeat.$valid">
+                                        <i class="mdi mdi-alert"></i>
+                                    </span>
+                                </p>
+                            </div>
+
+                        </div>
+                        <div ng-hide="serverSettings && serverSettings.publicSignupEnabled || isAuth">
+                            <p>Public sign up is not enabled.</p>
+                        </div>
+
+                    </div>
+                    <footer class="card-footer">
+                        <a class="card-footer-item" href="/login" ng-click="Goto($event)" ng-show="!isLoading"
+                            ng-disabled="isLoading">Sign in instead</a>
+                        <a class="card-footer-item" type="submit"
+                            ng-disabled="!signupForm.$valid || !signupForm.passwordRepeat.$valid || isLoading"
+                            ng-click="signupForm.$valid && signupForm.passwordRepeat.$valid && Signup()" value=""
+                            ng-show="!isLoading" ng-hide="!serverSettings.publicSignupEnabled && !isAuth">Sign up</a>
+                        <div class="card-footer-item" ng-show="isLoading"><span class="spinner is-centered"></span>
+                        </div>
+
+                    </footer>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,143 @@
+﻿<div class="columns">
+  <div id="slider-menu" class="slider-menu hide">
+    <aside class="menu section">
+      <p class="menu-label">
+        Other
+      </p>
+      <ul class="menu-list">
+        <li>
+          <a ng-click="OpenModal('feedbackModal')">
+            <span class="icon">
+              <i class="mdi mdi-comment-text-outline"></i>
+            </span>
+            <span>
+              Send feedback
+            </span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </div>
+  <div class="column">
+    <div class="container">
+      <section class="section smaller">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="domains" ng-click="Goto($event)">Start</a></li>
+            <li>
+              <a ng-href="/domains/{{domain.uid}}/" ng-click="Goto($event)">
+                <span class="icon">
+                  <i class="mdi mdi-domain"></i>
+                </span>
+                <span>{{domain.friendlyName}}</span>
+              </a>
+            </li>
+            <li>
+              <a
+                ng-href="domains/{{domain.uid}}/computers/{{computer.uid}}/packages"
+                ng-click="Goto($event)"
+              >
+                <span class="icon">
+                  <i class="mdi mdi-laptop"></i>
+                </span>
+                <span ng-hide="computer.friendlyName.length > 0"
+                  >{{computer.name}}</span
+                >
+                <span ng-show="computer.friendlyName.length > 0"
+                  >{{computer.friendlyName}}</span
+                >
+              </a>
+              <span
+                ng-if="computer.online"
+                class="dot has-background-success margin tooltip"
+                data-tooltip="Online"
+              ></span>
+              <span class="tooltip" data-tooltip="Inventorying">
+                <span
+                  ng-if="computer.inventorying"
+                  class="spinner small margin"
+                ></span>
+              </span>
+            </li>
+            <li class="is-active">
+              <a href="#" aria-current="page">
+                <span class="icon">
+                  <i class="mdi mdi-powershell"></i>
+                </span>
+                <span>Powershell</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+
+      <section class="section">
+        <div class="level">
+          <div class="level-left">
+            <h1 class="title">Powershell</h1>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="columns">
+          <div class="column">
+            <form name="commandForm" ng-submit="SendCommand(command)">
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input
+                    class="input"
+                    placeholder="Powershell command"
+                    type="text"
+                    id="command"
+                    class="input"
+                    autocomplete="off"
+                    ng-model="command"
+                    ng-disabled="!powershell.complete"
+                    ng-class="{}"
+                  />
+                  <span class="icon is-small is-left">
+                    <i class="mdi mdi-powershell"></i>
+                  </span>
+                </p>
+              </div>
+            </form>
+            <div class="buttons">
+              <a
+                href
+                class="button is-success"
+                ng-disabled="!powershell.complete"
+                ng-click="powershell.complete ? SendCommand(command) : false"
+                ng-class="{'is-loading': !powershell.complete}"
+              >
+                Send
+              </a>
+              <a
+                href
+                class="button is-danger"
+                ng-disabled="powershell.terminating || powershell.complete"
+                ng-click="!powershell.complete && !powershell.terminating ? SendCommand(':stop:') : false"
+                ng-class="{'is-loading': powershell.terminating}"
+              >
+                Terminate
+              </a>
+
+              <a
+                href
+                class="button is-primary"
+                ng-disabled="!powershell.complete"
+                ng-click="powershell.complete ? powershell.lines = [] : false"
+              >
+                Clear
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <pre class="pre-powershell" id="powershell">
+		  <span class="is-block" ng-repeat="line in powershell.lines track by $index" ng-class="[{'has-text-danger' : line.type == 'error' }, {'has-text-warning' : line.type == 'warning'}, {'has-text-info' : line.type == 'information' }, {'margin-bottom' : line.status == 'end' } ]">{{line.value}}</span>
+	    </pre>
+      </section>
+    </div>
+  </div>
+</div>
