@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Android_HCE_Emulate_A_CreditCard</string>
+
+    <string name="header_write">This app emulates a Credit Card</string>
+    <string name="description_write">The app needs to be called by the Select the PPSE (2PAY.SYS.DDF01) AID. The emulated Credit Card is of type Visa Card and has the AID A0000000031010</string>
+
+    <string name="servicedesc">HCE Service CreditCard</string>
+    <string name="aiddescription">HCE AID Description</string>
+
+<!--    <string name="header_read">This app emulates a Credit Card</string>-->
+<!--    <string name="description_read">The app needs to be called by the Select the PPSE (2PAY.SYS.DDF01) AID. The emulated Credit Card is of type Visa Card and has the AID A0000000031010</string>-->
+
+
+    <!-- select PPSE 2PAY.SYS.DDF01 -->
+    <string name="hcePpse">325041592E5359532E4444463031</string>
+    <!-- visa credit or debit card -->
+    <string name="aidVisaCard">A0000000031010</string>
+    <!-- mastercard credit or debit card -->
+    <string name="aidMastercard">A0000000041010</string>
+    <string name="hce_service_log">HCE Service Log</string>
+
+    <string name="aidsimple">F22334455667</string>
+    <string name="home_description">This application emulates an NFC tag ("Writer") and reads the received data ("Reader") on another device.</string>
+    <string name="home_fragments">There are 3 icons to click on:\n1 home = this page\n2 send data with HCE to another device\n3 read data = receives the data from the HCE emulated NFC tag</string>
+    <string name="header_read">Read from your Credit Card</string>
+    <string name="description_read">This example expects an emulated NFC tag using the AID F22334455667.\n\nWhen a tag is discovered the data from files 01 and 02 will be read.</string>
+    <string name="nfc_result">NFC read result</string>
+    <string name="action_licenses">Used material and their licenses</string>
+</resources>

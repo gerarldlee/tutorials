@@ -152,3 +152,18 @@
 	path = java/TheAlgorithms/C-Plus-Plus
 	url = https://github.com/TheAlgorithms/C-Plus-Plus.git
 
+[submodule "card/NFC-EMV-Reader"]
+	path = card/NFC-EMV-Reader
+	url = https://github.com/n37sn4k3/NFC-EMV-Reader.git
+[submodule "card/javaemvreader"]
+	path = card/javaemvreader
+	url = https://github.com/sasc999/javaemvreader.git
+[submodule "card/emv-qrcode"]
+	path = card/emv-qrcode
+	url = https://github.com/mvallim/emv-qrcode.git
+[submodule "card/EMV-NFC-Paycard-Enrollment"]
+	path = card/EMV-NFC-Paycard-Enrollment
+	url = https://github.com/devnied/EMV-NFC-Paycard-Enrollment.git
+[submodule "card/Android-EMV-NFC-Paycard-Example"]
+	path = card/Android-EMV-NFC-Paycard-Example
+	url = https://github.com/AndroidCrypto/Android-EMV-NFC-Paycard-Example.git
