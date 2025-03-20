@@ -67,3 +67,24 @@
 [submodule "python/tribalwars-bot"]
 	path = python/tribalwars-bot
 	url = https://github.com/stefan2200/TWB.git
+[submodule "tradingview/tradingView-API"]
+	path = tradingview/tradingView-API
+	url = https://github.com/mohamadkhalaj/tradingView-API.git
+[submodule "tradingview/Mathieu-Tradingview-API"]
+	path = tradingview/Mathieu-Tradingview-API
+	url = https://github.com/Mathieu2301/TradingView-API.git
+[submodule "tradingview/TvDataFeedWithIndicators"]
+	path = tradingview/TvDataFeedWithIndicators
+	url = https://github.com/mrsaemir/TvDataFeedWithIndicators.git
+[submodule "tradingview/tvscreener"]
+	path = tradingview/tvscreener
+	url = https://github.com/houseofai/tvscreener.git
+[submodule "tradingview/tvdatafeed"]
+	path = tradingview/tvdatafeed
+	url = https://github.com/rongardF/tvdatafeed.git
+[submodule "tradingview/tradingview-scraper"]
+	path = tradingview/tradingview-scraper
+	url = https://github.com/0xrushi/tradingview-scraper.git
+[submodule "tradingview/mohamad-tradingview-api"]
+	path = tradingview/mohamad-tradingview-api
+	url = https://github.com/mohamadkhalaj/tradingView-API.git
