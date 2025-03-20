@@ -1,0 +1,138 @@
+# Operating Systems
+*.DS_Store        # macOS
+Thumbs.db         # Windows
+desktop.ini       # Windows
+
+# Logs and Temporary Files
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+*.lock
+
+# Build and Dependency Directories
+node_modules/     # JavaScript/Node.js
+vendor/           # PHP (Composer), Ruby (Bundler), Go
+target/           # Rust, Java (Maven)
+dist/             # Build outputs (JavaScript, Python, etc.)
+build/            # General build directories
+out/              # General build directories
+bin/              # Compiled binaries
+obj/              # Object files (C, C++, C#)
+
+# Dependency Lock Files (optional, depending on your workflow)
+# package-lock.json  # npm
+# yarn.lock         # Yarn
+# Gemfile.lock      # Ruby
+# composer.lock     # PHP
+
+# Compiled Files
+*.o               # C/C++
+*.obj             # C/C++
+*.class           # Java
+*.pyc             # Python
+*.pyo             # Python
+*.pyd             # Python
+*.so              # Shared objects (C/C++)
+*.dll             # Windows DLLs
+*.exe             # Windows executables
+*.jar             # Java archives
+*.war             # Java web archives
+*.ear             # Java enterprise archives
+
+# IDEs and Editors
+.idea/            # IntelliJ IDEA
+*.iml             # IntelliJ IDEA
+.vscode/          # Visual Studio Code
+*.sublime-*       # Sublime Text
+*.code-workspace  # VS Code workspace
+.project          # Eclipse
+.classpath        # Eclipse
+.settings/        # Eclipse
+*.swp             # Vim
+*.swo             # Vim
+
+# Virtual Environments (Python)
+venv/
+env/
+.env/
+virtualenv/
+.venv/
+
+# Package Managers and Build Tools
+*.egg-info/       # Python setuptools
+Pipfile.lock      # Python Pipenv
+.gradle/          # Gradle (Java)
+.maven/           # Maven (Java)
+pom.xml.versionsBackup  # Maven
+*.war             # Java web apps
+*.nar             # Native archives
+*.zip             # Archives
+*.tar.gz          # Compressed archives
+
+# Databases
+*.db              # SQLite, etc.
+*.sql             # SQL dumps
+
+# Testing and Coverage
+coverage/         # Test coverage reports
+*.coverage        # Python coverage
+cov-report/       # Coverage reports
+junit.xml         # Test output (Java)
+test-reports/     # General test reports
+*.test            # Test binaries
+
+# Configuration and Secrets
+*.env             # Environment variables
+.env.local
+.env.development
+.env.test
+.env.production
+*.pem             # Certificates
+*.key             # Private keys
+*.pub             # Public keys
+credentials.json  # Service account credentials
+
+# Language-Specific Patterns
+# JavaScript/TypeScript
+*.tsbuildinfo     # TypeScript build info
+*.min.js          # Minified JavaScript
+
+# Python
+__pycache__/      # Python bytecode cache
+*.egg             # Python eggs
+
+# Java
+*.mtj.tmp/        # Eclipse Java temp files
+
+# C/C++
+*.a               # Static libraries
+*.lib             # Libraries
+*.dSYM/           # macOS debug symbols
+
+# Rust
+Cargo.lock        # Optional, depending on workflow
+*.rlib            # Rust libraries
+
+# Go
+*.test            # Go test binaries
+go.sum            # Optional, depending on workflow
+
+# Ruby
+*.gem             # Ruby gems
+.rvmrc            # Ruby Version Manager
+
+# PHP
+*.phar            # PHP archives
+
+# Swift/Objective-C
+*.xcodeproj/      # Xcode (unless you want to track it)
+*.xcworkspace/    # Xcode workspace
+DerivedData/      # Xcode build data
+
+# Miscellaneous
+*.bak             # Backup files
+*.cache           # Cache files
+*.patch           # Patch files
+*.diff            # Diff files
