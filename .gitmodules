@@ -97,3 +97,6 @@
 [submodule "docker/continuous-deployment-on-kubernetes"]
 	path = docker/continuous-deployment-on-kubernetes
 	url = https://github.com/GoogleCloudPlatform/continuous-deployment-on-kubernetes.git
+[submodule "webstorm/electron-api-demos"]
+	path = webstorm/electron-api-demos
+	url = https://github.com/electron/electron-api-demos.git
