@@ -107,3 +107,12 @@
 	path = tradingview/lightweight-charts
 	url = https://github.com/tradingview/lightweight-charts.git
 	
+[submodule "webstorm/nyxo-app"]
+	path = webstorm/nyxo-app
+	url = https://github.com/hello-nyxo/nyxo-app.git
+[submodule "webstorm/heylinda-app"]
+	path = webstorm/heylinda-app
+	url = https://github.com/heylinda/heylinda-app.git
+[submodule "webstorm/data-at-hand-mobile"]
+	path = webstorm/data-at-hand-mobile
+	url = https://github.com/umdsquare/data-at-hand-mobile.git
