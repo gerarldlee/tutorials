@@ -1,0 +1,21 @@
+<html>
+<h1>17.9 Instances as Return Values</h1>
+<p>Functions and methods can return objects.  This is actually nothing new since everything in Python is an object and we have
+been returning values for quite some time.  The difference here is that we want to have the method create an object using
+the constructor and then return it as the value of the method.</p>
+<h1>Problem</h1>
+<p>Create two server objects using the class</p>
+<p>create a function, <code>biggest_server_object_sum</code>, outside of the ServerClass class, that:</p>
+<p>1. Takes an IP </p>
+<p>2. Sums the octets of the IP together (example 127.0.0.1 = 127+0+0+1 = 128) </p>
+<p>3. Returns the Server object with the larger sum</p>
+
+<p>Example:</p>
+<p><code>server_one = ServerClass("127.0.0.1")</code></p>
+<p><code>server_two = ServerClass("192.168.0.1")</code></p>
+<p><code>result = biggest_ip_sum(server_one, server_two)</code></p>
+<p><code>print(result)</code></p>
+<div class="hint">
+    <p>Modify <code>get_server_ip</code> in the previous problem.</p>
+</div>
+</html>

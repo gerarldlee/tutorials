@@ -1,0 +1,60 @@
+core use cases:
+======================
+know your location in the maps or starting point
+
+ask where your destination is
+
+display available parking spaces in that area
+	display the reservation prices
+
+select parking destination in maps
+	highlights the available area borders in the picture
+	displays the route from starting point to this area
+
+display parking destination area in maps
+	along with info about how much to pay to reserve
+	how many hours
+	reservation rate per hour / min, an area can be reservable or not depends on the owner
+	booking rate per hour / min
+	reserve or cancel
+	book or end
+	who is the owner
+	display photos
+	has stars + comments / feedback
+
+on-street parking and car parks are not reservable (car parks can also be b2b clients )
+
+booking a parking space
+	has a different rate than reserving it.
+	booking starts with the moment you arrive, ends with the moment you leave, or per hour
+
+
+a building / parking building can be mapped in 3D
+
+
+other use cases:
+======================
+users can view their bookings / billings
+
+as a parking space owner, you can rent your space
+
+
+
+[11:58 PM, 10/16/2018] Gee: Basically upon the website, it will display map of where you are then ask for destination
+[11:59 PM, 10/16/2018] Gee: Upon destination entry, it will display series of available parking spots
+[11:59 PM, 10/16/2018] Gee: Road side parking can also be available but not reservable
+[11:59 PM, 10/16/2018] Gee: Unless we ask the governments to be our client and manage the street parking
+[11:59 PM, 10/16/2018] Gee: This has HUGe potential
+[12:00 AM, 10/17/2018] Gee: And then we plot the available parking
+[12:01 AM, 10/17/2018] Gee: see the business side, how we will potentially earn
+[12:01 AM, 10/17/2018] Gee: imagine to deploy this in many many cities around the world
+[12:01 AM, 10/17/2018] Gee: like istanbul, manila, south america, where theres almost traffic everywhere and then you cannot really park your car
+[12:02 AM, 10/17/2018] Gee: what if you will go downtown. whenever i go downtown with car, i cannot find parking
+[12:02 AM, 10/17/2018] Gee: unless it is reserved in advance
+[12:02 AM, 10/17/2018] Gee: now, reservation rate is different from booking rate
+[12:02 AM, 10/17/2018] Gee: are you excited
+[12:03 AM, 10/17/2018] Gee: reservation rate is cheap, maybe by the minute
+[12:03 AM, 10/17/2018] Gee: booking rate is cost maybe a little bit higher
+[12:03 AM, 10/17/2018] Gee: now we need capital to put some devices in every parking space that we manage
+[12:04 AM, 10/17/2018] Gee: to scan the car, its just an infrared device, that acts like a sonar, only with light
+[12:04 AM, 10/17/2018] Gee: its a device (IoT) that 1) tells that the car has been parked. 2) plate number of the car parked 3) location of the parking (especially if its in the building

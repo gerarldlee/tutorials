@@ -1,0 +1,27 @@
+<html>
+<h1>Conditional Statements</h1>
+<p>In order to write useful programs, we almost always need the ability to check
+conditions and change the behavior of the program accordingly. <strong>Selection statements</strong>, sometimes
+also referred to as <strong>conditional statements</strong>, give us this ability. The simplest form of selection is the <strong>if statement</strong>.
+This is sometimes referred to as <strong>binary selection</strong> since there are two possible paths of execution.</p>
+<p>The syntax for an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement looks like this:</p>
+<pre><code>
+    if BOOLEAN EXPRESSION:
+        STATEMENTS_1        # executed if condition evaluates to True
+    else:
+        STATEMENTS_2        # executed if condition evaluates to False
+</code></pre>
+<h1>Problem</h1>
+<p> 1. Write a is_ip_localhost function, that takes a server_ip and checks if it is equal to 127.0.0.1. If yes, return True. If no, return False. </p>
+<p>As an example, if you wrote <code>is_ip_localhost("127.0.0.1")</code>, the code should return a boolean:</p>
+<code>True</code>
+<p> 2. Write a who_assigned_ip function, that takes a server_ip and returns:  </p>
+<p> Localhost if ip is 127.0.0.1</p>
+<p> DHCP if the ip starts with 192.168.0</p>
+<p> Unknown otherwise</p>
+
+<div class="hint">
+    <p>server_ip is a string.</p>
+    <p><code>True</code> should be a bool, not a string.</p>
+</div>
+</html>

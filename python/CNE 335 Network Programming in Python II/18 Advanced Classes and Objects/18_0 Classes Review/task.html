@@ -1,0 +1,25 @@
+<html>
+<h1>18.0 Review: User Defined Classes (17.4), Adding other Methods (17.6)</h1>
+<p>Every class should have a method with the special name <code>__init__</code>.
+This <strong>initializer method</strong>, often referred to as the <strong>constructor</strong>, is automatically called whenever a new
+instance of the object is created.  It gives the programmer the opportunity
+to set up the attributes required within the new instance by giving them
+their initial state values.  The <code>self</code> parameter (you could choose any
+other name, but nobody ever does!) is automatically set to reference
+the newly-created object that needs to be initialized.</p>
+<p>The key advantage of using a class rather than something like a simple
+tuple is methods.  We can add methods to any class that are sensible operations.
+Creating a class brings an exceptional
+amount of “organizational power” to our programs, and to our thinking.
+We can group together the sensible operations, and the kinds of data
+they apply to, and each instance of the class can have its own state.</p>
+<p>A <strong>method</strong> behaves like a function, but it is invoked on a specific
+instance. For example, with a turtle named <code>tess</code>, <code>tess.right(90)</code> asks the <code>tess</code> object to perform its
+<code>right</code> method and turn 90 degrees. Methods are accessed using dot notation.</p>
+<h1>Problem</h1>
+<p>No starter code is provided. Your tasks:</p>
+<p>1. Create a class, <code>BareMetalServer</code> </p>
+<p>2. Inside the class, write a constructor that takes CPU, GPU, RAM, and HDD variables and stores them </p>
+<p>3. Add a method, get_system_info, that returns the system info in an array. Example: <code>[CPU, GPU, RAM, HDD]</code> </p>
+
+</html>

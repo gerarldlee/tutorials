@@ -55,3 +55,12 @@
 [submodule "ml/machine-learning-6-practical-real-world-app"]
 	path = ml/machine-learning-6-practical-real-world-app
 	url = https://github.com/rjmanzo/machine-learning-6-practical-real-world-app.git
+[submodule "ai/commaai-openpilot"]
+	path = ai/commaai-openpilot
+	url = https://github.com/commaai/openpilot.git
+[submodule "python/tetris_game"]
+	path = python/tetris_game
+	url = https://github.com/LoveDaisy/tetris_game.git
+[submodule "python/algorithmic-trading-python"]
+	path = python/algorithmic-trading-python
+	url = https://github.com/nickmccullum/algorithmic-trading-python.git

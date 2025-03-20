@@ -1,0 +1,482 @@
+[
+  {
+    "code": "(EDD-1) Annual Income",
+    "lang": "en",
+    "message": "Verify Income: Provide documentary evidence for all income sources declared with Binance, including salary, self-employment, pension, dividends, trading, rent, or other income. Submit sufficient and accurate supporting documents matching your declared income. Incorrect or insufficient information delays approval."
+  },
+  {
+    "code": "(EDD-1) Annual income - Bank Statement",
+    "lang": "en",
+    "message": "Please provide a recent bank statement (issued within the last 3 months). It must contain your name, the issuer name/logo, and your transaction history, clearly showing monthly transfers from your employer, self-employed services, pension, allowances, dividends, trading or gambling profit withdrawals, rent or, any other transfers received on a regular basis that convey your full annual income declared with Binance. We prefer to receive these documents as a digital .pdf or full photos of physical statements."
+  },
+  {
+    "code": "(EDD-1) Document With Missing Dates",
+    "lang": "en",
+    "message": "The uploaded documentary evidence does not clearly show an issuing date and cannot be accepted."
+  },
+  {
+    "code": "(EDD-1) Document With Missing Details",
+    "lang": "en",
+    "message": "You have uploaded documents where your personal details are not visible. Please ensure your full name, the date of issue, and any issuer logos are displayed on the supporting documentation."
+  },
+  {
+    "code": "(EDD-1) Documents Issued With Third-Party Names",
+    "lang": "en",
+    "message": "Your documentary evidence (issued with third-party names) cannot be accepted as your Source of Wealth or Source of Funds verification documentation. Please upload documents issued with your personal name or provide clarification on how the third-party documents can be used to verify your fiat activity or total asset worth."
+  },
+  {
+    "code": "(EDD-1) EDD Approved",
+    "lang": "en",
+    "message": "Dear Binancian, your application has been approved. Enjoy investing with Binance!"
+  },
+  {
+    "code": "(EDD-1) KYC Failed",
+    "lang": "en",
+    "message": "Before sending a Source of Wealth or a Source of Funds verification, please make sure you complete the identity verification process. You can complete the process by going to the identity verification tab and by uploading a valid passport or any other acceptable ID document, depending on the local requirements."
+  },
+  {
+    "code": "(EDD-1) Limits Already Increased",
+    "lang": "en",
+    "message": "Dear User, Binance has provided new fiat limits of 2 million USD per day for all of our user accounts. Your current limit increase request (for 500k/1 mil/2 mil USD) is deemed, therefore, unnecessary. Enjoy your trading!"
+  },
+  {
+    "code": "(EDD-1) Opening Chat",
+    "lang": "en",
+    "message": "Unfortunately, we were not able to verify your application with the provided evidence. In order to further assist you, we would like to invite you to a chat with our compliance department. In a few minutes you will receive an invitation email. Please click the \u201cChat Now\u201d button to proceed."
+  },
+  {
+    "code": "(EDD-1) Original Copy Instead of a Screenshot",
+    "lang": "en",
+    "message": "The uploaded documentary evidence is not clear enough and does not meet our visibility requirements. Please upload the original document. We prefer to receive these documents as a digital .pdf or full photos of physical statements with all four corners of the document visible."
+  },
+  {
+    "code": "(EDD-1) PEP Declaration - Incorrect/Incomplete",
+    "lang": "en",
+    "message": "Please complete our PEP Declaration form with accurate responses. Please let us know if you are classified as a PEP or not, your full name, position, relationship (if you are a PEP by association), and for how long you have been a PEP. After providing this information, you can resubmit your application."
+  },
+  {
+    "code": "(EDD-1) POA Failed",
+    "lang": "en",
+    "message": "Before sending a Source of Wealth or a Source of Funds verification, please make sure you complete the Proof of Address verification process. You can complete this process by going to the identity verification tab and by uploading a valid bank statement/utility bill/tax document, issued in the last three months, in your name, and with an accurate address visible."
+  },
+  {
+    "code": "(EDD-1) SOF - Allowance",
+    "lang": "en",
+    "message": "You have selected Allowance as your main Source of Funds, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification: 1) A bank statement showing allowance transfers for the last 3 months; 2) A government-issued allowance or other social benefits statement."
+  },
+  {
+    "code": "(EDD-1) SOF - Bank Statement Sale of Financial/Real Estate Asset",
+    "lang": "en",
+    "message": "You have declared that your source to funds is from the Sale of assets. Please provide a bank statement, showing the received payment into your bank account from the sale of your assets, with your name clearly shown and issuance date within 3 months of your application. We prefer to receive these documents as a digital .pdf or full photos of physical statements."
+  },
+  {
+    "code": "(EDD-1) SOF - Crypto Mining",
+    "lang": "en",
+    "message": "You have declared that the funds in your account are derived from crypto mining activities. In order to support your application, please provide either: 1) Proof of purchase for the hardware used for mining (showing both yours and the seller's details); 2) Proof of all mining revenues from relevant platform(s)/exchange(s). In each case, we require screenshots for at least 3 months' transaction history, detailing all activity with mined coins and displaying wallet addresses and transaction IDs. These must be taken from the relevant platform/exchange and include your account details."
+  },
+  {
+    "code": "(EDD-1) SOF - Day Trading",
+    "lang": "en",
+    "message": "You have selected Day trading as your main Source of Funds, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification:1) Transactions statements, proving your trading activity for the last month AND a bank statement, showing profit withdrawals deposited in your account. Both documents must show account registration details and the issuer logo; 2) A tax statement for the previous tax year, proving your income from trading profits."
+  },
+  {
+    "code": "(EDD-1) SOF - Dividends Payments/Profit From a Company",
+    "lang": "en",
+    "message": "You have selected Dividends payments/Profit from a company as your main Source of Funds, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification: 1) Dividend statements; 2) Distribution agreements; 3) A bank statement showing dividend payments; 4) The most recent audit of company accounts."
+  },
+  {
+    "code": "(EDD-1) SOF - Donations",
+    "lang": "en",
+    "message": "You have selected Donations as your main Source of Funds, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification: 1) A donation agreement for real estate or other assets; 2) A signed affidavit/letter from the donor declaring the nature of the gift; 3) A bank statement showing a bank deposit of the donation."
+  },
+  {
+    "code": "(EDD-1) SOF - Gambling",
+    "lang": "en",
+    "message": "You have selected Gambling as your main Source of Funds, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification:1) Transactions statements, proving your gambling activity for the last month AND a bank statement, showing profit withdrawals deposited in your account. Both documents must show account registration details and the issuer logo; 2) A tax statement for the previous tax year, proving your income from gambling profits."
+  },
+  {
+    "code": "(EDD-1) SOF - Inheritance",
+    "lang": "en",
+    "message": "You have selected Inheritance as your main Source of Funds, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification: 1) A copy of a will/testament; 2) A signed letter from the executor of the will (lawyer/solicitor/person given grant of probate)."
+  },
+  {
+    "code": "(EDD-1) SOF - Loans/Mortgages",
+    "lang": "en",
+    "message": "You have selected Loans/Mortgages as your main Source of Funds, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send the following to complete your verification: A Loan/mortgage contract, showing the loan amount and repayment plan AND a bank statement showing loan/mortgage deposits into your account."
+  },
+  {
+    "code": "(EDD-1) SOF - Passive Income",
+    "lang": "en",
+    "message": "You have selected Passive income as your main Source of Funds, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification: 1) A signed rental/lease agreement AND one of the following: a. A bank statement, showing the latest rental/lease payment; b. The most recent rent/lease receipts; 2) Any other documents that prove your passive income (e.g. book royalties, affiliate marketing, staking etc.) for the last month."
+  },
+  {
+    "code": "(EDD-1) SOF - Pension",
+    "lang": "en",
+    "message": "You have selected Pension as your main Source of Funds, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification: 1) A bank statement showing pension transfers for the last 3 months; 2) A government-issued pension statement; 3) Pension fund statements."
+  },
+  {
+    "code": "(EDD-1) SOF - Salary",
+    "lang": "en",
+    "message": "You have selected Salary as your main Source of Funds, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification: 1) Payslips showing your income from at least the last month; 2) A bank statement showing salary payments from your employer for at least the last month; 3) A tax statement from the previous tax year."
+  },
+  {
+    "code": "(EDD-1) SOF - Sale of Financial Assets",
+    "lang": "en",
+    "message": "You have selected Sale of Financial assets as your main Source of Funds, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification: 1) A statement from your investment provider; 2) A bank statement displaying settlements from your investment provider; 3) Other statements or documents, proving investment profit from bonds, stocks, etc."
+  },
+  {
+    "code": "(EDD-1) SOF - Sale of Real Estate or Other Assets",
+    "lang": "en",
+    "message": "You have selected Sale of Real estate or other assets as your main Source of Funds, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification: 1) A contract of sale/settlement statement; 2) A signed letter from a solicitor/lawyer/estate agent confirming the property sale; 3) Land registry/title deed copies. Additionally, you can send us a bank statement, showing the deposit of sale funds into your bank account."
+  },
+  {
+    "code": "(EDD-1) SOF - Savings",
+    "lang": "en",
+    "message": "You have selected Savings as your main Source of Funds, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us a statement from a savings account (issued in the last 3 months)."
+  },
+  {
+    "code": "(EDD-1) SOF - Self-Employment",
+    "lang": "en",
+    "message": "You have selected Self-employment as your main Source of Funds, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us a tax statement from the previous tax year. Additionally, you can send us recent invoices/contracts/agreements for self-employed services or profit/loss statements, proving your monthly or annual income."
+  },
+  {
+    "code": "(EDD-1) SOW - Company Profits (Shares/Dividends)",
+    "lang": "en",
+    "message": "You have selected Company profits (shares/dividends) as your Source of Wealth, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification: 1) Dividend statements; 2) Distribution agreements; 3) A bank statement showing dividend payments; 4) The most recent audit of company accounts."
+  },
+  {
+    "code": "(EDD-1) SOW - Crypto Investment",
+    "lang": "en",
+    "message": "Verify Crypto Investment: Your provided evidence for Crypto as your main source of wealth is insufficient. Provide additional verification by submitting statements from other exchanges, screenshots of cold wallets, crypto purchase receipts, or any relevant documents. Ensure the provided evidence matches your declaration on our system."
+  },
+  {
+    "code": "(EDD-1) SOW - Donation",
+    "lang": "en",
+    "message": "You have selected Donation as your main Source of Wealth, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification: 1) A donation agreement for real estate or other assets; 2) A signed affidavit/letter from the donor declaring the nature of the gift; 3) A bank statement showing a bank deposit of the donation."
+  },
+  {
+    "code": "(EDD-1) SOW - Financial Investment",
+    "lang": "en",
+    "message": "You have selected Financial investment as your main Source of Wealth, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification: 1) A statement from your investment provider; 2) A bank statement displaying settlements from your investment provider; 3) Other statements or documents, proving investment profit from bonds, stocks, etc."
+  },
+  {
+    "code": "(EDD-1) SOW - Inheritance",
+    "lang": "en",
+    "message": "You have selected Inheritance as your main Source of Wealth, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification: 1) A copy of a will/testament; 2) A signed letter from the executor of the will (lawyer/solicitor/grant of probate)."
+  },
+  {
+    "code": "(EDD-1) SOW - Mortgages/Loans",
+    "lang": "en",
+    "message": "You have selected Mortgages/Loans as your main Source of Wealth, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send the following to complete your verification: A Mortgage/Loan contract, showing the mortgage or loan value and repayment plan AND a bank statement showing the loan/mortgage deposit into your account."
+  },
+  {
+    "code": "(EDD-1) SOW - Salary",
+    "lang": "en",
+    "message": "You have selected Salary as your main Source of Wealth, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us one or more of the following to complete your verification: 1) Payslips showing your income from at least the last month; 2) A bank statement showing salary payments from your employer for at least the last month; 3) A tax statement from the previous tax year."
+  },
+  {
+    "code": "(EDD-1) SOW - Self-Employment Income",
+    "lang": "en",
+    "message": "You have selected Self-employment as your main Source of Wealth, however the provided documentary evidence is not sufficient and does not meet our requirements. Please send us a tax statement from the previous tax year. Additionally, you can send us recent invoices/contracts/agreements for self-employed services or profit/loss statements, proving your monthly or annual income."
+  },
+  {
+    "code": "(EDD-1) SOW Declaration - Higher Total Assets Value",
+    "lang": "en",
+    "message": "We have identified a discrepancy in your overall wealth declaration. The documentary evidence provided indicates a significantly higher Total Assets value and does not correspond to the one you have declared with Binance. Please provide us with accurate information for your overall (approximate) total value of all owned assets and submit your application again. Providing incorrect, insufficient, or misleading information prevents the prompt approval of your application."
+  },
+  {
+    "code": "(EDD-1) SOW Declaration - Significant Mistakes",
+    "lang": "en",
+    "message": "After reviewing your declaration, we found significant errors. To ensure a speedy process, provide accurate and complete data for your annual income (gross), total assets, and sources of wealth. Please submit adequate evidence alongside your declaration. Incorrect or insufficient information will delay your application. Thank you for your cooperation."
+  },
+  {
+    "code": "(EDD-1) SOW Declaration -Employment Details Incorrect/Incomplete",
+    "lang": "en",
+    "message": "We have identified incorrect, mismatching, or incomplete information on your Employment details declaration. Please resubmit your application with accurate information, including: 1) Employment status - current Employed/Self-employed/Student/Retired/Other status; 2) Employer/Business name - the name of your Employer's Company/Business name; 3) Employer/Business address - registered Employer/Business address. Please ensure the information provided is up-to-date and that it matches the information provided in your documentary evidence."
+  },
+  {
+    "code": "(EDD-1) Two or More Linked Bank Accounts",
+    "lang": "en",
+    "message": "We have noticed the transfer of funds from your other bank account. Please send us a bank statement issued in the last 3 months, showing the transaction history of the other account (covering at least 1 month of transactions)."
+  },
+  {
+    "code": "(EDD-1) Unclear Copy of Photo",
+    "lang": "en",
+    "message": "The image quality of your photo is not clear and does not meet our visibility requirements. Please resubmit a copy in a higher resolution (at least 300 DPI) showing the full page with all four corners included in the frame. Alternatively, you can provide different documents to complete your verification."
+  },
+  {
+    "code": "SUMSUB_SDK_ADDITIONAL_DOCUMENT_REQUIRED",
+    "lang": "en",
+    "message": "Additional documents required to pass the check.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_ADVERSE_MEDIA",
+    "lang": "en",
+    "message": "Verification failed. This may be due to security reasons or your country/region is restricted. We apologize for any inconvenience caused."
+  },
+  {
+    "code": "SUMSUB_SDK_AGE_REQUIREMENT_MISMATCH",
+    "lang": "en",
+    "message": "Sorry, we could not verify your profile as your age doesn't match the requirements. If your birthday(age) meet the requirement, please take clear photo and try again."
+  },
+  {
+    "code": "SUMSUB_SDK_BACK_SIDE_MISSING",
+    "lang": "en",
+    "message": "Back side of the document is missing.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_BAD_AVATAR",
+    "lang": "en",
+    "message": "Please go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_BAD_FACE_MATCHING",
+    "lang": "en",
+    "message": "Face check between document and selfie failed.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_BAD_PROOF_OF_ADDRESS",
+    "lang": "en",
+    "message": "Uploaded a bad proof of address.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_BAD_PROOF_OF_IDENTITY",
+    "lang": "en",
+    "message": "Uploaded bad proof of ID document.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_BAD_PROOF_OF_PAYMENT",
+    "lang": "en",
+    "message": "Uploaded a bad proof of payment.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_BAD_SELFIE",
+    "lang": "en",
+    "message": "Uploaded poor quality selfie. Please go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_BAD_VIDEO_SELFIE",
+    "lang": "en",
+    "message": "Uploaded bad video selfie.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_BLACKLIST",
+    "lang": "en",
+    "message": "Verification failed. This may be due to security reasons or your country/region is restricted. We apologize for any inconvenience caused."
+  },
+  {
+    "code": "SUMSUB_SDK_BLACK_AND_WHITE",
+    "lang": "en",
+    "message": "Uploaded black and white photos of documents.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_COMPANY_NOT_DEFINED_BENEFICIARIES",
+    "lang": "en",
+    "message": "Could not identify and duly verify the entity's beneficial owners.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_COMPANY_NOT_DEFINED_REPRESENTATIVES",
+    "lang": "en",
+    "message": "Representatives are not defined.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_COMPANY_NOT_DEFINED_STRUCTURE",
+    "lang": "en",
+    "message": "Could not establish the entity's control structure.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_COMPANY_NOT_VALIDATED_BENEFICIARIES",
+    "lang": "en",
+    "message": "Beneficiaries are not validated.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_COMPANY_NOT_VALIDATED_REPRESENTATIVES",
+    "lang": "en",
+    "message": "Representatives cannot be validated. Please go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_COMPROMISED_PERSONS",
+    "lang": "en",
+    "message": "Verification failed. This may be due to security reasons or your country/region is restricted. We apologize for any inconvenience caused."
+  },
+  {
+    "code": "SUMSUB_SDK_CRIMINAL",
+    "lang": "en",
+    "message": "Verification failed. This may be due to security reasons or your country/region is restricted. We apologize for any inconvenience caused."
+  },
+  {
+    "code": "SUMSUB_SDK_DOCUMENT_DAMAGED",
+    "lang": "en",
+    "message": "Your document is either damaged or cannot be read. Please try another document."
+  },
+  {
+    "code": "SUMSUB_SDK_DOCUMENT_DEPRIVED",
+    "lang": "en",
+    "message": "The user has been deprived of the document.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_DOCUMENT_PAGE_MISSING",
+    "lang": "en",
+    "message": "Please upload a photo of your document open at the biodata page, with your picture and personal details."
+  },
+  {
+    "code": "SUMSUB_SDK_DOCUMENT_TEMPLATE",
+    "lang": "en",
+    "message": "Verification failed. This may be due to security reasons or your country/region is restricted. We apologize for any inconvenience caused."
+  },
+  {
+    "code": "SUMSUB_SDK_DUPLICATE",
+    "lang": "en",
+    "message": "An account with this user information already exists, duplicate accounts are not permitted."
+  },
+  {
+    "code": "SUMSUB_SDK_EXPERIENCE_REQUIREMENT_MISMATCH",
+    "lang": "en",
+    "message": "Age requirement is not met."
+  },
+  {
+    "code": "SUMSUB_SDK_EXPIRATION_DATE",
+    "lang": "en",
+    "message": "Uploaded document expired.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_FOREIGNER",
+    "lang": "en",
+    "message": "Please go back to the login page and try to do the ID verification with another ID document."
+  },
+  {
+    "code": "SUMSUB_SDK_FORGERY",
+    "lang": "en",
+    "message": "Verification failed. This may be due to security reasons or your country/region is restricted. We apologize for any inconvenience caused."
+  },
+  {
+    "code": "SUMSUB_SDK_FRAUDULENT_LIVENESS",
+    "lang": "en",
+    "message": "Liveness check failed.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_FRAUDULENT_PATTERNS",
+    "lang": "en",
+    "message": "Verification failed. This may be due to security reasons or your country/region is restricted. We apologize for any inconvenience caused."
+  },
+  {
+    "code": "SUMSUB_SDK_FRONT_SIDE_MISSING",
+    "lang": "en",
+    "message": "Front side of the document is missing.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_GRAPHIC_EDITOR",
+    "lang": "en",
+    "message": "The document has been edited by a graphical editor.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_ID_INVALID",
+    "lang": "en",
+    "message": "Sorry, your identity document is invalid and can't be used for verification. Please try a different identity document."
+  },
+  {
+    "code": "SUMSUB_SDK_INCOMPATIBLE_LANGUAGE",
+    "lang": "en",
+    "message": "Uploaded document language not supported. Please provide document translation.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_INCOMPLETE_DOCUMENT",
+    "lang": "en",
+    "message": "Please provide a photo of the full double-page, that is in your identity document."
+  },
+  {
+    "code": "SUMSUB_SDK_INCONSISTENT_PROFILE",
+    "lang": "en",
+    "message": "Data or documents of different persons were uploaded.\nPlease go back to the login page and try to do the ID verification with another ID document."
+  },
+  {
+    "code": "SUMSUB_SDK_LOW_QUALITY",
+    "lang": "en",
+    "message": "Documents provided are not high enough quality for us to review.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_NOT_ALL_CHECKS_COMPLETED",
+    "lang": "en",
+    "message": "All checks were not completed.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_NOT_DOCUMENT",
+    "lang": "en",
+    "message": "Please take a clear photo of the real document and try again. Photo of a print document is not accepted."
+  },
+  {
+    "code": "SUMSUB_SDK_OK",
+    "lang": "en",
+    "message": "Please go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_OTHER",
+    "lang": "en",
+    "message": "Please go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_PEP",
+    "lang": "en",
+    "message": "Verification failed. This may be due to security reasons or your country/region is restricted. We apologize for any inconvenience caused."
+  },
+  {
+    "code": "SUMSUB_SDK_PROBLEMATIC_APPLICANT_DATA",
+    "lang": "en",
+    "message": "Please provide the first and last name/date of birth/address as written on the document."
+  },
+  {
+    "code": "SUMSUB_SDK_REGULATIONS_VIOLATIONS",
+    "lang": "en",
+    "message": "Verification failed. This may be due to security reasons or your country/region is restricted. We apologize for any inconvenience caused."
+  },
+  {
+    "code": "SUMSUB_SDK_REQUESTED_DATA_MISMATCH",
+    "lang": "en",
+    "message": "Provided info does not match with recognized from document data.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_SANCTIONS",
+    "lang": "en",
+    "message": "Verification failed. This may be due to security reasons or your country/region is restricted. We apologize for any inconvenience caused."
+  },
+  {
+    "code": "SUMSUB_SDK_SCREENSHOTS",
+    "lang": "en",
+    "message": "Screenshots are not accepted.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_SELFIE_MISMATCH",
+    "lang": "en",
+    "message": "The selfie does not match the photo in the document."
+  },
+  {
+    "code": "SUMSUB_SDK_SELFIE_WITH_PAPER",
+    "lang": "en",
+    "message": "Uploaded selfie is not supported.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_SPAM",
+    "lang": "en",
+    "message": "Incorrect documents were provided.\nPlease go back to the login page and try to do the ID verification with another ID document."
+  },
+  {
+    "code": "SUMSUB_SDK_UNFILLED_ID",
+    "lang": "en",
+    "message": "Uploaded document does not contain signatures and stamps.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_UNSATISFACTORY_PHOTOS",
+    "lang": "en",
+    "message": "Unqualified documents. The required fields of the document are not readable or visible. Please upload a new photo. Make sure the photo is bright and clear and that all corners of the document are visible."
+  },
+  {
+    "code": "SUMSUB_SDK_WRONG_ADDRESS",
+    "lang": "en",
+    "message": "The address from the documents doesn't match the address that the user entered.\nPlease go back to the login page and try to do the ID verification again."
+  },
+  {
+    "code": "SUMSUB_SDK_WRONG_USER_REGION",
+    "lang": "en",
+    "message": "Sorry, the region is not supported."
+  }
+]

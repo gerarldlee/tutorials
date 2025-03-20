@@ -1,0 +1,12 @@
+<html>
+<h1>18.2 Objects are Mutable</h1>
+<p>We can change the state of an object by making an assignment to one of its instance variables. For example, we could change the ip by assigning a new value to <code>self.ip</code>.</p>
+<p>We could also have an external function modify self.ip. This type of function is often called a <strong>helper function</strong>.  Second,
+the <code>request_dhcp_ip</code> method does not return anything.  Its job is to modify the object itself.  This type of method is
+known as a <strong>mutator</strong> method because it mutates or changes the internal state of the object.</p>
+<h1>Problem</h1>
+We want to create a DHCP service that assigns a random, unique IP with subnet mask 255.0.0.0. This means the service only sets the last 3 octets of an IP. For example if the dhcp_service function is called by an IP of "192.0.0.0", it should keep the 192 and change the rest:
+<p> 1. Create a <code>dhcp_service(ip_address)</code> function, outside of the ServerClass </p>
+<p> 2. Have <code>request_dhcp_ip</code> call <code>dhcp_service</code> and set the ServerClass object's IP to the generated IP </p>
+
+</html>

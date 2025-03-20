@@ -1,0 +1,18 @@
+<html>
+<h1>19.2 Introduction to Inheritance</h1>
+<p>Suppose we want to create a class that works like <code>ServerClass</code>
+in every respect, but also keeps track of the Operating System.
+We could create a <code>ServerWithOperatingSystem</code> class by copying and pasting the definition for
+<code>ServerClass</code>,
+changing the name to <code>ServerWithOperatingSystem</code>, and modifying the class to suit our
+purposes. However, any time you copy and paste code, keep in mind that
+you are copying and pasting bugs that may exist in the code. Inheritance
+provides a way to reuse the definition of ServerClass without having to copy and
+paste.</p>
+<h1>Problem</h1>
+<p>In task.py: </p>
+<p>1. Create a <code>ServerWithOperatingSystemClass</code> object. Have <code>ServerWithOperatingSystemClass</code> inherit from <code>ServerClass</code>.</p>
+<p>2. Add a constructor (hint: <code>__init__</code>) to <code>ServerWithOperatingSystemClass</code> that stores ip, name, and operating_system variables.</p>
+<p>3. Add a <code>get_inherited_server_class_information</code> method to <code>ServerWithOperatingSystemClass</code>. It should call <code>get_server_class_information</code> in <code>ServerClass</code>
+    and append OS information. Example: <code>"Name: AzureVM IP: 36.63.12.45 OS: Windows"</code></p>
+</html>

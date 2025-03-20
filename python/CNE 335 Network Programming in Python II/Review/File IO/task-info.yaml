@@ -1,0 +1,26 @@
+type: edu
+files:
+- name: __init__.py
+  visible: false
+  encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
+  learner_created: false
+- name: task.py
+  visible: true
+  encrypted_text: e/EkxlxqEm4LLexPvg5YM3YOXtCIbU3cdtaAkU8Ae7ZCqKi0vGwSIlnG9Jy+STVVa1X+ndskdDTFBy9DW8NaYFMQnTZyeyWB+r+KWP9K11ryQHwWJAZBlbWfvI9eh8V15DOeAQcMeo7EzQZHnl2XFswJegFwsoy5T/VsPCXnpgthQB0yIy4gx66pSRQHgwQ/
+  learner_created: false
+- name: user_data.log
+  visible: true
+  learner_created: false
+- name: tests/test_task.py
+  visible: true
+  encrypted_text: 1lMuFUVjy32chyQYnJIYBaCA4D0Q39XUVXETXBGWi9fL094bpIvA/aZ6403mx7REkj3niQE+oikjAMHaX5A9mMtA2kPoifCOO7aode0Tum9k9ZKpDLbdeGeQLRXTY6Swm9stRRTwJZQYGNhNcgiqDCLBq1M3C2qlOIj3vs7j6aeRXbdnDXccNWOLRl0Pd5kWeS1/bXTivO4XjBBoT6W9QOO2Ug+G55ubdv+FRZJL4HJkICZtHSVY6LaTKkWNrrYGb1j+3QMFrj9ruFW2aO+xf8OBD3moCtbFRvsiWM52F/XhKakI8p/iPYd0hhFAmCfag6tz+UjO+de/gC6bCv/723qA5mR17mATqzBjR4NqAZWmfhqPDNMiciHyz4sAO7lsvXk+/M/o4Fq3K/rAIglu3ncOXUvuGgvGlimaK5ls6xXOh9TOw/29N2RfnHWkbuYJHVWWmy1eADKKreVlILHQzjOC+SeiBu/crvXsPFFiSHy0BvY962+CgtlMQEOVMil/pAfJ5boAbzDgFa4czGOqBaY4byrVmHNyJTJ6Qn7WQ4+evaB7zC1FA6VRHrKIkDj8LcDWUHUZv8C5z4xN9rqRTWZGXlVuE76ZMKnGLKmGyCCDd/sRIqAG30iM8nwYZ/gTqzPH7fsC6cMmoaDmYwhaeR/jwT/IxhWODLMf4yuqGTwYDMOlRIBlYwQMw/DjnKI7JNh9sppAZ2NQAXDjC0cghO7rk2jVpIzYQvsbCcyXMHlEqf51asu7ZbfwHVE7mqHeS/tWXPEoL+xfhuKE77yA0i06t+EevbmSPRhQSldymwWpG2cYP4pDfPY4QlSYqIeHruxG59EarZMWquIpPjiCr9RIG53Haku6IggUrKGJ/rlXYNwFJegSe1To7s1vUIeyPi5Ej71FEBHKVifIrQli1/GpI+ycfG+CtpzkSuhDm5ydW/PNeaxlGCgxPdQGTljVsNWAKXiBMGGvAAeLUoCSLsAOhQPONJi4SjZIOJYVavn3+/svx+VglA6b0OOIsRdRb7H2O33UTqIhYrD8ZiMAr2zj8d0Erw8MWynJA/uXtDXEmSNaiwDAau2GxgizSF6YP3cJF/MRAxnY5BhfaZq7Gy9JaZzoOxhw/eZlaaUfNUgVxghyjdi3qv/osfS4Y25g8M7XxeqB30SSYCPUniIMRD0VOOh3o09sEaQ1zhLZE/yFFmd09OqoZZwbqa8oJvY9H33+21GUWcv9uA4DICgm2mCMKhL/eNW/ck4knZvogCa6VzjhdJ9S+xlqYJVVPahebIocV9xTph5HestAStv2hz8XdpHs3eyb5nfrZv1d6nqrR7qslwxzAxqfAeaLwf7j27AAXneaA5S9srNck/1RpjUsFvabs8b2oYKWf00IQTQjURsvMh+yagYyygk5z2gbWRoC5CV1A6pWU0Dt3i1HqIQLvy8eTBk6eqxHUin6t0vjOsnWiyRGYddrSfUh9PNQGL2UKKdmpvq2QvAAamiLlInbp4Y9UmdDGgGxxvO/fEs=
+  learner_created: false
+- name: tests/user_data.log
+  visible: false
+  learner_created: false
+- name: tests/__init__.py
+  visible: false
+  encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
+  learner_created: false
+status: Unchecked
+record: -1

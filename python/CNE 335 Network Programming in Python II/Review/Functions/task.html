@@ -1,0 +1,24 @@
+<html>
+<h1>Functions</h1>
+<p>In Python, a <strong>function</strong> is a named sequence of statements
+that belong together.  Their primary purpose is to help us
+organize programs into chunks that match how we think about
+the solution to the problem.</p>
+<p id="index-0">The syntax for a <strong>function definition</strong> is:</p>
+<pre><code>
+    def name( parameters ):
+        statements
+</code></pre>
+
+
+
+<p>It is common to use placeholder functions in testing, that behave like the actual function without hardware. These often prefixed with <strong>fake, mock, or dummy</strong>, such as fake_ping <p>
+<h1>Problem</h1>
+<p> 1. Write a fake_ping function, that takes a server_ip and a ping_time, and returns a string  </p>
+<p> 2. Have the ping function call fake_ping with a ping time of <strong>10ms</strong>, and return the result of the fake_ping function. Have the fake_ping function return a string that says "Ping response from [server_ip] [ping_time]"</p>
+<p>As an example, if you wrote <code>ping("127.0.0.1")</code>, the code should return:</p>
+<code>"Ping response from 127.0.0.1 10ms"</code>
+
+<div class="hint"><p>server_ip and ping_time are strings.</p> <p>Both functions, ping and fake_ping, should return a string (str). This means you don't need to use <code class="docutils literal notranslate"><span class="pre">print</span></code> in your code, though it is fine for testing and debugging.</p></div></li>
+
+</html>

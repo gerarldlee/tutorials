@@ -1,0 +1,30 @@
+<html>
+<h1>19.5 Class Diagrams</h1>
+<p>When two classes are involved in an inheritance or composition relationship,
+we say that an association exists between them. Often it is helpful to
+depict the associations between classes on a graphical diagram, so that
+developers working on the code can see at a glance how the classes are
+related to each other. The <em>Unified Modeling Language</em> (UML) is a graphical
+notation that provides a standard for depicting classes and their
+associations on various types of diagrams. Class diagrams can contain a number of
+different elements, but we will focus on the basics: depicting classes with their
+instance variables and methods, and relationships to other classes.</p>
+<p>On a UML class diagram, a class is depicted as a rectangle with three sections.
+The top section contains the class name; the middle section, the instance
+variables; and the bottom section, the methods.</p>
+<h1>Problem</h1>
+<p>In this final problem, you will design an access control system, similar to what you see in an operating system.</p>
+<p>Implement the classes based on this UML diagram, and write the <code>add_action</code> in the User class.</p>
+<img src="UserUMLDiagram.png"/>
+<p>Starting with the base code in the <code>User</code> class, code the Admin, NormalUser, and PowerUser classes.
+They will inherit from the User class.</p>
+<p>Next, write the add_action method in User. add_action should check if the call was made by an Admin.</p>
+
+<div class="hint">
+    <p>The NormalUser, PowerUser, and Admin constructors (hint: <code>__init__</code>) are almost the same as the
+    User class. You could copy-and-paste much of the User constructor into those Py files to get some tests passing.</p>
+    <p><code>add_action</code> should only work for Admins. One way to do this is to check if the user who
+    called add_action (self) has "Admin" in their type string. For example <code>if str(type(self)) == "Admin":</code> </p>
+</div>
+
+</html>

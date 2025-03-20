@@ -1,0 +1,25 @@
+<html>
+<h1>19.2 Introduction to Inheritance</h1>
+<p>Now, suppose we want to create a class that works like <code>ServerClass</code>
+in every respect, but also keeps track of the AWS instance type.
+We could create a <code>AWSServer</code> class by copying and pasting the definition for
+<code>ServerClass</code>,
+changing the name to <code>AWSServer</code>, and modifying the class to suit our
+purposes. However, any time you copy and paste code, keep in mind that
+you are copying and pasting bugs that may exist in the code. Inheritance
+provides a way to reuse the definition of ServerClass without having to copy and
+paste.</p>
+<h1>Problem</h1>
+<p>Create a <code>ServerClass</code> object, have <code>AWSServer</code> inherit from <code>ServerClass</code>, and then create a ServerClass object and an AWSServer object in task.py:</p>
+<p>In ServerClass.py:</p>
+<p> 1. Create an __init__ with ip and name variables</p>
+<p>In AWSServer.py:</p>
+<p> 1. Create a class that inherits from ServerClass</p>
+<p> 2. Create an __init__ with ip, name, and instance_type variables
+<p>In task.py:</p>
+<p> 1. Import ServerClass object from ServerClass.py</p>
+<p> 2. Import AWSServer object from AWSServer.py</p>
+<p> 3. Create a local_server variable of ServerClass type. Initialize the variables to your choice. </p>
+<p> 4. Create an aws_server variable of AWSServer type. Initialize the variables to your choice. </p>
+
+</html>

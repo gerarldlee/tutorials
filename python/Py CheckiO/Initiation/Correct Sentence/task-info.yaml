@@ -1,0 +1,29 @@
+type: checkiO
+files:
+- name: mission.py
+  visible: true
+  text: "def correct_sentence(text: str) -> str:\n    \"\"\"\n        returns a corrected\
+    \ sentence which starts with a capital letter\n        and ends with a dot.\n\
+    \    \"\"\"\n    # your code here\n    return text\n\n\nif __name__ == '__main__':\n\
+    \    print(\"Example:\")\n    print(correct_sentence(\"greetings, friends\"))\n\
+    \    \n    # These \"asserts\" are used for self-checking and not for an auto-testing\n\
+    \    assert correct_sentence(\"greetings, friends\") == \"Greetings, friends.\"\
+    \n    assert correct_sentence(\"Greetings, friends\") == \"Greetings, friends.\"\
+    \n    assert correct_sentence(\"Greetings, friends.\") == \"Greetings, friends.\"\
+    \n    assert correct_sentence(\"hi\") == \"Hi.\"\n    assert correct_sentence(\"\
+    welcome to New York\") == \"Welcome to New York.\"\n    \n    print(\"Coding complete?\
+    \ Click 'Check' to earn cool rewards!\")\n"
+  learner_created: false
+status: Unchecked
+code: "def correct_sentence(text: str) -> str:\n    \"\"\"\n        returns a corrected\
+  \ sentence which starts with a capital letter\n        and ends with a dot.\n  \
+  \  \"\"\"\n    # your code here\n    return text\n\n\nif __name__ == '__main__':\n\
+  \    print(\"Example:\")\n    print(correct_sentence(\"greetings, friends\"))\n\
+  \    \n    # These \"asserts\" are used for self-checking and not for an auto-testing\n\
+  \    assert correct_sentence(\"greetings, friends\") == \"Greetings, friends.\"\n\
+  \    assert correct_sentence(\"Greetings, friends\") == \"Greetings, friends.\"\n\
+  \    assert correct_sentence(\"Greetings, friends.\") == \"Greetings, friends.\"\
+  \n    assert correct_sentence(\"hi\") == \"Hi.\"\n    assert correct_sentence(\"\
+  welcome to New York\") == \"Welcome to New York.\"\n    \n    print(\"Coding complete?\
+  \ Click 'Check' to earn cool rewards!\")\n"
+seconds_from_change: 9223372036854775807

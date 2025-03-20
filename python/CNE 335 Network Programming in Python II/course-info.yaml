@@ -1,0 +1,15 @@
+type: marketplace
+title: CNE 335 Network Programming in Python II
+language: English
+summary: |-
+  This course introduces students to advanced topics in the Python programming language. Students will make use of object-oriented principles to write multi-file programs. Students will make use of modules to quickly build complex software, and will learn to write effective documentation.
+  This is the second course in the series. It is recommended you complete CNA330 Network Programming in Python before attempting this course.
+programming_language: Python
+environment: unittest
+content:
+- Review
+- 17 Introduction to Classes and Objects
+- 18 Advanced Classes and Objects
+- 19 Inheritance
+mode: Study
+feedback_link: https://plugins.jetbrains.com/plugin/17597-cne-335-network-programming-in-python-ii/reviews
