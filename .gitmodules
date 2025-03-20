@@ -22,3 +22,27 @@
 [submodule "go/microservices"]
 	path = go/microservices
 	url = https://github.com/micro/services.git
+[submodule "vue/vuejs-vuetify-financial-dashboard"]
+	path = vue/vuejs-vuetify-financial-dashboard
+	url = https://github.com/zakaria-29-dev/vuejs-vuetify-financial-dashboard.git
+[submodule "docker/TensorJS-Face-Detection"]
+	path = docker/TensorJS-Face-Detection
+	url = https://github.com/harsh4870/TensorJS-Face-Detection.git
+[submodule "ai/ollama"]
+	path = ai/ollama
+	url = https://github.com/ollama/ollama.git
+[submodule "docker/multi-container-app"]
+	path = docker/multi-container-app
+	url = https://github.com/docker/multi-container-app.git
+[submodule "ai/Docker-NLP"]
+	path = ai/Docker-NLP
+	url = https://github.com/harsh4870/Docker-NLP.git
+[submodule "ai/genai-stack"]
+	path = ai/genai-stack
+	url = https://github.com/docker/genai-stack.git
+[submodule "ai/docker-genai-sample"]
+	path = ai/docker-genai-sample
+	url = https://github.com/craig-osterhout/docker-genai-sample.git
+[submodule "ai/docker-genai"]
+	path = ai/docker-genai
+	url = https://github.com/Davidnet/docker-genai.git
