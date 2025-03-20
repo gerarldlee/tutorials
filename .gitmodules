@@ -91,8 +91,8 @@
 [submodule "tradingview/python-tradingview-ta"]
 	path = tradingview/python-tradingview-ta
 	url = https://github.com/AnalyzerREST/python-tradingview-ta.git
-[submodule "linux/complete-training-course"]
-	path = linux/complete-training-course
+[submodule "linux/The-Complete-Linux-Training-Course-to-Get-Your-Dream-IT-Job"]
+	path = linux/The-Complete-Linux-Training-Course-to-Get-Your-Dream-IT-Job
 	url = https://github.com/PacktPublishing/The-Complete-Linux-Training-Course-to-Get-Your-Dream-IT-Job.git
 [submodule "docker/continuous-deployment-on-kubernetes"]
 	path = docker/continuous-deployment-on-kubernetes
