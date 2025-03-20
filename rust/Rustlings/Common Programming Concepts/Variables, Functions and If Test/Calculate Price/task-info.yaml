@@ -1,0 +1,48 @@
+type: edu
+files:
+- name: Cargo.toml
+  visible: false
+  encrypted_text: m9XZNRB4SP+Ysnl4An4VfDXSIJoZMMd6boLEwT8mausclfzeO4Jr5mHQfx6pnyvYMMtE7ua0rzET7jLufbkgJxR6i98tbPraRVxfd0nUbOs=
+  learner_created: false
+- name: src/lib.rs
+  visible: true
+  placeholders:
+  - offset: 22
+    length: 10
+    placeholder_text: /* TODO */
+    initial_state:
+      length: 10
+      offset: 22
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: cQgiopiCmiERWAPUNkS7ncSNIFZD4lhnJwLBa+Xnals=
+  - offset: 34
+    length: 8
+    placeholder_text: /*TODO*/
+    initial_state:
+      length: 8
+      offset: 34
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 7HeDh3/EQrxj0zw7D/Yppw==
+  - offset: 49
+    length: 28
+    placeholder_text: /*write your solution here*/
+    initial_state:
+      length: 28
+      offset: 49
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: aJS6IrYRh3MQKmrXacN+fp5PpCJBJyDMJ3klgYz8ZT5BQs6b6aqYUpsAynrhFfEM1AD9Bin+bS/RJ9O8u7H4pKeg8QlZ6MKfKZbuRkFfHUNgpFRkJCsRnize6MoU7QBS
+  encrypted_text: UUh7tSxGLjX7cue6X6978UivS2B9rzZoyJ/H7eyfutVd0RrPVQOhPC3DwtqVXLm03inxnjvINI9uQ4dQMXgN1sKGuPN4CPqeosBzMF6b0QYJDNPY0JZaEhpiLdOt8GgK
+  learner_created: false
+- name: tests/tests.rs
+  visible: false
+  encrypted_text: Ac2mi0kzI9fTwVTOW/frk3BvZfbHYMxG2OYS51ZOL5gtyar4cY4KN2ifMloiXNYVPqxyWRIt1e4uQH6kO1qkkLL73TlH97fhBlIyFNS+n6F0lJsfczYI8qBJHdbMwMLZARtpdrqLuhX8WLpVPYlg03NTqljtn/OvHxCBtf2gMUqI2Ya9j4WJrXaqyciOw57BSj0wPEWPQKFFOKSRw7l715WNyZlByzndocw1LMtVRb+RYAkc6WbkMVVTsXnizkASn3Y+Rfilg1l48/6DWaF5qawsdbR2RdmsbJHBOHUvA34XULutqsh9dHpOoPYDZNmbkX2DDuDflzXCUleU4Ut+O0n1xrbZn0hDmZe8bWWZalTJr7aSFwmpNyGKYDIQy6ALnUXGH/uO2/JUmXYZLhjjjz1oamwBqwgVatMmT3io2BAUfoNa1uylQwwrr1IGAzodLGcBQ3k5ei5wTKiw8Hn9nCiEuV+rMw8HzgoKicPj7+iL2W6AKH12O+XQZUHmTHA2vOKXZ4++uBy9PI4JboUjeo6PgAgbqgSqXHlCJB+f+oVo1EvvTQx+ra4fywCW2zckS7ZwGRDC6dgetc1TbtnebUyysCiL0lsrRzy2Go45zzgUFUV8FgVT/hQiLGMbXjrzYecfwXoUkbD003OO7Ebdzbj0THfD2ytg7Uoe42NvWo0=
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSdfJQgjsbDA4pPGpklj3vJnKNspd9wmEHzAgh6EkoJy2IiRuw/viewform?usp=pp_url&entry.2103429047=Common+Programming+Concepts+/+Variables+Functions+and+If+Test+/+Calculate+Price
+status: Unchecked
+record: -1
