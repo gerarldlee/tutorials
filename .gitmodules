@@ -64,3 +64,6 @@
 [submodule "python/algorithmic-trading-python"]
 	path = python/algorithmic-trading-python
 	url = https://github.com/nickmccullum/algorithmic-trading-python.git
+[submodule "python/tribalwars-bot"]
+	path = python/tribalwars-bot
+	url = https://github.com/stefan2200/TWB.git
