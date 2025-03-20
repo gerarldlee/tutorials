@@ -151,7 +151,6 @@
 [submodule "java/TheAlgorithms/C-Plus-Plus"]
 	path = java/TheAlgorithms/C-Plus-Plus
 	url = https://github.com/TheAlgorithms/C-Plus-Plus.git
-
 [submodule "card/NFC-EMV-Reader"]
 	path = card/NFC-EMV-Reader
 	url = https://github.com/n37sn4k3/NFC-EMV-Reader.git
