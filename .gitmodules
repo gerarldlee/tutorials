@@ -46,3 +46,6 @@
 [submodule "ai/docker-genai"]
 	path = ai/docker-genai
 	url = https://github.com/Davidnet/docker-genai.git
+[submodule "tinyGS"]
+	path = tinyGS
+	url = https://github.com/G4lile0/tinyGS.git
