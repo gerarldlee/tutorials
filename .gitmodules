@@ -106,7 +106,6 @@
 [submodule "tradingview/lightweight-charts"]
 	path = tradingview/lightweight-charts
 	url = https://github.com/tradingview/lightweight-charts.git
-	
 [submodule "webstorm/nyxo-app"]
 	path = webstorm/nyxo-app
 	url = https://github.com/hello-nyxo/nyxo-app.git
@@ -128,3 +127,27 @@
 [submodule "java/algorithm-notes"]
 	path = java/algorithm-notes
 	url = https://github.com/lzl124631x/algorithm.git
+[submodule "java/TheAlgorithms/Rust"]
+	path = java/TheAlgorithms/Rust
+	url = https://github.com/TheAlgorithms/Rust.git
+[submodule "java/TheAlgorithms/Python"]
+	path = java/TheAlgorithms/Python
+	url = https://github.com/TheAlgorithms/Python.git
+[submodule "java/TheAlgorithms/Javascript"]
+	path = java/TheAlgorithms/Javascript
+	url = https://github.com/TheAlgorithms/Javascript.git
+[submodule "java/TheAlgorithms/Java"]
+	path = java/TheAlgorithms/Java
+	url = https://github.com/TheAlgorithms/Java.git
+[submodule "java/TheAlgorithms/Go"]
+	path = java/TheAlgorithms/Go
+	url = https://github.com/TheAlgorithms/Go.git
+[submodule "java/TheAlgorithms/C-Sharp"]
+	path = java/TheAlgorithms/C-Sharp
+	url = https://github.com/TheAlgorithms/C-Sharp.git
+[submodule "java/TheAlgorithms/C"]
+	path = java/TheAlgorithms/C
+	url = https://github.com/TheAlgorithms/C.git
+[submodule "java/TheAlgorithms/C-Plus-Plus"]
+	path = java/TheAlgorithms/C-Plus-Plus
+	url = https://github.com/TheAlgorithms/C-Plus-Plus.git
