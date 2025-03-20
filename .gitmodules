@@ -49,3 +49,9 @@
 [submodule "tinyGS"]
 	path = tinyGS
 	url = https://github.com/G4lile0/tinyGS.git
+[submodule "docker/learn-devops-the-complete-kubernetes-course"]
+	path = docker/learn-devops-the-complete-kubernetes-course
+	url = https://github.com/peelmicro/learn-devops-the-complete-kubernetes-course.git
+[submodule "ml/machine-learning-6-practical-real-world-app"]
+	path = ml/machine-learning-6-practical-real-world-app
+	url = https://github.com/rjmanzo/machine-learning-6-practical-real-world-app.git
