@@ -119,3 +119,12 @@
 [submodule "java/Teach-ReactiveSpring"]
 	path = java/Teach-ReactiveSpring
 	url = https://github.com/dilipsundarraj1/Teach-ReactiveSpring.git
+[submodule "java/monolith"]
+	path = java/monolith
+	url = https://github.com/bytedance/monolith.git
+[submodule "java/Algorithms"]
+	path = java/Algorithms
+	url = https://github.com/williamfiset/Algorithms.git
+[submodule "java/algorithm-notes"]
+	path = java/algorithm-notes
+	url = https://github.com/lzl124631x/algorithm.git
