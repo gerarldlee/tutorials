@@ -1,0 +1,84 @@
+# Microservices Distributed Transaction Management
+
+This demo project illustrates managing a distributed transaction in a
+microservices architecture.
+
+A Global Transaction Manager (GTM) is implemented as a Saga pattern to
+manage orchestrating transactions across individual services.
+The implementation leverages a Spring State Machine to coordinate progression amongst
+global transaction collaborators. It also leverages Spring
+Cloud Stream to integrate with the collaborating services.
+
+image::./docs/images/Global_Txn_Manager.png[Distributed Transaction Management]
+
+## Description
+
+A client can use the orchestrating Saga by injecting it as a bean and supply it with the many
+data requests target each remote transacting service. The implementation assumes a global logical
+identifier (as a job id) that in turn assumes the ownership of all individual items in the global
+transaction. So, all requests are submitted with one global identifier (job id). Every submission of
+a global transaction of same global identifier creates a new global transaction ID. I.e., a global
+transactions - identified with one job id - can have multiple executed instances each with its own
+identifying global transaction ID.
+
+The system is designed such that a global transaction will have only one global transaction instance
+executing at a time. Unless a global transaction (identified with a job id) reached its final state
+as completed or failed, no other invocation of the same global transaction can be executed.
+
+This illustration assumes three individual remote services. a file storage service, a database storage
+service and an immutable storage of a block chain. Only mocks of these services were implemented to mimic
+a local transaction of each with some processing delays.
+
+Once a request for each service is composed with the right data to store,
+a global transaction job identifier is then supplied with these requests
+to the saga to coordinate, as shown in the example below:
+
+``` code[java]
+
+@Autowired
+private Saga saga;
+
+JobState state = saga.addTransactionRequest(fileStorageRequest)
+				.addTransactionRequest(databaseStorageRequest)
+				.addTransactionRequest(blockChainStorageRequest)
+				.orchestrate(jobId);
+```
+
+This invocation would then return the result of final global transaction
+as a job state value. A final global transaction result could take one
+of these values: JOB_COMPLETE, JOB_FAIL or JOB_TIME_OUT.
+
+## Transaction State Machine
+
+A global transaction would have different states throughout its lifecycle starting from
+a JOB_START state and end with either JOB_FAIL or JOB_TIME_OUT. In between, a transaction
+may be in a state where it tries to submit a request to store a file or cancel such request
+(FILE_SUBMIT / FILE_CANCEL), and same states for the database and block chain requests
+(DB_SUBMIT / DB_CANCEL, BC_SUBMIT / BC_CANCEL). Transition between these states and how
+the global transaction should do when it gets to each of these states are managed with
+a Spring State Machine. Using a Spring State Machine give us a luxury of:
+
+* avoiding cluttering code with a lot of if/else statements of the orchestration cases
+* defining a state machine as a well-defined configured setup in a java class
+* defining what the transitions are permitted to do
+* defining what action should be executed when making a transition or when a state change
+* abstracting away how a transaction progresses or performs action from the orchestrator, and delegates
+to the state machine to figure that out
+
+The state machine receives events from the orchestrating Saga. Each event reflects what the Saga
+has in turns receives from each individual service to indicate whether a local transaction is
+successful or not.
+
+The state machine reacts by transitioning to a proper state and as a
+result fires an appropriate action of what should happen next. It does so by publishing
+a request via one of the appropriate channel message. Each individual service subscribes
+to its request channels, listens to coming streams of requests, performs the requested action
+and publishes a transaction result to the one response channel that the Saga orchestrator is listening to.
+
+
+## Transaction Orchestrator
+
+The transaction is orchestrated with a Saga which acts as a stream listener that subscribes to
+a message channel. Each message is published from one of the remote services to contain the transaction
+result. The Saga receives this message and reacts by firing a proper event to the state machine.
+

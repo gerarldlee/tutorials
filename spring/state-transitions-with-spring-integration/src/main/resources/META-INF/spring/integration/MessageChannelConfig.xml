@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/integration https://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/task https://www.springframework.org/schema/task/spring-task.xsd"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:task="http://www.springframework.org/schema/task">
+
+	<int:poller default="true" fixed-delay="50" />
+	<int:channel id="createChannel" />
+
+	<int:channel id="postEventHandlerChannel">
+		<int:queue capacity="10" />
+	</int:channel>
+	
+	<int:channel id="payChannel">
+		<int:queue capacity="10" />
+	</int:channel>
+
+	<int:channel id="syncResponseChannel">
+		<int:queue capacity="10" />
+	</int:channel>
+
+	<bean id="dbService" class="rnd.statemachine.order.OrderDbService"/>
+
+	<int:service-activator
+		input-channel="createChannel" output-channel="syncResponseChannel"
+		method="process">
+		<bean class="rnd.statemachine.order.OrderProcessor" />
+	</int:service-activator>
+
+	<int:service-activator
+		input-channel="payChannel" output-channel="postEventHandlerChannel"
+		method="process">
+		<bean class="rnd.statemachine.order.PaymentProcessor" />
+	</int:service-activator>
+
+	<int:service-activator
+		input-channel="postEventHandlerChannel">
+		<bean class="rnd.statemachine.order.PostEventHandler">
+			<constructor-arg index="0" ref="dbService" />
+		</bean>
+	</int:service-activator>
+</beans>
