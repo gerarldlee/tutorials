@@ -1,0 +1,12 @@
+[submodule "browser-sync/floccus"]
+	path = browser-sync/floccus
+	url = https://github.com/floccusaddon/floccus.git
+[submodule "browser-sync/xbrowsersync/app"]
+	path = browser-sync/xbrowsersync/app
+	url = https://github.com/xbrowsersync/app.git
+[submodule "browser-sync/xbrowsersync/api"]
+	path = browser-sync/xbrowsersync/api
+	url = https://github.com/xbrowsersync/api.git
+[submodule "browser-sync/xbookmarksync"]
+	path = browser-sync/xbookmarksync
+	url = https://github.com/xenji/xbookmarksync-api-springboot-kotlin-dynamodb.git
