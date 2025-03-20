@@ -10,3 +10,15 @@
 [submodule "browser-sync/xbookmarksync"]
 	path = browser-sync/xbookmarksync
 	url = https://github.com/xenji/xbookmarksync-api-springboot-kotlin-dynamodb.git
+[submodule "go/go-kit-microservices"]
+	path = go/go-kit-microservices
+	url = https://github.com/minghsu0107/go-kit-microservices.git
+[submodule "go/gotempm"]
+	path = go/gotempm
+	url = https://github.com/camba1/gotempm.git
+[submodule "go/go-kit"]
+	path = go/go-kit
+	url = https://github.com/go-kit/kit.git
+[submodule "go/microservices"]
+	path = go/microservices
+	url = https://github.com/micro/services.git
