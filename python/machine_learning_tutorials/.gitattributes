@@ -1,3 +1,4 @@
 *.tar.gz filter=lfs diff=lfs merge=lfs -text
 official-cpe-dictionary_v2.3.xml.gz filter=lfs diff=lfs merge=lfs -text
 train/audio/**.wav filter=lfs diff=lfs merge=lfs -text
+**.exe filter=lfs diff=lfs merge=lfs -text
